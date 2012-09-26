@@ -4,7 +4,8 @@ class IpmamWsClientFactory
     /**
      *
      */
-    function __construct() {
+    function __construct()
+    {
         // Create the clientService object if it doesn't exists
         if (!isset($this->cs)) {
             $this->cs = new clientService();
@@ -13,6 +14,35 @@ class IpmamWsClientFactory
         }
     }
 
+    /**
+     *
+     */
+    function setVar($var, $val)
+    {
+        $this->vars[$var] = $val;
+    }
+
+    /**
+     *
+     */
+    function getVar($var)
+    {
+        if (isset($this->vars[$var])) {
+            return $this->vars[$var];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     *
+     */
+    function unsetVar($var)
+    {
+        if (isset($this->vars[$var])) {
+            unset($this->vars[$var]);
+        }
+    }
 
     /**
      *
@@ -33,7 +63,7 @@ class IpmamWsClientFactory
     /**
      *
      */
-    function f($name, $params)
+    function factory($name, $params)
     {
         if (!isset($this->params[$name])) {
             $this->params[$name] = new $name($params);
@@ -47,6 +77,9 @@ class IpmamWsClientFactory
         return $this->params[$name];
     }
 
+    /**
+     *
+     */
     function _resetObject(&$object)
     {
         foreach ($object as $key => $value) {
@@ -54,6 +87,9 @@ class IpmamWsClientFactory
         }
     }
 
+    /**
+     *
+     */
     function _loadObject(&$object, $values)
     {
         $i = 0;

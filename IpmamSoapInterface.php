@@ -11,6 +11,6 @@ function initIpmamInterface()
     if (!isset($ipmam)) {
         $ipmam = new IpmamWsClientFactory();
     }
-    
+
     return $ipmam;
 }
