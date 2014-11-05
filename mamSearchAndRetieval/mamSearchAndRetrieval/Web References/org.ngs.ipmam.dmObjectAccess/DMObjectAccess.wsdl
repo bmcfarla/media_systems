@@ -1,0 +1,2334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess">
+      <s:element name="CreateDMObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axfdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDMObjectResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDMObjectEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axfdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAttributes" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeStrata" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAssociations" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeEssencePackages" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectExLocalized">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axfdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAttributes" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeStrata" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAssociations" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeEssencePackages" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="framerate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectExLocalizedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectExLocalizedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axfdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLegacyObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datamanager" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLegacyObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLegacyObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test_GetDMObjectComplete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mdclass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test_GetDMObjectCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Test_GetDMObjectCompleteResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectAttributes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axfdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectAttributesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectAttributesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectAttributesByDMGUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectAttributesByDMGUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectAttributesByDMGUIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectStrata">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axfdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectStrataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectStrataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectStrataByDMGUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectStrataByDMGUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectStrataByDMGUIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDMObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DMGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDMObjectResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExistsDMObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mdclass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistsDMObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExistsDMObjectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectClassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDMObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="axf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDMObjectResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDMAttribute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMAttributeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMAttributeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMAttributesBulk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguids" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="attributes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDMAttributesBulkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMAttributesBulkResult" type="tns:ArrayOfAttributeValues" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAttributeValues">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AttributeValues" nillable="true" type="tns:AttributeValues" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AttributeValues">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDMAttributeFlat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMAttributeFlatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMAttributeFlatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDMAttribute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDMAttributeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddDMSegment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stratum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTC" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="stopTC" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDMSegmentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteDMSegment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stratum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startTC" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDMSegmentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ClearDMStratum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stratum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearDMStratumResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDMStrata">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mdclass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMStrataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMStrataResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectClasses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMObjectClassesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMObjectClassesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccessAllowed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccessAllowedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AccessAllowedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccessRights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="rightsToCheck" type="s:unsignedLong" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccessRightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAccessRightsResult" type="s:unsignedLong" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccessRightsBulk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dmguids" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="rightsToCheck" type="s:unsignedLong" />
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccessRightsBulkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccessRightsBulkResult" type="tns:ArrayOfUnsignedLong" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUnsignedLong">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="unsignedLong" type="s:unsignedLong" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfAttributeValues" nillable="true" type="tns:ArrayOfAttributeValues" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="unsignedLong" type="s:unsignedLong" />
+      <s:element name="ArrayOfUnsignedLong" nillable="true" type="tns:ArrayOfUnsignedLong" />
+    </s:schema>
+    <s:schema targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateDMObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDMObject" />
+  </wsdl:message>
+  <wsdl:message name="CreateDMObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDMObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectEx" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExLocalizedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectExLocalized" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExLocalizedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectExLocalizedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObject" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLegacyObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLegacyObject" />
+  </wsdl:message>
+  <wsdl:message name="GetLegacyObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLegacyObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="Test_GetDMObjectCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Test_GetDMObjectComplete" />
+  </wsdl:message>
+  <wsdl:message name="Test_GetDMObjectCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:Test_GetDMObjectCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectAttributes" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesByDMGUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectAttributesByDMGUID" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesByDMGUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectAttributesByDMGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectStrata" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectStrataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataByDMGUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectStrataByDMGUID" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataByDMGUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectStrataByDMGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDMObject" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDMObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExistsDMObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:ExistsDMObject" />
+  </wsdl:message>
+  <wsdl:message name="ExistsDMObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:ExistsDMObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectClass" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDMObject" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDMObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMAttribute" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributesBulkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMAttributesBulk" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributesBulkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMAttributesBulkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeFlatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMAttributeFlat" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeFlatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMAttributeFlatResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMAttributeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDMAttribute" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMAttributeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDMAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDMSegmentSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDMSegment" />
+  </wsdl:message>
+  <wsdl:message name="AddDMSegmentSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDMSegmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMSegmentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDMSegment" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMSegmentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDMSegmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearDMStratumSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearDMStratum" />
+  </wsdl:message>
+  <wsdl:message name="ClearDMStratumSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearDMStratumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMStrataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMStrata" />
+  </wsdl:message>
+  <wsdl:message name="GetDMStrataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMStrataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMObjectClasses" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMObjectClassesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccessAllowedSoapIn">
+    <wsdl:part name="parameters" element="tns:AccessAllowed" />
+  </wsdl:message>
+  <wsdl:message name="AccessAllowedSoapOut">
+    <wsdl:part name="parameters" element="tns:AccessAllowedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccessRights" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccessRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsBulkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccessRightsBulk" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsBulkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccessRightsBulkResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDMObjectHttpGetIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateDMObjectHttpGetOut" />
+  <wsdl:message name="GetDMObjectExHttpGetIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="includeAttributes" type="s:string" />
+    <wsdl:part name="includeStrata" type="s:string" />
+    <wsdl:part name="includeAssociations" type="s:string" />
+    <wsdl:part name="includeEssencePackages" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExLocalizedHttpGetIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="includeAttributes" type="s:string" />
+    <wsdl:part name="includeStrata" type="s:string" />
+    <wsdl:part name="includeAssociations" type="s:string" />
+    <wsdl:part name="includeEssencePackages" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+    <wsdl:part name="framerate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExLocalizedHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectHttpGetIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLegacyObjectHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="datamanager" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLegacyObjectHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Test_GetDMObjectCompleteHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="guid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Test_GetDMObjectCompleteHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesHttpGetIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesByDMGUIDHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesByDMGUIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataHttpGetIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataByDMGUIDHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataByDMGUIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMObjectHttpGetIn">
+    <wsdl:part name="DMGUID" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMObjectHttpGetOut" />
+  <wsdl:message name="ExistsDMObjectHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExistsDMObjectHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMObjectHttpGetIn">
+    <wsdl:part name="axf" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMObjectHttpGetOut" />
+  <wsdl:message name="GetDMAttributeHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributesBulkHttpGetIn">
+    <wsdl:part name="dmguids" type="s1:StringArray" />
+    <wsdl:part name="attributes" type="s1:StringArray" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributesBulkHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttributeValues" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeFlatHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeFlatHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMAttributeHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="value" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMAttributeHttpGetOut" />
+  <wsdl:message name="AddDMSegmentHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="stratum" type="s:string" />
+    <wsdl:part name="startTC" type="s:string" />
+    <wsdl:part name="stopTC" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddDMSegmentHttpGetOut" />
+  <wsdl:message name="DeleteDMSegmentHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="stratum" type="s:string" />
+    <wsdl:part name="startTC" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMSegmentHttpGetOut" />
+  <wsdl:message name="ClearDMStratumHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="stratum" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClearDMStratumHttpGetOut" />
+  <wsdl:message name="GetDMStrataHttpGetIn">
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMStrataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassesHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="AccessAllowedHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccessAllowedHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsHttpGetIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="rightsToCheck" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsHttpGetOut">
+    <wsdl:part name="Body" element="tns:unsignedLong" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsBulkHttpGetIn">
+    <wsdl:part name="dmguids" type="s1:StringArray" />
+    <wsdl:part name="rightsToCheck" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsBulkHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUnsignedLong" />
+  </wsdl:message>
+  <wsdl:message name="CreateDMObjectHttpPostIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateDMObjectHttpPostOut" />
+  <wsdl:message name="GetDMObjectExHttpPostIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="includeAttributes" type="s:string" />
+    <wsdl:part name="includeStrata" type="s:string" />
+    <wsdl:part name="includeAssociations" type="s:string" />
+    <wsdl:part name="includeEssencePackages" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExLocalizedHttpPostIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="includeAttributes" type="s:string" />
+    <wsdl:part name="includeStrata" type="s:string" />
+    <wsdl:part name="includeAssociations" type="s:string" />
+    <wsdl:part name="includeEssencePackages" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+    <wsdl:part name="framerate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectExLocalizedHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectHttpPostIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLegacyObjectHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="datamanager" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLegacyObjectHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Test_GetDMObjectCompleteHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="guid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Test_GetDMObjectCompleteHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesHttpPostIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesByDMGUIDHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectAttributesByDMGUIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataHttpPostIn">
+    <wsdl:part name="axfdoc" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataByDMGUIDHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectStrataByDMGUIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMObjectHttpPostIn">
+    <wsdl:part name="DMGUID" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMObjectHttpPostOut" />
+  <wsdl:message name="ExistsDMObjectHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExistsDMObjectHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMObjectHttpPostIn">
+    <wsdl:part name="axf" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMObjectHttpPostOut" />
+  <wsdl:message name="GetDMAttributeHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributesBulkHttpPostIn">
+    <wsdl:part name="dmguids" type="s1:StringArray" />
+    <wsdl:part name="attributes" type="s1:StringArray" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributesBulkHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttributeValues" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeFlatHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMAttributeFlatHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMAttributeHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="value" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDMAttributeHttpPostOut" />
+  <wsdl:message name="AddDMSegmentHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="stratum" type="s:string" />
+    <wsdl:part name="startTC" type="s:string" />
+    <wsdl:part name="stopTC" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddDMSegmentHttpPostOut" />
+  <wsdl:message name="DeleteDMSegmentHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="stratum" type="s:string" />
+    <wsdl:part name="startTC" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDMSegmentHttpPostOut" />
+  <wsdl:message name="ClearDMStratumHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="stratum" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClearDMStratumHttpPostOut" />
+  <wsdl:message name="GetDMStrataHttpPostIn">
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMStrataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassesHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMObjectClassesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="AccessAllowedHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccessAllowedHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsHttpPostIn">
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="rightsToCheck" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsHttpPostOut">
+    <wsdl:part name="Body" element="tns:unsignedLong" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsBulkHttpPostIn">
+    <wsdl:part name="dmguids" type="s1:StringArray" />
+    <wsdl:part name="rightsToCheck" type="s:string" />
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAccessRightsBulkHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUnsignedLong" />
+  </wsdl:message>
+  <wsdl:portType name="DMObjectAccessSoap">
+    <wsdl:operation name="CreateDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates one or more new DM objects. The method receives an AXF document (as UTF16 string representation), containing objects (with meta tags, multi-value and compound meta tags, strata and essence packages as needed) and assocations. The method first creates all objects and essence packages and then sets the associations. The method uses a DB transaction, i.e. it either creates everything correctly or - in case of an error - it doesn't change the DB at all. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny creation of any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:CreateDMObjectSoapIn" />
+      <wsdl:output message="tns:CreateDMObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) for one or more DM objects including attributes, strata, associations and essence package infos. &lt;p/&gt;The method is highly flexible. It expects an AXF defining which information is requested. And you can define the type of requested information using the four boolean paramters. &lt;p/&gt;The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;If &lt;b&gt;includeAttributes&lt;/b&gt; is true, the method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeStrata&lt;/b&gt; is true, the method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeAssociations&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; associations (non-directional, directional and hierarchical) of the requested objects.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeEssencePackages&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; essence packages of the requested objects.&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectExSoapIn" />
+      <wsdl:output message="tns:GetDMObjectExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a &lt;u&gt;localized&lt;/u&gt; AXF (as UTF-16 string representation) for one or more DM objects including attributes, strata, associations and essence package infos. &lt;p/&gt;&lt;i&gt;Localized&lt;/i&gt; in this context means that the AXF does not contain the values exactly as they are stored in the database. Instead the AXF contains localized, human-readable text for the values. Example: In case of a legal list attribute the method GetDMObjectEx returns the ID of the legal list entry (e.g. 4), whereas this method returns the localized label (e.g. &amp;quot;in progress&amp;quot;).&lt;p/&gt;In addition, the AXF contains localized attribute labels for each attribute and stratum. And it contains icon names for legal list entries if the legal list is configured to use icons.&lt;p/&gt;The method is highly flexible. It expects an AXF defining which information is requested. And you can define the type of requested information using the four boolean paramters. &lt;p/&gt;The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;If &lt;b&gt;includeAttributes&lt;/b&gt; is true, the method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeStrata&lt;/b&gt; is true, the method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeAssociations&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; associations (non-directional, directional and hierarchical) of the requested objects.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeEssencePackages&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; essence packages of the requested objects.&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectExLocalizedSoapIn" />
+      <wsdl:output message="tns:GetDMObjectExLocalizedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) for one or more DM objects including attributes and strata. &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Please note:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;This method is superseded by GetDMObjectEx.&lt;/li&gt;&lt;li&gt;This method always returns attributes &lt;i&gt;and&lt;/i&gt; strata. If you want only one of the two things, this method is &lt;u&gt;highly inefficient&lt;/u&gt;! If you want only attributes you should use GetDMObjectEx() or GetDMObjectAttributes(), if you want only strata you should use GetDMObjectEx() or GetDMObjectStrata().&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;The method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes and includeStrata set to true and includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectSoapIn" />
+      <wsdl:output message="tns:GetDMObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information via a DataManager plug-in assembly. The parameter datamanager gives the name of the plug-in assembly, i.e. the name returned when the method GetName() of the plug-in is called. &lt;br/&gt;The plug-in is called with the given dmguid and accesskey and the plug-in's result is returned to the caller. Please check the documentation of the specific plug-in you are calling to find out exactly what the method will return. In most cases cases it should be an AXF, but that is not mandatory. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Server.PluginError&lt;/b&gt;: the plugin doesn't exist or the call threw an exception</wsdl:documentation>
+      <wsdl:input message="tns:GetLegacyObjectSoapIn" />
+      <wsdl:output message="tns:GetLegacyObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Test method, returning a complete DM object with attributes and strata. The method is for testing purposes only and may disappear or change in future versions! So, if you are not sure: don't use!</wsdl:documentation>
+      <wsdl:input message="tns:Test_GetDMObjectCompleteSoapIn" />
+      <wsdl:output message="tns:Test_GetDMObjectCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with the attributes of one or more DM objects. &lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes set to true and includeStrata, includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectAttributesSoapIn" />
+      <wsdl:output message="tns:GetDMObjectAttributesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with all attributes (single-value and multi-value, including compound values) of the given DM object. &lt;br/&gt;The method is rather expensive. If you want only some of the attributes, you should use GetDMObjectEx() or GetDMObjectAttributes() instead. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to the object&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes set to true, includeStrata, includeAssociations and includeEssencePackages set to false and with an AXF containing one MAObject without any given Meta tags.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectAttributesByDMGUIDSoapIn" />
+      <wsdl:output message="tns:GetDMObjectAttributesByDMGUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with the strata information (including segments with descriptions and timecodes) for one or more DM objects. &lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns strata information, including the segments with descriptions and timecodes. The given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeStrata set to true and includeAttributes, includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectStrataSoapIn" />
+      <wsdl:output message="tns:GetDMObjectStrataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with all strata (including segments with timecodes and descriptions) of the given DM object. &lt;br/&gt;The method is rather expensive. If you want only some of the strata, you should use GetDMObjectEx() or GetDMObjectStrata() instead. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to the object&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeStrata set to true, includeAttributes, includeAssociations and includeEssencePackages set to false and with an AXF containing one MAObject without any given Meta tags.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectStrataByDMGUIDSoapIn" />
+      <wsdl:output message="tns:GetDMObjectStrataByDMGUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the given object. If the object doesn't exist, the method does &lt;i&gt;not&lt;/i&gt; throw an error.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny deletion of the object</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDMObjectSoapIn" />
+      <wsdl:output message="tns:DeleteDMObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if the given object exists. &lt;br/&gt;mdclass is the object class. If you can provide null or an empty string DataManagerWS checks if the DMGUID exists in any object class. If mdclass is not empty, DataManagerWS checks if the DMGUID exists and has the given object class.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ExistsDMObjectSoapIn" />
+      <wsdl:output message="tns:ExistsDMObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the object class of the given dmguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectClassSoapIn" />
+      <wsdl:output message="tns:GetDMObjectClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates objects, associations and essence packages. &lt;br/&gt;The method accepts an AXF (as UTF-16 string) containing an arbitrary number of objects (including single-value, multi-value and compound attributes and strata), associations and essence packages. The method updates the information according to the following rules: &lt;ol&gt;&lt;li&gt;For all objects:&lt;ul&gt;&lt;li&gt;It updates all known single-value attribute values mentioned in the AXF.&lt;/li&gt;&lt;li&gt;It replaces the entire content of the multi-value attributes mentioned in the AXF. Example: if the AXF contains two the multi-value attribute TITLES, the DataManagerWS will first remove all existing values of the attribute TITLES and then store the two new values.&lt;/li&gt;&lt;li&gt;The same is done for all compound attributes.&lt;/li&gt;&lt;li&gt;It replaces the entire content of all strata mentioned in the AXF. Example: If the AXF contains the stratum DEFAULT with 300 segments, then all existing segments of the stratum DEFAULT are deleted and replaced by the 300 new segments.&lt;/li&gt;&lt;li&gt;The method does &lt;i&gt;not&lt;/i&gt; touch any of the attributes or strata &lt;i&gt;not&lt;/i&gt; mentioned in the AXF, i.e. it only updates the values in the AXF and leaves everything else at its original value.&lt;/li&gt;&lt;li&gt;It ignores all unknown attributes and strata and all attributes and strata that are not assigned to the object class of the object.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;It saves the associations from the AXF. If an association already exists the method won't throw an exception but ignore the duplicate entry. &lt;/li&gt;&lt;li&gt;It updates or creates all essence packages in the AXF.&lt;/li&gt;&lt;/ol&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDMObjectSoapIn" />
+      <wsdl:output message="tns:UpdateDMObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the given attribute of the given object. The method supports only single-value attributes. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownAttribute&lt;/b&gt;: the attribute does not exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributeSoapIn" />
+      <wsdl:output message="tns:GetDMAttributeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method queries the database for an entire list of objects. For each of the objects it returns the requested attributes. The method supports only single-value attributes. &lt;br/&gt;The result is a list of attribute values. The first element in this list contains the values for the first DMGUID given, the second element for the second DMGUID and so on. The attribute values are basically a list of strings. Again, the first string is the value of the first requested attribute, the second string that of the second requested attribute and so on. &lt;br/&gt;Please note some special cases: &lt;ul&gt;&lt;li&gt;If one of the DMGUIDs in unknown the method does not fail, but returns empty   values for this DMGUID.&lt;/li&gt;&lt;li&gt;If one of the attributes is unknown in the data model, the method does not fail,   but returns empty values for this attribute.&lt;/li&gt;&lt;li&gt;You can not query multi-value attributes with this method. If you try, the   method does not fail, but returns empty values for this attribute.&lt;/li&gt;&lt;li&gt;Attributes of type 'unlimited text' are shortened to 256 characters. This   behavior is by design and caused by database limits.&lt;/li&gt;&lt;li&gt;If an attribute is requested for an object that doesn't have this attribute   in its object class, the method does not fail, but returns empty values   for this attribute.&lt;/li&gt;&lt;li&gt;If the attributes parameter is null or empty, or if the DMGUIDs parameter   is null, the method throws an exception.&lt;/li&gt;&lt;/ul&gt;So, basically, the method returns empty values for most obscure cases.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributesBulkSoapIn" />
+      <wsdl:output message="tns:GetDMAttributesBulkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like GetDMAttribute(). Please check the description of that method.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributeFlatSoapIn" />
+      <wsdl:output message="tns:GetDMAttributeFlatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the given attribute of the given object. The method supports only single-value attributes. If the attribute doesn't exist or is not assigned to the object class of the given object, the  method does &lt;i&gt;not&lt;/i&gt; throw an exception but ignores the change silently.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDMAttributeSoapIn" />
+      <wsdl:output message="tns:UpdateDMAttributeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds one segment to the given stratum in the given object. Existing segments are removed or clipped automatically if they overlap with the new segment. Content can be null. The special value -1 can be used for startTC and endTC to indicate a missing timecode. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:AddDMSegmentSoapIn" />
+      <wsdl:output message="tns:AddDMSegmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the given segment. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDMSegmentSoapIn" />
+      <wsdl:output message="tns:DeleteDMSegmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all segments of the given stratum. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ClearDMStratumSoapIn" />
+      <wsdl:output message="tns:ClearDMStratumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of the stratum names assigned to the given object class (parameter mdclass).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMStrataSoapIn" />
+      <wsdl:output message="tns:GetDMStrataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of the list of all object classes.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectClassesSoapIn" />
+      <wsdl:output message="tns:GetDMObjectClassesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use GetAccessRights instead.</wsdl:documentation>
+      <wsdl:input message="tns:AccessAllowedSoapIn" />
+      <wsdl:output message="tns:AccessAllowedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the access rights for the given object for the user with the given access key. &lt;br/&gt;The paramter rightsToCheck is a bitmask defining which rights are checked. Currently the following bits are supported: &lt;br/&gt;&amp;nbsp;&lt;b&gt;0x01&lt;/b&gt;: read&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x02&lt;/b&gt;: write&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x04&lt;/b&gt;: delete&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x08&lt;/b&gt;: create&lt;/li&gt;&lt;br/&gt;Example: to check read, write and delete access for the object, you must pass 0x01 | 0x02 | 0x04 = 0x07 (integer: 7) as value for rightsToCheck.&lt;br/&gt;The method returns a bitmask with the bits set for which the user has access rights. For example: if the user in the above example actually has the right to read and write, but not to delete, the method will return 0x01 | 0x02 = 0x03 (integer: 3). In usual languages (like C# or SWoDL) you can check the rights with a code block like this:&lt;br/&gt;&lt;br/&gt;&lt;pre&gt;rights = GetAccessRights(dmguid, 7, AccessKey);
+if( rights &amp; 1 == 1 ) {
+   // the user has read right
+}
+if( rights &amp; 2 == 2 ) {
+   // the user has write right
+}
+&lt;/pre&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetAccessRightsSoapIn" />
+      <wsdl:output message="tns:GetAccessRightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the access rights for the given objects for the user with the given access key. &lt;br/&gt;The method returns one ulong for each given dmguid. The position in the result array corresponds to the position in the dmguids array.&lt;br/&gt;The paramter rightsToCheck is a bitmask defining which rights are checked. Currently the following bits are supported: &lt;br/&gt;&amp;nbsp;&lt;b&gt;0x01&lt;/b&gt;: read&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x02&lt;/b&gt;: write&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x04&lt;/b&gt;: delete&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x08&lt;/b&gt;: create&lt;/li&gt;&lt;br/&gt;Example: to check read, write and delete access for the objects, you must pass 0x01 | 0x02 | 0x04 = 0x07 (integer: 7) as value for rightsToCheck.&lt;br/&gt;The method returns a bitmask with the bits set for which the user has access rights. For example: if the user in the above example actually has the right to read and write, but not to delete, the method will return 0x01 | 0x02 = 0x03 (integer: 3) for that object. Please see GetAccessRights() for an example showing how to evaluate the rights.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetAccessRightsBulkSoapIn" />
+      <wsdl:output message="tns:GetAccessRightsBulkSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMObjectAccessHttpGet">
+    <wsdl:operation name="CreateDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates one or more new DM objects. The method receives an AXF document (as UTF16 string representation), containing objects (with meta tags, multi-value and compound meta tags, strata and essence packages as needed) and assocations. The method first creates all objects and essence packages and then sets the associations. The method uses a DB transaction, i.e. it either creates everything correctly or - in case of an error - it doesn't change the DB at all. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny creation of any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:CreateDMObjectHttpGetIn" />
+      <wsdl:output message="tns:CreateDMObjectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) for one or more DM objects including attributes, strata, associations and essence package infos. &lt;p/&gt;The method is highly flexible. It expects an AXF defining which information is requested. And you can define the type of requested information using the four boolean paramters. &lt;p/&gt;The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;If &lt;b&gt;includeAttributes&lt;/b&gt; is true, the method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeStrata&lt;/b&gt; is true, the method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeAssociations&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; associations (non-directional, directional and hierarchical) of the requested objects.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeEssencePackages&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; essence packages of the requested objects.&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectExHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a &lt;u&gt;localized&lt;/u&gt; AXF (as UTF-16 string representation) for one or more DM objects including attributes, strata, associations and essence package infos. &lt;p/&gt;&lt;i&gt;Localized&lt;/i&gt; in this context means that the AXF does not contain the values exactly as they are stored in the database. Instead the AXF contains localized, human-readable text for the values. Example: In case of a legal list attribute the method GetDMObjectEx returns the ID of the legal list entry (e.g. 4), whereas this method returns the localized label (e.g. &amp;quot;in progress&amp;quot;).&lt;p/&gt;In addition, the AXF contains localized attribute labels for each attribute and stratum. And it contains icon names for legal list entries if the legal list is configured to use icons.&lt;p/&gt;The method is highly flexible. It expects an AXF defining which information is requested. And you can define the type of requested information using the four boolean paramters. &lt;p/&gt;The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;If &lt;b&gt;includeAttributes&lt;/b&gt; is true, the method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeStrata&lt;/b&gt; is true, the method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeAssociations&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; associations (non-directional, directional and hierarchical) of the requested objects.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeEssencePackages&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; essence packages of the requested objects.&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectExLocalizedHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectExLocalizedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) for one or more DM objects including attributes and strata. &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Please note:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;This method is superseded by GetDMObjectEx.&lt;/li&gt;&lt;li&gt;This method always returns attributes &lt;i&gt;and&lt;/i&gt; strata. If you want only one of the two things, this method is &lt;u&gt;highly inefficient&lt;/u&gt;! If you want only attributes you should use GetDMObjectEx() or GetDMObjectAttributes(), if you want only strata you should use GetDMObjectEx() or GetDMObjectStrata().&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;The method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes and includeStrata set to true and includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information via a DataManager plug-in assembly. The parameter datamanager gives the name of the plug-in assembly, i.e. the name returned when the method GetName() of the plug-in is called. &lt;br/&gt;The plug-in is called with the given dmguid and accesskey and the plug-in's result is returned to the caller. Please check the documentation of the specific plug-in you are calling to find out exactly what the method will return. In most cases cases it should be an AXF, but that is not mandatory. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Server.PluginError&lt;/b&gt;: the plugin doesn't exist or the call threw an exception</wsdl:documentation>
+      <wsdl:input message="tns:GetLegacyObjectHttpGetIn" />
+      <wsdl:output message="tns:GetLegacyObjectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Test method, returning a complete DM object with attributes and strata. The method is for testing purposes only and may disappear or change in future versions! So, if you are not sure: don't use!</wsdl:documentation>
+      <wsdl:input message="tns:Test_GetDMObjectCompleteHttpGetIn" />
+      <wsdl:output message="tns:Test_GetDMObjectCompleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with the attributes of one or more DM objects. &lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes set to true and includeStrata, includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectAttributesHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectAttributesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with all attributes (single-value and multi-value, including compound values) of the given DM object. &lt;br/&gt;The method is rather expensive. If you want only some of the attributes, you should use GetDMObjectEx() or GetDMObjectAttributes() instead. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to the object&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes set to true, includeStrata, includeAssociations and includeEssencePackages set to false and with an AXF containing one MAObject without any given Meta tags.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectAttributesByDMGUIDHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectAttributesByDMGUIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with the strata information (including segments with descriptions and timecodes) for one or more DM objects. &lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns strata information, including the segments with descriptions and timecodes. The given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeStrata set to true and includeAttributes, includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectStrataHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectStrataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with all strata (including segments with timecodes and descriptions) of the given DM object. &lt;br/&gt;The method is rather expensive. If you want only some of the strata, you should use GetDMObjectEx() or GetDMObjectStrata() instead. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to the object&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeStrata set to true, includeAttributes, includeAssociations and includeEssencePackages set to false and with an AXF containing one MAObject without any given Meta tags.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectStrataByDMGUIDHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectStrataByDMGUIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the given object. If the object doesn't exist, the method does &lt;i&gt;not&lt;/i&gt; throw an error.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny deletion of the object</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDMObjectHttpGetIn" />
+      <wsdl:output message="tns:DeleteDMObjectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if the given object exists. &lt;br/&gt;mdclass is the object class. If you can provide null or an empty string DataManagerWS checks if the DMGUID exists in any object class. If mdclass is not empty, DataManagerWS checks if the DMGUID exists and has the given object class.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ExistsDMObjectHttpGetIn" />
+      <wsdl:output message="tns:ExistsDMObjectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the object class of the given dmguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectClassHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectClassHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates objects, associations and essence packages. &lt;br/&gt;The method accepts an AXF (as UTF-16 string) containing an arbitrary number of objects (including single-value, multi-value and compound attributes and strata), associations and essence packages. The method updates the information according to the following rules: &lt;ol&gt;&lt;li&gt;For all objects:&lt;ul&gt;&lt;li&gt;It updates all known single-value attribute values mentioned in the AXF.&lt;/li&gt;&lt;li&gt;It replaces the entire content of the multi-value attributes mentioned in the AXF. Example: if the AXF contains two the multi-value attribute TITLES, the DataManagerWS will first remove all existing values of the attribute TITLES and then store the two new values.&lt;/li&gt;&lt;li&gt;The same is done for all compound attributes.&lt;/li&gt;&lt;li&gt;It replaces the entire content of all strata mentioned in the AXF. Example: If the AXF contains the stratum DEFAULT with 300 segments, then all existing segments of the stratum DEFAULT are deleted and replaced by the 300 new segments.&lt;/li&gt;&lt;li&gt;The method does &lt;i&gt;not&lt;/i&gt; touch any of the attributes or strata &lt;i&gt;not&lt;/i&gt; mentioned in the AXF, i.e. it only updates the values in the AXF and leaves everything else at its original value.&lt;/li&gt;&lt;li&gt;It ignores all unknown attributes and strata and all attributes and strata that are not assigned to the object class of the object.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;It saves the associations from the AXF. If an association already exists the method won't throw an exception but ignore the duplicate entry. &lt;/li&gt;&lt;li&gt;It updates or creates all essence packages in the AXF.&lt;/li&gt;&lt;/ol&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDMObjectHttpGetIn" />
+      <wsdl:output message="tns:UpdateDMObjectHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the given attribute of the given object. The method supports only single-value attributes. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownAttribute&lt;/b&gt;: the attribute does not exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributeHttpGetIn" />
+      <wsdl:output message="tns:GetDMAttributeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method queries the database for an entire list of objects. For each of the objects it returns the requested attributes. The method supports only single-value attributes. &lt;br/&gt;The result is a list of attribute values. The first element in this list contains the values for the first DMGUID given, the second element for the second DMGUID and so on. The attribute values are basically a list of strings. Again, the first string is the value of the first requested attribute, the second string that of the second requested attribute and so on. &lt;br/&gt;Please note some special cases: &lt;ul&gt;&lt;li&gt;If one of the DMGUIDs in unknown the method does not fail, but returns empty   values for this DMGUID.&lt;/li&gt;&lt;li&gt;If one of the attributes is unknown in the data model, the method does not fail,   but returns empty values for this attribute.&lt;/li&gt;&lt;li&gt;You can not query multi-value attributes with this method. If you try, the   method does not fail, but returns empty values for this attribute.&lt;/li&gt;&lt;li&gt;Attributes of type 'unlimited text' are shortened to 256 characters. This   behavior is by design and caused by database limits.&lt;/li&gt;&lt;li&gt;If an attribute is requested for an object that doesn't have this attribute   in its object class, the method does not fail, but returns empty values   for this attribute.&lt;/li&gt;&lt;li&gt;If the attributes parameter is null or empty, or if the DMGUIDs parameter   is null, the method throws an exception.&lt;/li&gt;&lt;/ul&gt;So, basically, the method returns empty values for most obscure cases.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributesBulkHttpGetIn" />
+      <wsdl:output message="tns:GetDMAttributesBulkHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like GetDMAttribute(). Please check the description of that method.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributeFlatHttpGetIn" />
+      <wsdl:output message="tns:GetDMAttributeFlatHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the given attribute of the given object. The method supports only single-value attributes. If the attribute doesn't exist or is not assigned to the object class of the given object, the  method does &lt;i&gt;not&lt;/i&gt; throw an exception but ignores the change silently.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDMAttributeHttpGetIn" />
+      <wsdl:output message="tns:UpdateDMAttributeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds one segment to the given stratum in the given object. Existing segments are removed or clipped automatically if they overlap with the new segment. Content can be null. The special value -1 can be used for startTC and endTC to indicate a missing timecode. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:AddDMSegmentHttpGetIn" />
+      <wsdl:output message="tns:AddDMSegmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the given segment. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDMSegmentHttpGetIn" />
+      <wsdl:output message="tns:DeleteDMSegmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all segments of the given stratum. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ClearDMStratumHttpGetIn" />
+      <wsdl:output message="tns:ClearDMStratumHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of the stratum names assigned to the given object class (parameter mdclass).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMStrataHttpGetIn" />
+      <wsdl:output message="tns:GetDMStrataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of the list of all object classes.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectClassesHttpGetIn" />
+      <wsdl:output message="tns:GetDMObjectClassesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use GetAccessRights instead.</wsdl:documentation>
+      <wsdl:input message="tns:AccessAllowedHttpGetIn" />
+      <wsdl:output message="tns:AccessAllowedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the access rights for the given object for the user with the given access key. &lt;br/&gt;The paramter rightsToCheck is a bitmask defining which rights are checked. Currently the following bits are supported: &lt;br/&gt;&amp;nbsp;&lt;b&gt;0x01&lt;/b&gt;: read&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x02&lt;/b&gt;: write&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x04&lt;/b&gt;: delete&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x08&lt;/b&gt;: create&lt;/li&gt;&lt;br/&gt;Example: to check read, write and delete access for the object, you must pass 0x01 | 0x02 | 0x04 = 0x07 (integer: 7) as value for rightsToCheck.&lt;br/&gt;The method returns a bitmask with the bits set for which the user has access rights. For example: if the user in the above example actually has the right to read and write, but not to delete, the method will return 0x01 | 0x02 = 0x03 (integer: 3). In usual languages (like C# or SWoDL) you can check the rights with a code block like this:&lt;br/&gt;&lt;br/&gt;&lt;pre&gt;rights = GetAccessRights(dmguid, 7, AccessKey);
+if( rights &amp; 1 == 1 ) {
+   // the user has read right
+}
+if( rights &amp; 2 == 2 ) {
+   // the user has write right
+}
+&lt;/pre&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetAccessRightsHttpGetIn" />
+      <wsdl:output message="tns:GetAccessRightsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the access rights for the given objects for the user with the given access key. &lt;br/&gt;The method returns one ulong for each given dmguid. The position in the result array corresponds to the position in the dmguids array.&lt;br/&gt;The paramter rightsToCheck is a bitmask defining which rights are checked. Currently the following bits are supported: &lt;br/&gt;&amp;nbsp;&lt;b&gt;0x01&lt;/b&gt;: read&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x02&lt;/b&gt;: write&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x04&lt;/b&gt;: delete&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x08&lt;/b&gt;: create&lt;/li&gt;&lt;br/&gt;Example: to check read, write and delete access for the objects, you must pass 0x01 | 0x02 | 0x04 = 0x07 (integer: 7) as value for rightsToCheck.&lt;br/&gt;The method returns a bitmask with the bits set for which the user has access rights. For example: if the user in the above example actually has the right to read and write, but not to delete, the method will return 0x01 | 0x02 = 0x03 (integer: 3) for that object. Please see GetAccessRights() for an example showing how to evaluate the rights.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetAccessRightsBulkHttpGetIn" />
+      <wsdl:output message="tns:GetAccessRightsBulkHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMObjectAccessHttpPost">
+    <wsdl:operation name="CreateDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates one or more new DM objects. The method receives an AXF document (as UTF16 string representation), containing objects (with meta tags, multi-value and compound meta tags, strata and essence packages as needed) and assocations. The method first creates all objects and essence packages and then sets the associations. The method uses a DB transaction, i.e. it either creates everything correctly or - in case of an error - it doesn't change the DB at all. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny creation of any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:CreateDMObjectHttpPostIn" />
+      <wsdl:output message="tns:CreateDMObjectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) for one or more DM objects including attributes, strata, associations and essence package infos. &lt;p/&gt;The method is highly flexible. It expects an AXF defining which information is requested. And you can define the type of requested information using the four boolean paramters. &lt;p/&gt;The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;If &lt;b&gt;includeAttributes&lt;/b&gt; is true, the method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeStrata&lt;/b&gt; is true, the method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeAssociations&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; associations (non-directional, directional and hierarchical) of the requested objects.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeEssencePackages&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; essence packages of the requested objects.&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectExHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a &lt;u&gt;localized&lt;/u&gt; AXF (as UTF-16 string representation) for one or more DM objects including attributes, strata, associations and essence package infos. &lt;p/&gt;&lt;i&gt;Localized&lt;/i&gt; in this context means that the AXF does not contain the values exactly as they are stored in the database. Instead the AXF contains localized, human-readable text for the values. Example: In case of a legal list attribute the method GetDMObjectEx returns the ID of the legal list entry (e.g. 4), whereas this method returns the localized label (e.g. &amp;quot;in progress&amp;quot;).&lt;p/&gt;In addition, the AXF contains localized attribute labels for each attribute and stratum. And it contains icon names for legal list entries if the legal list is configured to use icons.&lt;p/&gt;The method is highly flexible. It expects an AXF defining which information is requested. And you can define the type of requested information using the four boolean paramters. &lt;p/&gt;The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;If &lt;b&gt;includeAttributes&lt;/b&gt; is true, the method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeStrata&lt;/b&gt; is true, the method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeAssociations&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; associations (non-directional, directional and hierarchical) of the requested objects.&lt;/li&gt;&lt;li&gt;If &lt;b&gt;includeEssencePackages&lt;/b&gt; is true, the method returns &lt;i&gt;all&lt;/i&gt; essence packages of the requested objects.&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectExLocalizedHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectExLocalizedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) for one or more DM objects including attributes and strata. &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Please note:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;This method is superseded by GetDMObjectEx.&lt;/li&gt;&lt;li&gt;This method always returns attributes &lt;i&gt;and&lt;/i&gt; strata. If you want only one of the two things, this method is &lt;u&gt;highly inefficient&lt;/u&gt;! If you want only attributes you should use GetDMObjectEx() or GetDMObjectAttributes(), if you want only strata you should use GetDMObjectEx() or GetDMObjectStrata().&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;The method returns strata information, including the segments with descriptions and timecodes. Again, the given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes and includeStrata set to true and includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information via a DataManager plug-in assembly. The parameter datamanager gives the name of the plug-in assembly, i.e. the name returned when the method GetName() of the plug-in is called. &lt;br/&gt;The plug-in is called with the given dmguid and accesskey and the plug-in's result is returned to the caller. Please check the documentation of the specific plug-in you are calling to find out exactly what the method will return. In most cases cases it should be an AXF, but that is not mandatory. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Server.PluginError&lt;/b&gt;: the plugin doesn't exist or the call threw an exception</wsdl:documentation>
+      <wsdl:input message="tns:GetLegacyObjectHttpPostIn" />
+      <wsdl:output message="tns:GetLegacyObjectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Test method, returning a complete DM object with attributes and strata. The method is for testing purposes only and may disappear or change in future versions! So, if you are not sure: don't use!</wsdl:documentation>
+      <wsdl:input message="tns:Test_GetDMObjectCompleteHttpPostIn" />
+      <wsdl:output message="tns:Test_GetDMObjectCompleteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with the attributes of one or more DM objects. &lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns meta tags (single-value and multi-value, including compound values) for the requested objects. The given AXF acts as a template defining which of the meta tags are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more meta tags (values don't matter), the DM returns exactly these meta tags. This is the recommended and most efficient way to call this method: simply provide an AXF with the meta tags you want to get (e.g. MAINTITLE and OBJECT_LOCKED) and you receive exactly this information as fast as possible.&lt;br/&gt;Notes:&lt;ul&gt; &lt;li&gt;The DM itself checks if the meta tags are single- oder multi-valued, so you can provide all types of attributes as simple, single-value Meta nodes in the XML.&lt;/li&gt;&lt;li&gt;Non-existent meta tags are simply ignored. The method will not fail.&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any meta tags for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; meta tags for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; tags.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes set to true and includeStrata, includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectAttributesHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectAttributesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with all attributes (single-value and multi-value, including compound values) of the given DM object. &lt;br/&gt;The method is rather expensive. If you want only some of the attributes, you should use GetDMObjectEx() or GetDMObjectAttributes() instead. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to the object&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeAttributes set to true, includeStrata, includeAssociations and includeEssencePackages set to false and with an AXF containing one MAObject without any given Meta tags.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectAttributesByDMGUIDHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectAttributesByDMGUIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with the strata information (including segments with descriptions and timecodes) for one or more DM objects. &lt;br/&gt;&lt;p/&gt;The method expects an AXF defining which information is requested. The AXF must contain one or more MAObject elements with the GUIDs of the requested objects. For each of them the following information is queried from the DB and returned in the result AXF.&lt;ul&gt;&lt;li&gt;The method returns strata information, including the segments with descriptions and timecodes. The given AXF acts as a template defining which of the strata are returned:&lt;ul&gt;&lt;li&gt;If the given AXF contains one or more strata (usually empty, i.e. without any segments), the DM returns exactly these strata. This is the recommended and most efficient way to call this method: simply provide an AXF with the strata you want to get (e.g. DEFAULT) and you receive exactly this information as fast as possible. Note: non-existent strata in the given AXF are simply ignored.&lt;/li&gt;&lt;li&gt;If the given AXF doesn't contain any strata for one of the MAObjects, the DM returns &lt;i&gt;all&lt;/i&gt; strata for this object. This is a very expensive operation that should only be used if you really want &lt;i&gt;all&lt;/i&gt; strata.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to any of the objects&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeStrata set to true and includeAttributes, includeAssociations and includeEssencePackages set to false.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectStrataHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectStrataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an AXF (as UTF-16 string representation) with all strata (including segments with timecodes and descriptions) of the given DM object. &lt;br/&gt;The method is rather expensive. If you want only some of the strata, you should use GetDMObjectEx() or GetDMObjectStrata() instead. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny access to the object&lt;br/&gt;&lt;br/&gt;This method works exactly like GetDMObjectEx with includeStrata set to true, includeAttributes, includeAssociations and includeEssencePackages set to false and with an AXF containing one MAObject without any given Meta tags.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectStrataByDMGUIDHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectStrataByDMGUIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the given object. If the object doesn't exist, the method does &lt;i&gt;not&lt;/i&gt; throw an error.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules deny deletion of the object</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDMObjectHttpPostIn" />
+      <wsdl:output message="tns:DeleteDMObjectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if the given object exists. &lt;br/&gt;mdclass is the object class. If you can provide null or an empty string DataManagerWS checks if the DMGUID exists in any object class. If mdclass is not empty, DataManagerWS checks if the DMGUID exists and has the given object class.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ExistsDMObjectHttpPostIn" />
+      <wsdl:output message="tns:ExistsDMObjectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the object class of the given dmguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectClassHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectClassHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates objects, associations and essence packages. &lt;br/&gt;The method accepts an AXF (as UTF-16 string) containing an arbitrary number of objects (including single-value, multi-value and compound attributes and strata), associations and essence packages. The method updates the information according to the following rules: &lt;ol&gt;&lt;li&gt;For all objects:&lt;ul&gt;&lt;li&gt;It updates all known single-value attribute values mentioned in the AXF.&lt;/li&gt;&lt;li&gt;It replaces the entire content of the multi-value attributes mentioned in the AXF. Example: if the AXF contains two the multi-value attribute TITLES, the DataManagerWS will first remove all existing values of the attribute TITLES and then store the two new values.&lt;/li&gt;&lt;li&gt;The same is done for all compound attributes.&lt;/li&gt;&lt;li&gt;It replaces the entire content of all strata mentioned in the AXF. Example: If the AXF contains the stratum DEFAULT with 300 segments, then all existing segments of the stratum DEFAULT are deleted and replaced by the 300 new segments.&lt;/li&gt;&lt;li&gt;The method does &lt;i&gt;not&lt;/i&gt; touch any of the attributes or strata &lt;i&gt;not&lt;/i&gt; mentioned in the AXF, i.e. it only updates the values in the AXF and leaves everything else at its original value.&lt;/li&gt;&lt;li&gt;It ignores all unknown attributes and strata and all attributes and strata that are not assigned to the object class of the object.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;It saves the associations from the AXF. If an association already exists the method won't throw an exception but ignore the duplicate entry. &lt;/li&gt;&lt;li&gt;It updates or creates all essence packages in the AXF.&lt;/li&gt;&lt;/ol&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: one of the objects doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of any of the objects</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDMObjectHttpPostIn" />
+      <wsdl:output message="tns:UpdateDMObjectHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the given attribute of the given object. The method supports only single-value attributes. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownAttribute&lt;/b&gt;: the attribute does not exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributeHttpPostIn" />
+      <wsdl:output message="tns:GetDMAttributeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method queries the database for an entire list of objects. For each of the objects it returns the requested attributes. The method supports only single-value attributes. &lt;br/&gt;The result is a list of attribute values. The first element in this list contains the values for the first DMGUID given, the second element for the second DMGUID and so on. The attribute values are basically a list of strings. Again, the first string is the value of the first requested attribute, the second string that of the second requested attribute and so on. &lt;br/&gt;Please note some special cases: &lt;ul&gt;&lt;li&gt;If one of the DMGUIDs in unknown the method does not fail, but returns empty   values for this DMGUID.&lt;/li&gt;&lt;li&gt;If one of the attributes is unknown in the data model, the method does not fail,   but returns empty values for this attribute.&lt;/li&gt;&lt;li&gt;You can not query multi-value attributes with this method. If you try, the   method does not fail, but returns empty values for this attribute.&lt;/li&gt;&lt;li&gt;Attributes of type 'unlimited text' are shortened to 256 characters. This   behavior is by design and caused by database limits.&lt;/li&gt;&lt;li&gt;If an attribute is requested for an object that doesn't have this attribute   in its object class, the method does not fail, but returns empty values   for this attribute.&lt;/li&gt;&lt;li&gt;If the attributes parameter is null or empty, or if the DMGUIDs parameter   is null, the method throws an exception.&lt;/li&gt;&lt;/ul&gt;So, basically, the method returns empty values for most obscure cases.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributesBulkHttpPostIn" />
+      <wsdl:output message="tns:GetDMAttributesBulkHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like GetDMAttribute(). Please check the description of that method.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMAttributeFlatHttpPostIn" />
+      <wsdl:output message="tns:GetDMAttributeFlatHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the given attribute of the given object. The method supports only single-value attributes. If the attribute doesn't exist or is not assigned to the object class of the given object, the  method does &lt;i&gt;not&lt;/i&gt; throw an exception but ignores the change silently.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDMAttributeHttpPostIn" />
+      <wsdl:output message="tns:UpdateDMAttributeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds one segment to the given stratum in the given object. Existing segments are removed or clipped automatically if they overlap with the new segment. Content can be null. The special value -1 can be used for startTC and endTC to indicate a missing timecode. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:AddDMSegmentHttpPostIn" />
+      <wsdl:output message="tns:AddDMSegmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the given segment. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDMSegmentHttpPostIn" />
+      <wsdl:output message="tns:DeleteDMSegmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all segments of the given stratum. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.CBAAccessDenied&lt;/b&gt;: the CBA (content based access) rules denies modifications of the object&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.InvalidStratum&lt;/b&gt;: the stratum doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ClearDMStratumHttpPostIn" />
+      <wsdl:output message="tns:ClearDMStratumHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of the stratum names assigned to the given object class (parameter mdclass).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMStrataHttpPostIn" />
+      <wsdl:output message="tns:GetDMStrataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of the list of all object classes.</wsdl:documentation>
+      <wsdl:input message="tns:GetDMObjectClassesHttpPostIn" />
+      <wsdl:output message="tns:GetDMObjectClassesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use GetAccessRights instead.</wsdl:documentation>
+      <wsdl:input message="tns:AccessAllowedHttpPostIn" />
+      <wsdl:output message="tns:AccessAllowedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the access rights for the given object for the user with the given access key. &lt;br/&gt;The paramter rightsToCheck is a bitmask defining which rights are checked. Currently the following bits are supported: &lt;br/&gt;&amp;nbsp;&lt;b&gt;0x01&lt;/b&gt;: read&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x02&lt;/b&gt;: write&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x04&lt;/b&gt;: delete&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x08&lt;/b&gt;: create&lt;/li&gt;&lt;br/&gt;Example: to check read, write and delete access for the object, you must pass 0x01 | 0x02 | 0x04 = 0x07 (integer: 7) as value for rightsToCheck.&lt;br/&gt;The method returns a bitmask with the bits set for which the user has access rights. For example: if the user in the above example actually has the right to read and write, but not to delete, the method will return 0x01 | 0x02 = 0x03 (integer: 3). In usual languages (like C# or SWoDL) you can check the rights with a code block like this:&lt;br/&gt;&lt;br/&gt;&lt;pre&gt;rights = GetAccessRights(dmguid, 7, AccessKey);
+if( rights &amp; 1 == 1 ) {
+   // the user has read right
+}
+if( rights &amp; 2 == 2 ) {
+   // the user has write right
+}
+&lt;/pre&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetAccessRightsHttpPostIn" />
+      <wsdl:output message="tns:GetAccessRightsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the access rights for the given objects for the user with the given access key. &lt;br/&gt;The method returns one ulong for each given dmguid. The position in the result array corresponds to the position in the dmguids array.&lt;br/&gt;The paramter rightsToCheck is a bitmask defining which rights are checked. Currently the following bits are supported: &lt;br/&gt;&amp;nbsp;&lt;b&gt;0x01&lt;/b&gt;: read&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x02&lt;/b&gt;: write&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x04&lt;/b&gt;: delete&lt;/li&gt;&lt;br/&gt;&amp;nbsp;&lt;b&gt;0x08&lt;/b&gt;: create&lt;/li&gt;&lt;br/&gt;Example: to check read, write and delete access for the objects, you must pass 0x01 | 0x02 | 0x04 = 0x07 (integer: 7) as value for rightsToCheck.&lt;br/&gt;The method returns a bitmask with the bits set for which the user has access rights. For example: if the user in the above example actually has the right to read and write, but not to delete, the method will return 0x01 | 0x02 = 0x03 (integer: 3) for that object. Please see GetAccessRights() for an example showing how to evaluate the rights.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetAccessRightsBulkHttpPostIn" />
+      <wsdl:output message="tns:GetAccessRightsBulkHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMObjectAccessSoap" type="tns:DMObjectAccessSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateDMObject">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/CreateDMObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectExLocalized" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetLegacyObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/Test_GetDMObjectComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectAttributes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectAttributesByDMGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectStrata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectStrataByDMGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/DeleteDMObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/ExistsDMObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/UpdateDMObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMAttribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMAttributesBulk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMAttributeFlat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/UpdateDMAttribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/AddDMSegment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/DeleteDMSegment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/ClearDMStratum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMStrata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectClasses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/AccessAllowed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetAccessRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetAccessRightsBulk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMObjectAccessSoap12" type="tns:DMObjectAccessSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateDMObject">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/CreateDMObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectExLocalized" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetLegacyObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/Test_GetDMObjectComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectAttributes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectAttributesByDMGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectStrata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectStrataByDMGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/DeleteDMObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/ExistsDMObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/UpdateDMObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMAttributesBulk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMAttributeFlat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/UpdateDMAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/AddDMSegment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/DeleteDMSegment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/ClearDMStratum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMStrata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetDMObjectClasses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/AccessAllowed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetAccessRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmobjectaccess/GetAccessRightsBulk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMObjectAccessHttpGet" type="tns:DMObjectAccessHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CreateDMObject">
+      <http:operation location="/CreateDMObject" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <http:operation location="/GetDMObjectEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <http:operation location="/GetDMObjectExLocalized" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <http:operation location="/GetDMObject" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <http:operation location="/GetLegacyObject" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <http:operation location="/Test_GetDMObjectComplete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <http:operation location="/GetDMObjectAttributes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <http:operation location="/GetDMObjectAttributesByDMGUID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <http:operation location="/GetDMObjectStrata" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <http:operation location="/GetDMObjectStrataByDMGUID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <http:operation location="/DeleteDMObject" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <http:operation location="/ExistsDMObject" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <http:operation location="/GetDMObjectClass" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <http:operation location="/UpdateDMObject" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <http:operation location="/GetDMAttribute" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <http:operation location="/GetDMAttributesBulk" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <http:operation location="/GetDMAttributeFlat" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <http:operation location="/UpdateDMAttribute" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <http:operation location="/AddDMSegment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <http:operation location="/DeleteDMSegment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <http:operation location="/ClearDMStratum" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <http:operation location="/GetDMStrata" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <http:operation location="/GetDMObjectClasses" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <http:operation location="/AccessAllowed" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <http:operation location="/GetAccessRights" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <http:operation location="/GetAccessRightsBulk" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMObjectAccessHttpPost" type="tns:DMObjectAccessHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CreateDMObject">
+      <http:operation location="/CreateDMObject" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectEx">
+      <http:operation location="/GetDMObjectEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectExLocalized">
+      <http:operation location="/GetDMObjectExLocalized" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObject">
+      <http:operation location="/GetDMObject" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegacyObject">
+      <http:operation location="/GetLegacyObject" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test_GetDMObjectComplete">
+      <http:operation location="/Test_GetDMObjectComplete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributes">
+      <http:operation location="/GetDMObjectAttributes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectAttributesByDMGUID">
+      <http:operation location="/GetDMObjectAttributesByDMGUID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrata">
+      <http:operation location="/GetDMObjectStrata" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectStrataByDMGUID">
+      <http:operation location="/GetDMObjectStrataByDMGUID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMObject">
+      <http:operation location="/DeleteDMObject" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ExistsDMObject">
+      <http:operation location="/ExistsDMObject" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClass">
+      <http:operation location="/GetDMObjectClass" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMObject">
+      <http:operation location="/UpdateDMObject" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttribute">
+      <http:operation location="/GetDMAttribute" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributesBulk">
+      <http:operation location="/GetDMAttributesBulk" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMAttributeFlat">
+      <http:operation location="/GetDMAttributeFlat" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDMAttribute">
+      <http:operation location="/UpdateDMAttribute" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AddDMSegment">
+      <http:operation location="/AddDMSegment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDMSegment">
+      <http:operation location="/DeleteDMSegment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDMStratum">
+      <http:operation location="/ClearDMStratum" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMStrata">
+      <http:operation location="/GetDMStrata" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMObjectClasses">
+      <http:operation location="/GetDMObjectClasses" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessAllowed">
+      <http:operation location="/AccessAllowed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRights">
+      <http:operation location="/GetAccessRights" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccessRightsBulk">
+      <http:operation location="/GetAccessRightsBulk" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMObjectAccess">
+    <wsdl:port name="DMObjectAccessSoap" binding="tns:DMObjectAccessSoap">
+      <soap:address location="http://10.100.5.20:12200/DataManagerWS/DMObjectAccess.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMObjectAccessSoap12" binding="tns:DMObjectAccessSoap12">
+      <soap12:address location="http://10.100.5.20:12200/DataManagerWS/DMObjectAccess.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMObjectAccessHttpGet" binding="tns:DMObjectAccessHttpGet">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMObjectAccess.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMObjectAccessHttpPost" binding="tns:DMObjectAccessHttpPost">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMObjectAccess.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

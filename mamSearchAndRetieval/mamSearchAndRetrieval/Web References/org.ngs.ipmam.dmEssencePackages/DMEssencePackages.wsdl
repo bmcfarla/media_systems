@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.blue-order.com/ma/datamanagerws/dmessencepackages" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmessencepackages" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmessencepackages">
+      <s:element name="CreateEssencePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="classification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="representative" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateEssencePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateEssencePackageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEssencePackageSOC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="soc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEssencePackageSOCResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetEssencePackageEOC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eoc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEssencePackageEOCResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetEssencePackageTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEssencePackageTitleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetEssencePackageClassification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="classification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEssencePackageClassificationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetRepresentativeEssencePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRepresentativeEssencePackageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRepresentativeEssencePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRepresentativeEssencePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRepresentativeEssencePackageResult" type="tns:EssencePackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EssencePackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EPGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Representative" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SOC" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EOC" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRepresentativeEssencePackageList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRepresentativeEssencePackageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRepresentativeEssencePackageListResult" type="tns:ArrayOfEssencePackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEssencePackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EssencePackage" nillable="true" type="tns:EssencePackage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEssencePackagesByClassification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="classification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEssencePackagesByClassificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEssencePackagesByClassificationResult" type="tns:ArrayOfEssencePackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEssencePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEssencePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEssencePackageResult" type="tns:EssencePackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListAllEssencePackages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListAllEssencePackagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListAllEssencePackagesResult" type="tns:ArrayOfEssencePackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEssencePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEssencePackageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteAllEssencePackages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAllEssencePackagesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListClassifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListClassificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListClassificationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDmguidForEpguid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epguid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDmguidForEpguidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDmguidForEpguidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="EssencePackage" nillable="true" type="tns:EssencePackage" />
+      <s:element name="ArrayOfEssencePackage" nillable="true" type="tns:ArrayOfEssencePackage" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+    <s:schema targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateEssencePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="CreateEssencePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateEssencePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageSOCSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageSOC" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageSOCSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageSOCResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageEOCSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageEOC" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageEOCSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageEOCResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageTitle" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageClassificationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageClassification" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageClassificationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEssencePackageClassificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRepresentativeEssencePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRepresentativeEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="SetRepresentativeEssencePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRepresentativeEssencePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRepresentativeEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRepresentativeEssencePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRepresentativeEssencePackageList" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRepresentativeEssencePackageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackagesByClassificationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEssencePackagesByClassification" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackagesByClassificationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEssencePackagesByClassificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEssencePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListAllEssencePackagesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListAllEssencePackages" />
+  </wsdl:message>
+  <wsdl:message name="ListAllEssencePackagesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListAllEssencePackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEssencePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEssencePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteEssencePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllEssencePackagesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAllEssencePackages" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllEssencePackagesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAllEssencePackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListClassificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListClassifications" />
+  </wsdl:message>
+  <wsdl:message name="ListClassificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListClassificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDmguidForEpguidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDmguidForEpguid" />
+  </wsdl:message>
+  <wsdl:message name="GetDmguidForEpguidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDmguidForEpguidResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateEssencePackageHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="classification" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="representative" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateEssencePackageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageSOCHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="soc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageSOCHttpGetOut" />
+  <wsdl:message name="SetEssencePackageEOCHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="eoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageEOCHttpGetOut" />
+  <wsdl:message name="SetEssencePackageTitleHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageTitleHttpGetOut" />
+  <wsdl:message name="SetEssencePackageClassificationHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="classification" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageClassificationHttpGetOut" />
+  <wsdl:message name="SetRepresentativeEssencePackageHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetRepresentativeEssencePackageHttpGetOut" />
+  <wsdl:message name="GetRepresentativeEssencePackageHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageHttpGetOut">
+    <wsdl:part name="Body" element="tns:EssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageListHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguids" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackagesByClassificationHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="classification" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackagesByClassificationHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackageHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackageHttpGetOut">
+    <wsdl:part name="Body" element="tns:EssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="ListAllEssencePackagesHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListAllEssencePackagesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEssencePackageHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEssencePackageHttpGetOut" />
+  <wsdl:message name="DeleteAllEssencePackagesHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllEssencePackagesHttpGetOut" />
+  <wsdl:message name="ListClassificationsHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListClassificationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetDmguidForEpguidHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDmguidForEpguidHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateEssencePackageHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="classification" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="representative" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateEssencePackageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageSOCHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="soc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageSOCHttpPostOut" />
+  <wsdl:message name="SetEssencePackageEOCHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="eoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageEOCHttpPostOut" />
+  <wsdl:message name="SetEssencePackageTitleHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageTitleHttpPostOut" />
+  <wsdl:message name="SetEssencePackageClassificationHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+    <wsdl:part name="classification" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetEssencePackageClassificationHttpPostOut" />
+  <wsdl:message name="SetRepresentativeEssencePackageHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetRepresentativeEssencePackageHttpPostOut" />
+  <wsdl:message name="GetRepresentativeEssencePackageHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageHttpPostOut">
+    <wsdl:part name="Body" element="tns:EssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageListHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguids" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GetRepresentativeEssencePackageListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackagesByClassificationHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="classification" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackagesByClassificationHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackageHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEssencePackageHttpPostOut">
+    <wsdl:part name="Body" element="tns:EssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="ListAllEssencePackagesHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListAllEssencePackagesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEssencePackage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEssencePackageHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEssencePackageHttpPostOut" />
+  <wsdl:message name="DeleteAllEssencePackagesHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllEssencePackagesHttpPostOut" />
+  <wsdl:message name="ListClassificationsHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListClassificationsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetDmguidForEpguidHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="epguid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDmguidForEpguidHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="DMEssencePackagesSoap">
+    <wsdl:operation name="CreateEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new essence package for the given dmguid with the given classification, title and representative flag. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION.&lt;br/&gt;The method returns the essence package guid (epguid) of the created package.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:CreateEssencePackageSoapIn" />
+      <wsdl:output message="tns:CreateEssencePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the SOC of the essence package with the given epguid. You can use -1 to reset the SOC value. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageSOCSoapIn" />
+      <wsdl:output message="tns:SetEssencePackageSOCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the EOC of the essence package with the given epguid. You can use -1 to reset the EOC value. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageEOCSoapIn" />
+      <wsdl:output message="tns:SetEssencePackageEOCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the title of the essence package with the given epguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageTitleSoapIn" />
+      <wsdl:output message="tns:SetEssencePackageTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the classification of the essence package with the given epguid. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageClassificationSoapIn" />
+      <wsdl:output message="tns:SetEssencePackageClassificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Marks the essence package with the given epguid as representative package. Please note that this removes the representative flag from the former representative package.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetRepresentativeEssencePackageSoapIn" />
+      <wsdl:output message="tns:SetRepresentativeEssencePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the representative essence package for the given dmguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: there is no representative package for this object</wsdl:documentation>
+      <wsdl:input message="tns:GetRepresentativeEssencePackageSoapIn" />
+      <wsdl:output message="tns:GetRepresentativeEssencePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the representative essence packages for a list of dmguids. The order of the returned packages corresponds to the order of the given DMGUIDs. If some of the given dmguids don't exist or if there is no representative essence package, the method returns null for these DMGUIDs. Note: The DMGUIDs must appear only once in the list. If a DMGUID appears more than once, only the first one leads to a correct result, all other appearances lead to a null result.</wsdl:documentation>
+      <wsdl:input message="tns:GetRepresentativeEssencePackageListSoapIn" />
+      <wsdl:output message="tns:GetRepresentativeEssencePackageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the essence packages for the given dmguid with the given classification. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION. If there is no essence package with this classification, the method returns an empty list. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:GetEssencePackagesByClassificationSoapIn" />
+      <wsdl:output message="tns:GetEssencePackagesByClassificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the essence package with the given epguid.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetEssencePackageSoapIn" />
+      <wsdl:output message="tns:GetEssencePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all essence packages for the given dmguid.If no essence package exists, the method returns an empty list.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ListAllEssencePackagesSoapIn" />
+      <wsdl:output message="tns:ListAllEssencePackagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the essence package with the given epguid.If the essence package doesn't exist, the method doesn't throw an exception. </wsdl:documentation>
+      <wsdl:input message="tns:DeleteEssencePackageSoapIn" />
+      <wsdl:output message="tns:DeleteEssencePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all essence package for the given dmguid.If no essence package exists, the method doesn't throw an exception. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:DeleteAllEssencePackagesSoapIn" />
+      <wsdl:output message="tns:DeleteAllEssencePackagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all possible essence package classifications.</wsdl:documentation>
+      <wsdl:input message="tns:ListClassificationsSoapIn" />
+      <wsdl:output message="tns:ListClassificationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the DMGUID of the object containing the essence package with the given epguid&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDmguidForEpguidSoapIn" />
+      <wsdl:output message="tns:GetDmguidForEpguidSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMEssencePackagesHttpGet">
+    <wsdl:operation name="CreateEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new essence package for the given dmguid with the given classification, title and representative flag. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION.&lt;br/&gt;The method returns the essence package guid (epguid) of the created package.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:CreateEssencePackageHttpGetIn" />
+      <wsdl:output message="tns:CreateEssencePackageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the SOC of the essence package with the given epguid. You can use -1 to reset the SOC value. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageSOCHttpGetIn" />
+      <wsdl:output message="tns:SetEssencePackageSOCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the EOC of the essence package with the given epguid. You can use -1 to reset the EOC value. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageEOCHttpGetIn" />
+      <wsdl:output message="tns:SetEssencePackageEOCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the title of the essence package with the given epguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageTitleHttpGetIn" />
+      <wsdl:output message="tns:SetEssencePackageTitleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the classification of the essence package with the given epguid. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageClassificationHttpGetIn" />
+      <wsdl:output message="tns:SetEssencePackageClassificationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Marks the essence package with the given epguid as representative package. Please note that this removes the representative flag from the former representative package.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetRepresentativeEssencePackageHttpGetIn" />
+      <wsdl:output message="tns:SetRepresentativeEssencePackageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the representative essence package for the given dmguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: there is no representative package for this object</wsdl:documentation>
+      <wsdl:input message="tns:GetRepresentativeEssencePackageHttpGetIn" />
+      <wsdl:output message="tns:GetRepresentativeEssencePackageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the representative essence packages for a list of dmguids. The order of the returned packages corresponds to the order of the given DMGUIDs. If some of the given dmguids don't exist or if there is no representative essence package, the method returns null for these DMGUIDs. Note: The DMGUIDs must appear only once in the list. If a DMGUID appears more than once, only the first one leads to a correct result, all other appearances lead to a null result.</wsdl:documentation>
+      <wsdl:input message="tns:GetRepresentativeEssencePackageListHttpGetIn" />
+      <wsdl:output message="tns:GetRepresentativeEssencePackageListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the essence packages for the given dmguid with the given classification. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION. If there is no essence package with this classification, the method returns an empty list. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:GetEssencePackagesByClassificationHttpGetIn" />
+      <wsdl:output message="tns:GetEssencePackagesByClassificationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the essence package with the given epguid.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetEssencePackageHttpGetIn" />
+      <wsdl:output message="tns:GetEssencePackageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all essence packages for the given dmguid.If no essence package exists, the method returns an empty list.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ListAllEssencePackagesHttpGetIn" />
+      <wsdl:output message="tns:ListAllEssencePackagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the essence package with the given epguid.If the essence package doesn't exist, the method doesn't throw an exception. </wsdl:documentation>
+      <wsdl:input message="tns:DeleteEssencePackageHttpGetIn" />
+      <wsdl:output message="tns:DeleteEssencePackageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all essence package for the given dmguid.If no essence package exists, the method doesn't throw an exception. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:DeleteAllEssencePackagesHttpGetIn" />
+      <wsdl:output message="tns:DeleteAllEssencePackagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all possible essence package classifications.</wsdl:documentation>
+      <wsdl:input message="tns:ListClassificationsHttpGetIn" />
+      <wsdl:output message="tns:ListClassificationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the DMGUID of the object containing the essence package with the given epguid&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDmguidForEpguidHttpGetIn" />
+      <wsdl:output message="tns:GetDmguidForEpguidHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMEssencePackagesHttpPost">
+    <wsdl:operation name="CreateEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new essence package for the given dmguid with the given classification, title and representative flag. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION.&lt;br/&gt;The method returns the essence package guid (epguid) of the created package.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:CreateEssencePackageHttpPostIn" />
+      <wsdl:output message="tns:CreateEssencePackageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the SOC of the essence package with the given epguid. You can use -1 to reset the SOC value. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageSOCHttpPostIn" />
+      <wsdl:output message="tns:SetEssencePackageSOCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the EOC of the essence package with the given epguid. You can use -1 to reset the EOC value. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageEOCHttpPostIn" />
+      <wsdl:output message="tns:SetEssencePackageEOCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the title of the essence package with the given epguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageTitleHttpPostIn" />
+      <wsdl:output message="tns:SetEssencePackageTitleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the classification of the essence package with the given epguid. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SetEssencePackageClassificationHttpPostIn" />
+      <wsdl:output message="tns:SetEssencePackageClassificationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Marks the essence package with the given epguid as representative package. Please note that this removes the representative flag from the former representative package.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetRepresentativeEssencePackageHttpPostIn" />
+      <wsdl:output message="tns:SetRepresentativeEssencePackageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the representative essence package for the given dmguid. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: there is no representative package for this object</wsdl:documentation>
+      <wsdl:input message="tns:GetRepresentativeEssencePackageHttpPostIn" />
+      <wsdl:output message="tns:GetRepresentativeEssencePackageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the representative essence packages for a list of dmguids. The order of the returned packages corresponds to the order of the given DMGUIDs. If some of the given dmguids don't exist or if there is no representative essence package, the method returns null for these DMGUIDs. Note: The DMGUIDs must appear only once in the list. If a DMGUID appears more than once, only the first one leads to a correct result, all other appearances lead to a null result.</wsdl:documentation>
+      <wsdl:input message="tns:GetRepresentativeEssencePackageListHttpPostIn" />
+      <wsdl:output message="tns:GetRepresentativeEssencePackageListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the essence packages for the given dmguid with the given classification. The classification must be the english label of one of the legal list entries in the legal list SYSTEM_EMCLASSIFICATION. If there is no essence package with this classification, the method returns an empty list. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssenceClassification&lt;/b&gt;: the classification is invalid</wsdl:documentation>
+      <wsdl:input message="tns:GetEssencePackagesByClassificationHttpPostIn" />
+      <wsdl:output message="tns:GetEssencePackagesByClassificationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the essence package with the given epguid.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetEssencePackageHttpPostIn" />
+      <wsdl:output message="tns:GetEssencePackageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all essence packages for the given dmguid.If no essence package exists, the method returns an empty list.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:ListAllEssencePackagesHttpPostIn" />
+      <wsdl:output message="tns:ListAllEssencePackagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the essence package with the given epguid.If the essence package doesn't exist, the method doesn't throw an exception. </wsdl:documentation>
+      <wsdl:input message="tns:DeleteEssencePackageHttpPostIn" />
+      <wsdl:output message="tns:DeleteEssencePackageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all essence package for the given dmguid.If no essence package exists, the method doesn't throw an exception. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownObject&lt;/b&gt;: the object doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:DeleteAllEssencePackagesHttpPostIn" />
+      <wsdl:output message="tns:DeleteAllEssencePackagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of all possible essence package classifications.</wsdl:documentation>
+      <wsdl:input message="tns:ListClassificationsHttpPostIn" />
+      <wsdl:output message="tns:ListClassificationsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the DMGUID of the object containing the essence package with the given epguid&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownEssencePackage&lt;/b&gt;: the EPGUID doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDmguidForEpguidHttpPostIn" />
+      <wsdl:output message="tns:GetDmguidForEpguidHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMEssencePackagesSoap" type="tns:DMEssencePackagesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateEssencePackage">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/CreateEssencePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageSOC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageEOC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageClassification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetRepresentativeEssencePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetRepresentativeEssencePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetRepresentativeEssencePackageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetEssencePackagesByClassification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetEssencePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/ListAllEssencePackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/DeleteEssencePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/DeleteAllEssencePackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/ListClassifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetDmguidForEpguid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMEssencePackagesSoap12" type="tns:DMEssencePackagesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateEssencePackage">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/CreateEssencePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageSOC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageEOC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetEssencePackageClassification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/SetRepresentativeEssencePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetRepresentativeEssencePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetRepresentativeEssencePackageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetEssencePackagesByClassification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetEssencePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/ListAllEssencePackages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/DeleteEssencePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/DeleteAllEssencePackages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/ListClassifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmessencepackages/GetDmguidForEpguid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMEssencePackagesHttpGet" type="tns:DMEssencePackagesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CreateEssencePackage">
+      <http:operation location="/CreateEssencePackage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <http:operation location="/SetEssencePackageSOC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <http:operation location="/SetEssencePackageEOC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <http:operation location="/SetEssencePackageTitle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <http:operation location="/SetEssencePackageClassification" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <http:operation location="/SetRepresentativeEssencePackage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <http:operation location="/GetRepresentativeEssencePackage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <http:operation location="/GetRepresentativeEssencePackageList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <http:operation location="/GetEssencePackagesByClassification" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <http:operation location="/GetEssencePackage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <http:operation location="/ListAllEssencePackages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <http:operation location="/DeleteEssencePackage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <http:operation location="/DeleteAllEssencePackages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <http:operation location="/ListClassifications" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <http:operation location="/GetDmguidForEpguid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMEssencePackagesHttpPost" type="tns:DMEssencePackagesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CreateEssencePackage">
+      <http:operation location="/CreateEssencePackage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageSOC">
+      <http:operation location="/SetEssencePackageSOC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageEOC">
+      <http:operation location="/SetEssencePackageEOC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageTitle">
+      <http:operation location="/SetEssencePackageTitle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetEssencePackageClassification">
+      <http:operation location="/SetEssencePackageClassification" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetRepresentativeEssencePackage">
+      <http:operation location="/SetRepresentativeEssencePackage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackage">
+      <http:operation location="/GetRepresentativeEssencePackage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepresentativeEssencePackageList">
+      <http:operation location="/GetRepresentativeEssencePackageList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackagesByClassification">
+      <http:operation location="/GetEssencePackagesByClassification" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEssencePackage">
+      <http:operation location="/GetEssencePackage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllEssencePackages">
+      <http:operation location="/ListAllEssencePackages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEssencePackage">
+      <http:operation location="/DeleteEssencePackage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllEssencePackages">
+      <http:operation location="/DeleteAllEssencePackages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ListClassifications">
+      <http:operation location="/ListClassifications" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDmguidForEpguid">
+      <http:operation location="/GetDmguidForEpguid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMEssencePackages">
+    <wsdl:port name="DMEssencePackagesSoap" binding="tns:DMEssencePackagesSoap">
+      <soap:address location="http://10.100.5.20:12200/DataManagerWS/DMEssencePackages.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMEssencePackagesSoap12" binding="tns:DMEssencePackagesSoap12">
+      <soap12:address location="http://10.100.5.20:12200/DataManagerWS/DMEssencePackages.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMEssencePackagesHttpGet" binding="tns:DMEssencePackagesHttpGet">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMEssencePackages.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMEssencePackagesHttpPost" binding="tns:DMEssencePackagesHttpPost">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMEssencePackages.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

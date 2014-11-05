@@ -1,0 +1,12 @@
+﻿@model mamSearchAndRetrieval.Models.RetrievalModel
+
+<div class="row">
+    <div class="center-block text-center">
+        <img id="thumbnail" src="@Model.thumbnailUrl" />
+    </div>
+</div>
+<div style="font-size: x-small">
+    <strong>Workflow:</strong> @Model.metadata["WORKFLOW"]<br />
+    <strong>Production #:</strong> @Model.metadata["PRODUCTION_NUMBER"]<br />
+    <strong>Barcode:</strong> @Model.metadata["MAINTITLE"]<br />
+</div>

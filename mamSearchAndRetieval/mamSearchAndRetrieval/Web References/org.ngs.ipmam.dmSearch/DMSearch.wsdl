@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.blue-order.com/ma/datamanagerws/dmsearch" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmsearch" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmsearch">
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindByAttribute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindByAttributeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindByAttributeResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindByAttributeAndObjectClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindByAttributeAndObjectClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindByAttributeAndObjectClassResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUniqueByAttributeAndObjectClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attribute" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUniqueByAttributeAndObjectClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindUniqueByAttributeAndObjectClassResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hitlistDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchExtResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExt2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hitlistDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExt2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchExt2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExt3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hitlistDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="returnNumberOfSegments" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExt3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchExt3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSegments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dmguid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mdclass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSegmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSegmentsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="Search2SoapIn">
+    <wsdl:part name="parameters" element="tns:Search2" />
+  </wsdl:message>
+  <wsdl:message name="Search2SoapOut">
+    <wsdl:part name="parameters" element="tns:Search2Response" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeSoapIn">
+    <wsdl:part name="parameters" element="tns:FindByAttribute" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeSoapOut">
+    <wsdl:part name="parameters" element="tns:FindByAttributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeAndObjectClassSoapIn">
+    <wsdl:part name="parameters" element="tns:FindByAttributeAndObjectClass" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeAndObjectClassSoapOut">
+    <wsdl:part name="parameters" element="tns:FindByAttributeAndObjectClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUniqueByAttributeAndObjectClassSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUniqueByAttributeAndObjectClass" />
+  </wsdl:message>
+  <wsdl:message name="FindUniqueByAttributeAndObjectClassSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUniqueByAttributeAndObjectClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchExtSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchExt" />
+  </wsdl:message>
+  <wsdl:message name="SearchExtSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt2SoapIn">
+    <wsdl:part name="parameters" element="tns:SearchExt2" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt2SoapOut">
+    <wsdl:part name="parameters" element="tns:SearchExt2Response" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt3SoapIn">
+    <wsdl:part name="parameters" element="tns:SearchExt3" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt3SoapOut">
+    <wsdl:part name="parameters" element="tns:SearchExt3Response" />
+  </wsdl:message>
+  <wsdl:message name="SearchSegmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchSegments" />
+  </wsdl:message>
+  <wsdl:message name="SearchSegmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchSegmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Search2HttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Search2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="searchString" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeAndObjectClassHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="objectClass" type="s:string" />
+    <wsdl:part name="searchString" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeAndObjectClassHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="FindUniqueByAttributeAndObjectClassHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="objectClass" type="s:string" />
+    <wsdl:part name="searchString" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUniqueByAttributeAndObjectClassHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SearchExtHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="hitlistDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExtHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt2HttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="hitlistDoc" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt3HttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="hitlistDoc" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+    <wsdl:part name="returnNumberOfSegments" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt3HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchSegmentsHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchSegmentsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Search2HttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Search2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="searchString" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeAndObjectClassHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="objectClass" type="s:string" />
+    <wsdl:part name="searchString" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindByAttributeAndObjectClassHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="FindUniqueByAttributeAndObjectClassHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="attribute" type="s:string" />
+    <wsdl:part name="objectClass" type="s:string" />
+    <wsdl:part name="searchString" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUniqueByAttributeAndObjectClassHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SearchExtHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="hitlistDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExtHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt2HttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="hitlistDoc" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt3HttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+    <wsdl:part name="hitlistDoc" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+    <wsdl:part name="returnNumberOfSegments" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchExt3HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchSegmentsHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string" />
+    <wsdl:part name="dmguid" type="s:string" />
+    <wsdl:part name="mdclass" type="s:string" />
+    <wsdl:part name="queryDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchSegmentsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="DMSearchSoap">
+    <wsdl:operation name="Search">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use Search2 instead. This method always uses &amp;quot;en&amp;quot; as language.</wsdl:documentation>
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). It returns an UTF-16 coded string with the XML representation of the resulting hitlist. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query and hitlist formats go beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;p/&gt;&lt;p/&gt;This method works like Search3Ext with null as the value for hitlistDoc and false for returnNumberOfSegments.</wsdl:documentation>
+      <wsdl:input message="tns:Search2SoapIn" />
+      <wsdl:output message="tns:Search2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects matching the given criteria. The method executes an attribute search for the given attribute and returns the dmguids of the objects fulfilling the given criteria. &lt;/br&gt;The searchString may contain logical operators, brackets and basically everything that is allowed in the attribute search, including the &amp;quot;_nil&amp;quot; operator. Please note especially that you must use the exact search operator (! = exclamation mark) when searching for exact values. &lt;br/&gt;Please note the following specialties:&lt;ul&gt;&lt;li&gt;For legallist and thesaurus attributes you must provide the ID of the entry you are searching.&lt;/li&gt;&lt;li&gt;For boolean attributes you must use the integers 0 (=not set) or 1 (=set).&lt;/li&gt;&lt;li&gt;Date, datetime and time attributes are best given in Interplay MAM format (date: YYYYMMDD, datetime: YYYYMMDDhhmmss, time: hhmmss).&lt;/li&gt;&lt;li&gt;Timecodes and durations are expected in SMPTE notation. You can use a short form like 20:30 (ignoring minutes and seconds in this case). The frame number is always ignored in the search.&lt;/li&gt;&lt;li&gt;Masterdata attributes are searched by using a &amp;quot;quick search&amp;quot; over the text attributes of the master data class.&lt;/li&gt;&lt;li&gt;Compound attributes are also searched by using a &amp;quot;quick search&amp;quot; over the text sub attributes. For compounds, you can use &amp;quot;attribute.subattribute&amp;quot; (example: &amp;quot;broadcastings.date&amp;quot;) to search for a sub attribute of a compound attribute.&lt;/li&gt;&lt;li&gt;Floating point values are given in international form, e.g. 10.45, i.e. with a dot as decimal point.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;The maximum number of returned dmguids is configurable. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:FindByAttributeSoapIn" />
+      <wsdl:output message="tns:FindByAttributeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like FindByAttribute() with the exception that you limit the search to the given object class.&lt;br/&gt;Please see the documentation of FindByAttribute() for additional details.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:FindByAttributeAndObjectClassSoapIn" />
+      <wsdl:output message="tns:FindByAttributeAndObjectClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like FindByAttributeAndObjectClass() but it returns at most one hit. If the search criteria match for more than one hit, the method throws an exception.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:FindUniqueByAttributeAndObjectClassSoapIn" />
+      <wsdl:output message="tns:FindUniqueByAttributeAndObjectClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use SearchExt2 instead.This method always uses &amp;quot;en&amp;quot; as language.</wsdl:documentation>
+      <wsdl:input message="tns:SearchExtSoapIn" />
+      <wsdl:output message="tns:SearchExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). &lt;br/&gt;The parameter hitlistDoc contains an UTF-16 coded XML string defining which information should be contained in the hitlist, i.e. with a detailed description of all columns in the resulting hitlist. If the value is null, the queryDoc must contain the ID of one of the standard hitlists in the datamodel and this hitlist definition is used. &lt;br/&gt;The method returns an UTF-16 coded string with the XML representation (AXF format) of the resulting with the objects matching the query and with the values of all the hitlist columns. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query format, the hitlist description format and the format of the result hitlist goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;p/&gt;&lt;p/&gt;This method works like Search3Ext with  false as value for returnNumberOfSegments.</wsdl:documentation>
+      <wsdl:input message="tns:SearchExt2SoapIn" />
+      <wsdl:output message="tns:SearchExt2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). &lt;br/&gt;The parameter hitlistDoc contains an UTF-16 coded XML string defining which information should be contained in the hitlist, i.e. with a detailed description of all columns in the resulting hitlist. If the value is null, the queryDoc must contain the ID of one of the standard hitlists in the datamodel and this hitlist definition is used. &lt;br/&gt;The parameter returnNumberOfSegments defines if the method returns the number of segments in case the queryDoc contained a stratum search. Please note that this is a bit more expensive, so you should set the paramter to true only if you really need the information. &lt;br/&gt;The method returns an UTF-16 coded string with the XML representation (AXF format) of the resulting with the objects matching the query and with the values of all the hitlist columns. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query format, the hitlist description format and the format of the result hitlist goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SearchExt3SoapIn" />
+      <wsdl:output message="tns:SearchExt3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for the segments(!) matching the search criteria (given in the queryDoc parameter (UTF-16 coded XML string)), for the given object. It is used by RetrievalWS to show matching segments after a stratum search. queryDoc must contain a strata search part. &lt;br/&gt;The mdclass parameter can be used to pass the object class if you happen to know it. If it is null, the DM finds the object class itself. &lt;br/&gt;The method returns a partial AXF (as UTF-16 coded string) with one MAObject node and with all the matching(!) segments.&lt;br/&gt;An explanation of the query format and the return format (AXF) goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SearchSegmentsSoapIn" />
+      <wsdl:output message="tns:SearchSegmentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMSearchHttpGet">
+    <wsdl:operation name="Search">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use Search2 instead. This method always uses &amp;quot;en&amp;quot; as language.</wsdl:documentation>
+      <wsdl:input message="tns:SearchHttpGetIn" />
+      <wsdl:output message="tns:SearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). It returns an UTF-16 coded string with the XML representation of the resulting hitlist. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query and hitlist formats go beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;p/&gt;&lt;p/&gt;This method works like Search3Ext with null as the value for hitlistDoc and false for returnNumberOfSegments.</wsdl:documentation>
+      <wsdl:input message="tns:Search2HttpGetIn" />
+      <wsdl:output message="tns:Search2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects matching the given criteria. The method executes an attribute search for the given attribute and returns the dmguids of the objects fulfilling the given criteria. &lt;/br&gt;The searchString may contain logical operators, brackets and basically everything that is allowed in the attribute search, including the &amp;quot;_nil&amp;quot; operator. Please note especially that you must use the exact search operator (! = exclamation mark) when searching for exact values. &lt;br/&gt;Please note the following specialties:&lt;ul&gt;&lt;li&gt;For legallist and thesaurus attributes you must provide the ID of the entry you are searching.&lt;/li&gt;&lt;li&gt;For boolean attributes you must use the integers 0 (=not set) or 1 (=set).&lt;/li&gt;&lt;li&gt;Date, datetime and time attributes are best given in Interplay MAM format (date: YYYYMMDD, datetime: YYYYMMDDhhmmss, time: hhmmss).&lt;/li&gt;&lt;li&gt;Timecodes and durations are expected in SMPTE notation. You can use a short form like 20:30 (ignoring minutes and seconds in this case). The frame number is always ignored in the search.&lt;/li&gt;&lt;li&gt;Masterdata attributes are searched by using a &amp;quot;quick search&amp;quot; over the text attributes of the master data class.&lt;/li&gt;&lt;li&gt;Compound attributes are also searched by using a &amp;quot;quick search&amp;quot; over the text sub attributes. For compounds, you can use &amp;quot;attribute.subattribute&amp;quot; (example: &amp;quot;broadcastings.date&amp;quot;) to search for a sub attribute of a compound attribute.&lt;/li&gt;&lt;li&gt;Floating point values are given in international form, e.g. 10.45, i.e. with a dot as decimal point.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;The maximum number of returned dmguids is configurable. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:FindByAttributeHttpGetIn" />
+      <wsdl:output message="tns:FindByAttributeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like FindByAttribute() with the exception that you limit the search to the given object class.&lt;br/&gt;Please see the documentation of FindByAttribute() for additional details.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:FindByAttributeAndObjectClassHttpGetIn" />
+      <wsdl:output message="tns:FindByAttributeAndObjectClassHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like FindByAttributeAndObjectClass() but it returns at most one hit. If the search criteria match for more than one hit, the method throws an exception.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:FindUniqueByAttributeAndObjectClassHttpGetIn" />
+      <wsdl:output message="tns:FindUniqueByAttributeAndObjectClassHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use SearchExt2 instead.This method always uses &amp;quot;en&amp;quot; as language.</wsdl:documentation>
+      <wsdl:input message="tns:SearchExtHttpGetIn" />
+      <wsdl:output message="tns:SearchExtHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). &lt;br/&gt;The parameter hitlistDoc contains an UTF-16 coded XML string defining which information should be contained in the hitlist, i.e. with a detailed description of all columns in the resulting hitlist. If the value is null, the queryDoc must contain the ID of one of the standard hitlists in the datamodel and this hitlist definition is used. &lt;br/&gt;The method returns an UTF-16 coded string with the XML representation (AXF format) of the resulting with the objects matching the query and with the values of all the hitlist columns. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query format, the hitlist description format and the format of the result hitlist goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;p/&gt;&lt;p/&gt;This method works like Search3Ext with  false as value for returnNumberOfSegments.</wsdl:documentation>
+      <wsdl:input message="tns:SearchExt2HttpGetIn" />
+      <wsdl:output message="tns:SearchExt2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). &lt;br/&gt;The parameter hitlistDoc contains an UTF-16 coded XML string defining which information should be contained in the hitlist, i.e. with a detailed description of all columns in the resulting hitlist. If the value is null, the queryDoc must contain the ID of one of the standard hitlists in the datamodel and this hitlist definition is used. &lt;br/&gt;The parameter returnNumberOfSegments defines if the method returns the number of segments in case the queryDoc contained a stratum search. Please note that this is a bit more expensive, so you should set the paramter to true only if you really need the information. &lt;br/&gt;The method returns an UTF-16 coded string with the XML representation (AXF format) of the resulting with the objects matching the query and with the values of all the hitlist columns. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query format, the hitlist description format and the format of the result hitlist goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SearchExt3HttpGetIn" />
+      <wsdl:output message="tns:SearchExt3HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for the segments(!) matching the search criteria (given in the queryDoc parameter (UTF-16 coded XML string)), for the given object. It is used by RetrievalWS to show matching segments after a stratum search. queryDoc must contain a strata search part. &lt;br/&gt;The mdclass parameter can be used to pass the object class if you happen to know it. If it is null, the DM finds the object class itself. &lt;br/&gt;The method returns a partial AXF (as UTF-16 coded string) with one MAObject node and with all the matching(!) segments.&lt;br/&gt;An explanation of the query format and the return format (AXF) goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SearchSegmentsHttpGetIn" />
+      <wsdl:output message="tns:SearchSegmentsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMSearchHttpPost">
+    <wsdl:operation name="Search">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use Search2 instead. This method always uses &amp;quot;en&amp;quot; as language.</wsdl:documentation>
+      <wsdl:input message="tns:SearchHttpPostIn" />
+      <wsdl:output message="tns:SearchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). It returns an UTF-16 coded string with the XML representation of the resulting hitlist. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query and hitlist formats go beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;p/&gt;&lt;p/&gt;This method works like Search3Ext with null as the value for hitlistDoc and false for returnNumberOfSegments.</wsdl:documentation>
+      <wsdl:input message="tns:Search2HttpPostIn" />
+      <wsdl:output message="tns:Search2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects matching the given criteria. The method executes an attribute search for the given attribute and returns the dmguids of the objects fulfilling the given criteria. &lt;/br&gt;The searchString may contain logical operators, brackets and basically everything that is allowed in the attribute search, including the &amp;quot;_nil&amp;quot; operator. Please note especially that you must use the exact search operator (! = exclamation mark) when searching for exact values. &lt;br/&gt;Please note the following specialties:&lt;ul&gt;&lt;li&gt;For legallist and thesaurus attributes you must provide the ID of the entry you are searching.&lt;/li&gt;&lt;li&gt;For boolean attributes you must use the integers 0 (=not set) or 1 (=set).&lt;/li&gt;&lt;li&gt;Date, datetime and time attributes are best given in Interplay MAM format (date: YYYYMMDD, datetime: YYYYMMDDhhmmss, time: hhmmss).&lt;/li&gt;&lt;li&gt;Timecodes and durations are expected in SMPTE notation. You can use a short form like 20:30 (ignoring minutes and seconds in this case). The frame number is always ignored in the search.&lt;/li&gt;&lt;li&gt;Masterdata attributes are searched by using a &amp;quot;quick search&amp;quot; over the text attributes of the master data class.&lt;/li&gt;&lt;li&gt;Compound attributes are also searched by using a &amp;quot;quick search&amp;quot; over the text sub attributes. For compounds, you can use &amp;quot;attribute.subattribute&amp;quot; (example: &amp;quot;broadcastings.date&amp;quot;) to search for a sub attribute of a compound attribute.&lt;/li&gt;&lt;li&gt;Floating point values are given in international form, e.g. 10.45, i.e. with a dot as decimal point.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;The maximum number of returned dmguids is configurable. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:FindByAttributeHttpPostIn" />
+      <wsdl:output message="tns:FindByAttributeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like FindByAttribute() with the exception that you limit the search to the given object class.&lt;br/&gt;Please see the documentation of FindByAttribute() for additional details.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:FindByAttributeAndObjectClassHttpPostIn" />
+      <wsdl:output message="tns:FindByAttributeAndObjectClassHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method works exactly like FindByAttributeAndObjectClass() but it returns at most one hit. If the search criteria match for more than one hit, the method throws an exception.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.ObjectClassNotFound&lt;/b&gt;: the object class (mdclass) doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:FindUniqueByAttributeAndObjectClassHttpPostIn" />
+      <wsdl:output message="tns:FindUniqueByAttributeAndObjectClassHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;b&gt;Deprecated!&lt;/b&gt; Please use SearchExt2 instead.This method always uses &amp;quot;en&amp;quot; as language.</wsdl:documentation>
+      <wsdl:input message="tns:SearchExtHttpPostIn" />
+      <wsdl:output message="tns:SearchExtHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). &lt;br/&gt;The parameter hitlistDoc contains an UTF-16 coded XML string defining which information should be contained in the hitlist, i.e. with a detailed description of all columns in the resulting hitlist. If the value is null, the queryDoc must contain the ID of one of the standard hitlists in the datamodel and this hitlist definition is used. &lt;br/&gt;The method returns an UTF-16 coded string with the XML representation (AXF format) of the resulting with the objects matching the query and with the values of all the hitlist columns. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query format, the hitlist description format and the format of the result hitlist goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid&lt;p/&gt;&lt;p/&gt;This method works like Search3Ext with  false as value for returnNumberOfSegments.</wsdl:documentation>
+      <wsdl:input message="tns:SearchExt2HttpPostIn" />
+      <wsdl:output message="tns:SearchExt2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for objects using the search criteria given in the queryDoc parameter (UTF-16 coded XML string). &lt;br/&gt;The parameter hitlistDoc contains an UTF-16 coded XML string defining which information should be contained in the hitlist, i.e. with a detailed description of all columns in the resulting hitlist. If the value is null, the queryDoc must contain the ID of one of the standard hitlists in the datamodel and this hitlist definition is used. &lt;br/&gt;The parameter returnNumberOfSegments defines if the method returns the number of segments in case the queryDoc contained a stratum search. Please note that this is a bit more expensive, so you should set the paramter to true only if you really need the information. &lt;br/&gt;The method returns an UTF-16 coded string with the XML representation (AXF format) of the resulting with the objects matching the query and with the values of all the hitlist columns. &lt;br/&gt;The parameter language contains the the ISO language code of the user, e.g. &amp;quot;en&amp;quot; or &amp;quot;en-US&amp;quot;. For some of the elements in the hitlist, like legal list values for example, a label in that language is returned.&lt;br/&gt;An explanation of the query format, the hitlist description format and the format of the result hitlist goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SearchExt3HttpPostIn" />
+      <wsdl:output message="tns:SearchExt3HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches for the segments(!) matching the search criteria (given in the queryDoc parameter (UTF-16 coded XML string)), for the given object. It is used by RetrievalWS to show matching segments after a stratum search. queryDoc must contain a strata search part. &lt;br/&gt;The mdclass parameter can be used to pass the object class if you happen to know it. If it is null, the DM finds the object class itself. &lt;br/&gt;The method returns a partial AXF (as UTF-16 coded string) with one MAObject node and with all the matching(!) segments.&lt;br/&gt;An explanation of the query format and the return format (AXF) goes beyond the scope of this interface definition. Please check external documentation for details. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.IllegalSearchSyntax&lt;/b&gt;: the search query is invalid</wsdl:documentation>
+      <wsdl:input message="tns:SearchSegmentsHttpPostIn" />
+      <wsdl:output message="tns:SearchSegmentsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMSearchSoap" type="tns:DMSearchSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/Search2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/FindByAttribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/FindByAttributeAndObjectClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/FindUniqueByAttributeAndObjectClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchExt2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchExt3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchSegments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMSearchSoap12" type="tns:DMSearchSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/Search2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/FindByAttribute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/FindByAttributeAndObjectClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/FindUniqueByAttributeAndObjectClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchExt2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchExt3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmsearch/SearchSegments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMSearchHttpGet" type="tns:DMSearchHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Search">
+      <http:operation location="/Search" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <http:operation location="/Search2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <http:operation location="/FindByAttribute" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <http:operation location="/FindByAttributeAndObjectClass" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <http:operation location="/FindUniqueByAttributeAndObjectClass" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <http:operation location="/SearchExt" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <http:operation location="/SearchExt2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <http:operation location="/SearchExt3" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <http:operation location="/SearchSegments" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMSearchHttpPost" type="tns:DMSearchHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Search">
+      <http:operation location="/Search" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search2">
+      <http:operation location="/Search2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttribute">
+      <http:operation location="/FindByAttribute" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByAttributeAndObjectClass">
+      <http:operation location="/FindByAttributeAndObjectClass" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUniqueByAttributeAndObjectClass">
+      <http:operation location="/FindUniqueByAttributeAndObjectClass" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt">
+      <http:operation location="/SearchExt" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt2">
+      <http:operation location="/SearchExt2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExt3">
+      <http:operation location="/SearchExt3" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSegments">
+      <http:operation location="/SearchSegments" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMSearch">
+    <wsdl:port name="DMSearchSoap" binding="tns:DMSearchSoap">
+      <soap:address location="http://10.100.5.20:12200/DataManagerWS/DMSearch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMSearchSoap12" binding="tns:DMSearchSoap12">
+      <soap12:address location="http://10.100.5.20:12200/DataManagerWS/DMSearch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMSearchHttpGet" binding="tns:DMSearchHttpGet">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMSearch.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMSearchHttpPost" binding="tns:DMSearchHttpPost">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMSearch.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

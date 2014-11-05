@@ -1,0 +1,21 @@
+﻿@model mamSearchAndRetrieval.Models.RetrievalModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <div class="col-lg-2">
+        @Html.Partial("_detailsThumbnail")
+    </div>
+    <div class="col-lg-10">
+        @Html.Partial("_detailsNavigation")
+        @Html.Partial("_detailsBody")
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12" style="background-color: green">
+        @Html.Partial("_detailsRetrievalGrid")
+    </div>
+</div>

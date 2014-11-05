@@ -1,0 +1,92 @@
+﻿@model mamSearchAndRetrieval.Models.RetrievalModel
+
+@{
+    Dictionary<string, string> detailsCol1 = new Dictionary<string, string>
+    {
+        {"PRODUCTION_NUMBER", "Production Number"},
+        {"KEYWORD", "Keyword"},
+        {"CONCEPT", "Concept"},
+        {"LEVEL", "Level"},
+        {"CLIP_TAPE_DESCRIPTION", "Clip Tape Description"},
+        {"CATEGORY", "Category"},
+        {"ROLL_NUMBER", "Roll Number"},
+        {"PRODUCTION_OWNER", "Production Owner"},
+        {"FILM_AVAILABLE", "Film Available"},
+        {"ORIGINAL_CAMERA_ELEMENT", "Original Camera Element"},
+        {"HD_AVAILABLE", "Hd Available"},
+        {"ORIGINAL_CAPTURE_METHOD", "Original Capture Method"},
+        {"CAMERA_SHOT", "Camera Shot"},
+        {"CAMERA_SPEED", "Camera Speed"},
+        {"CAMERA_ACTION", "Camera Action"},
+        {"CAMERA_LOCATION", "Camera Location"},
+        {"AIR_DATE", "Air Date"},
+        {"ASPECT_RATIO", "Aspect Ratio"},
+        {"IN_OUT_PROGRAM", "In Out Program"},
+        {"CLIP_ID", "Clip Id"},
+        {"POPULATION", "Population"}
+    };
+
+    Dictionary<string, string> detailsCol2 = new Dictionary<string, string>
+    {
+        {"AGE", "Age"},
+        {"SEASON", "Season"},
+        {"GENDER", "Gender"},
+        {"ETHNICITY", "Ethnicity"},
+        {"COMPOSITION_AND_EFFECT", "Composition And Effect"},
+        {"AUDIO_AVAILABLE", "Audio Available"},
+        {"ERA", "Era"},
+        {"ASSET_TAPE_FORMAT", "Asset Tape Format"},
+        {"OVERALL_RIGHTS_NOTES", "Overall Rights Notes"},
+        {"OVERALL_RIGHTS_CODEOVERALL_RIGHTS_CODE", "Overall Rights Codeoverall Rights Code"},
+        {"PREDOMINANT_COLOR", "Predominant Color"},
+        {"COLOR", "Color"},
+        {"BARCODE", "Barcode"},
+        {"ASSET_TAPE_NUMBER", "Asset Tape Number"},
+        {"CATALOGING_NOTES", "Cataloging Notes"},
+        {"STANDARD", "Standard"},
+        {"ALTERNATE_PRODUCTION_TITLE", "Alternate Production Title"},
+        {"HD_FILE_AVAILABLE", "HD File Available"},
+        {"PARENT_CATALOGUING_NOTES", "Parent Cataloguing Notes"},
+        {"WORKFLOW", "Workflow"},
+        {"OVERALL_RIGHTS_CONTROL_NOTES", "Overall Rights Control Notes"}   
+    };
+}
+
+<div class="row">
+    <div class="row">
+        <div class="col-lg-6">
+            <dl>
+                @foreach (KeyValuePair<string, string> detail in detailsCol1)
+                {
+                    <dt>@detail.Value</dt>
+                    if (Model.metadata.ContainsKey(detail.Key)) 
+                    {
+                        <dd>@Model.metadata[detail.Key]</dd>
+                    }
+                    else
+                    {
+                        <dd>-</dd>
+                    }
+
+                }
+            </dl>
+        </div>
+        <div class="col-lg-6">
+            <dl>
+                @foreach (KeyValuePair<string, string> detail in detailsCol2)
+                {
+                    <dt>@detail.Value</dt>
+                    if (Model.metadata.ContainsKey(detail.Key))
+                    {
+                        <dd>@Model.metadata[detail.Key]</dd>
+                    }
+                    else
+                    {
+                        <dd>-</dd>
+                    }
+
+                }
+            </dl>
+        </div>
+    </div>
+</div>

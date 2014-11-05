@@ -1,0 +1,19 @@
+﻿@model mamSearchAndRetrieval.Models.ResultsViewModel
+
+@foreach (var item in Model.resultsItems)
+{
+    <div class="col-lg-4 text-center">
+        <div class="grid-item center-block" style="height:100px; width: 178px">
+            @Html.Raw(string.Format("<img src=\"{0}\" alt=\"Image\" data-dmguid=\"{1}\" data-epguid=\"{2}\" data-token=\"{3}\" height=100% />", Url.Content(@item.thumbnailUrl), @item.dmGuid, @item.epGuid, @item.token))
+        </div>
+        <div><small>@item.mainTitle</small></div>
+    </div>
+}
+<div id="grid-metadata">
+    <div id="startPage" style="display: none;">@Model.pager.startPage</div>
+    <div id="firstHit" style="display: none;">@Model.pager.firstHit</div>
+    <div id="hitsPerPage" style="display: none;">@Model.pager.hitsPerPage</div>
+    <div id="maxHits" style="display: none;">@Model.pager.maxHits</div>
+    <div id="totalRecords" style="display: none;">@Model.pager.totalRecords</div>
+    <div id="pages" style="display: none;">@Model.pager.pages</div>
+</div>

@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="mamSearchAndRetrieval.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="mamSearchAndRetrieval_org_ngs_ipmam_um_UM" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.100.5.20:12002/UserManagementWS/UM.asmx</Value>
+    </Setting>
+    <Setting Name="mamSearchAndRetrieval_org_ngs_ipmam_dmSearch_DMSearch" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.100.5.20:12200/DataManagerWS/DMSearch.asmx</Value>
+    </Setting>
+    <Setting Name="mamSearchAndRetrieval_org_ngs_ipmam_dmEssencePackages_DMEssencePackages" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.100.5.20:12200/DataManagerWS/DMEssencePackages.asmx</Value>
+    </Setting>
+    <Setting Name="mamSearchAndRetrieval_org_ngs_ipmam_essenceManager_EssenceManager" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.100.5.22:12300/EssenceManagerWS/EssenceManager.asmx</Value>
+    </Setting>
+    <Setting Name="mamSearchAndRetrieval_org_ngs_ipmam_dmObjectAccess_DMObjectAccess" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.100.5.20:12200/DataManagerWS/DMObjectAccess.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

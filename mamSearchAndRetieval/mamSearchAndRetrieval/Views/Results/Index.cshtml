@@ -1,0 +1,255 @@
+﻿@model mamSearchAndRetrieval.Models.ResultsViewModel
+
+@{
+    ViewBag.Title = ViewBag.Message;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div id="target" class="col-lg-7">
+        @Html.Partial("_gridPartial")
+    </div>
+    <div class="col-lg-5">
+        <div class="row">
+            @Html.Partial("_videoPlayer")
+            @Html.Partial("_details")
+        </div>
+    </div>
+</div>
+<div class="row">
+    @Html.Partial("_pager")
+</div>
+
+@section scripts
+{
+    <script>
+    $(function () {
+        var ngs = ngs || {};
+        ngs.results = {};
+        ngs.pagerInitialized = false;
+
+        var model = {
+            "searchString": "@Model.searchString",
+            "firstHit": "0",
+            "maxHits": "15"
+        }
+
+        ngs.setImageEvents = function () {
+            
+
+            $("img").on('dblclick', function () {
+                window.location.href = '@Url.Action("Details", "Retrieval")?dmguid=' + $(this).data("dmguid") + '&token=' + $(this).data("token");
+            });
+
+            var longpress = 500;
+
+            $("img").on('mousedown', function () {
+                start = new Date().getTime();
+            });
+
+            $("img").on('mouseleave', function () {
+                start = 0;
+            });
+
+            $("img").on('mouseup', function () {
+                if (new Date().getTime() >= (start + longpress)) {
+                    //alert('long press!');
+
+                    $(this).parent().toggleClass( "playlistSelected" )
+                } else {
+                    //alert('short press!');
+                }
+            });
+
+            $("img").on('click', function () {
+                var dmguid = $(this).data("dmguid");
+                var epguid = $(this).data("epguid");
+                var token = $(this).data("token");
+
+                jQuery.support.cors = true;
+
+                ngs.results.browseUrl({epguid: epguid, token:token});
+                ngs.results.metadata({dmguid: dmguid, token:token});
+            });
+        };
+
+        ngs.setDescription = function (tags) {
+            $("#TextArea").val("");
+            var items = [
+                { key: "CLIP_ID", display: "CLIP ID #" },
+                { key: "PRODUCTION_NUMBER", display: "PRODUCTION NUMBER" },
+                { key: "ROLL_NUMBER", display: "ROLL #" },
+                { key: "OVERALL_RIGHTS_CODE", display: "OVERALL RIGHTS CONTROL CODE" },
+                { key: "OVERALL_RIGHTS_NOTES", display: "OVERALL RIGHTS NOTES" },
+                { key: "DURATION", display: "DURATION" },
+                { key: "FTCIN", display: "TIMECODE IN" },
+                { key: "FTCOUT", display: "TIMECODE OUT" },
+                { key: "CLIP_TAPE_DESCRIPTION", display: "CLIP TAPE DESCRIPTION" },
+                { key: "AIR_DATE", display: "AIR DATE" }
+            ];
+
+            items.forEach(function (e, i, a) {
+                $("#TextArea").val($("#TextArea").val() + e.display + ": " + tags[e.key] + "\n");
+            });
+
+        };
+
+        ngs.results.browseUrl = function (model) {
+            $.get('@Url.Action("browseUrl", "Search")?epguid=' + model.epguid + '&token=' + model.token,
+                function (data) {
+                    //browseModel = JSON.parse(data);
+                    //$("#video1").attr("poster", $(this).src);
+                    $("#video1 source").attr("src", data);
+                    $("#video1").load();
+                    //setDescription(browseModel.metaTags);
+                }
+            );
+        };
+
+        ngs.results.metadata = function (model) {
+            $.get('@Url.Action("metadata", "Search")?dmguid=' + model.dmguid + '&token=' + model.token,
+                function (data) {
+                    var metadata = JSON.parse(data);
+                    //$("#video1").attr("poster", $(this).src);
+                    //$("#video1 source").attr("src", data);
+                    //$("#video1").load();
+                    ngs.results.setDescription(metadata);
+                }
+            );
+        };
+
+        ngs.results.setDescription = function (tags) {
+            $("#TextArea").val("");
+            var items = [
+                { key: "CLIP_ID", display: "CLIP ID #" },
+                { key: "PRODUCTION_NUMBER", display: "PRODUCTION NUMBER" },
+                { key: "ROLL_NUMBER", display: "ROLL #" },
+                { key: "OVERALL_RIGHTS_CODE", display: "OVERALL RIGHTS CONTROL CODE" },
+                { key: "OVERALL_RIGHTS_NOTES", display: "OVERALL RIGHTS NOTES" },
+                { key: "DURATION", display: "DURATION" },
+                { key: "FTCIN", display: "TIMECODE IN" },
+                { key: "FTCOUT", display: "TIMECODE OUT" },
+                { key: "CLIP_TAPE_DESCRIPTION", display: "CLIP TAPE DESCRIPTION" },
+                { key: "AIR_DATE", display: "AIR DATE" }
+            ];
+
+            items.forEach(function (e, i, a) {
+                $("#TextArea").val($("#TextArea").val() + e.display + ": " + tags[e.key] + "\n");
+            });
+        };
+
+        ngs.results.partialGrid = function (model) {
+            $.post("@Url.Action("PartialGrid", "Results")", model, function (data) {
+                $("#target").html('');
+                $("#target").html(data);
+            });
+        };
+
+        ngs.initPager = function () {
+            var pages = parseInt($("#pages").html());
+
+            for (var i = 2; i <= pages; i++) {
+                var visibility = i <= 10 ? "nothidden" : "hidden";
+
+                $('<li class="' + visibility + '" data-firstHit="' + (@Model.pager.hitsPerPage * (i-1)) + '" data-maxHits="' + @Model.pager.maxHits * i + '"><a href="#">' + i + '</a></li>').insertBefore("#grid-pagination #nextPage")
+            }
+
+            $("#prevBlock").attr("data-prevBlock", 0);
+            $("#nextBlock").attr("data-nextBlock", $(".nothidden").length + 1);
+            ngs.initPagerEvents();
+        };
+
+        ngs.initPagerEvents = function () {
+            $("#grid-pagination li").click(function () {
+
+                switch ($(this).text()) {
+
+                    case "‹":
+                        if (!$(this).hasClass("disabled")) {
+                            $(".active").prev().addClass("active").siblings(".active").removeClass("active");
+                            $("#value").html("Page: " + $(".active").html());
+                        }
+                        break;
+                    case "›":
+                        if (!$(this).hasClass("disabled")) {
+                            $(".active").next().addClass("active").siblings(".active").removeClass("active");
+                            $("#value").html("Page: " + $(".active").html());
+                        }
+                        break;
+                    case "«":
+                        if (!$(this).hasClass("disabled")) {
+                            var prevBlockStart = parseInt($(this).attr("data-prevblock"));
+
+                            $(".nothidden").removeClass("nothidden").addClass("hidden");
+
+                            $("#grid-pagination li").nextAll().slice(prevBlockStart, prevBlockStart + 10).removeClass("hidden").addClass("nothidden");
+                            $("#nextBlock").attr("data-nextblock", prevBlockStart + 10);
+                            $(this).attr("data-prevblock", prevBlockStart - 10);
+
+                            //$(".active").prev().addClass("active").siblings(".active").removeClass("active");
+                            //$("#value").html("Page: " + $(".active").html());
+                        }
+                        break;
+                    case "»":
+                        if (!$(this).hasClass("disabled")) {
+                            var nextBlockStart = parseInt($(this).attr("data-nextblock"));
+
+                            $(".nothidden").removeClass("nothidden").addClass("hidden");
+
+                            $("#grid-pagination li").nextAll().slice(nextBlockStart, nextBlockStart + 10).removeClass("hidden").addClass("nothidden");
+
+                            $(this).attr("data-nextBlock", nextBlockStart + 10);
+                            $("#prevBlock").attr("data-prevBlock", nextBlockStart - 10);
+
+                            //$(".active").prev().addClass("active").siblings(".active").removeClass("active");
+                            //$("#value").html("Page: " + $(".active").html());
+                        }
+                        break;
+                    default:
+                        $(this).addClass("active").siblings(".active").removeClass("active");
+                };
+
+                var maxHits = (parseInt($(".active").text()) * parseInt($("#hitsPerPage").html()));
+                var first = maxHits - parseInt($("#hitsPerPage").html());
+
+                $("#value").html("Page: " + $(".active").html());
+                var val = $("#value").html();
+                $("#value").html(val + "; first: " + first + "; maxHits: " + maxHits);
+
+                selectedPage = $(".active").text();
+
+                $(".disabled").removeClass("disabled");
+
+                if (selectedPage == $(this).parent().children().first().next().text()) {
+                    $("#prev").addClass("disabled");
+                }
+
+                if (selectedPage == $(this).parent().children().last().prev().text()) {
+                    $("#next").addClass("disabled");
+                }
+
+                var model = {
+                    "searchString": "@Model.searchString",
+                    "firstHit": this.dataset.firsthit,
+                    "maxHits": this.dataset.maxhits
+                }
+
+                ngs.results.partialGrid(model);
+            });
+        };
+
+        if (!ngs.pagerInitialized) {
+            ngs.initPager();
+
+            ngs.setImageEvents();
+            //$(".active").trigger("click");
+            ngs.pagerInitialized = true;
+        } else {
+            ngs.setImageEvents();
+        }
+    });
+
+
+</script>
+}

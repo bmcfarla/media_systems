@@ -1,0 +1,1794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.blue-order.com/ma/usermanagementws/um" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.blue-order.com/ma/usermanagementws/um" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">User management interface</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.blue-order.com/ma/usermanagementws/um">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginAsMandate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginAsMandateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginAsMandateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginAsMandateEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginAsMandateExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginAsMandateExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RefreshSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshSessionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsRightGranted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="right" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsRightGrantedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsRightGrantedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRightsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserPropertiesResult" type="tns:ArrayOfProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Property" nillable="true" type="tns:Property" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Property">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="property" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserPropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserPropertyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserGroupsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult" type="tns:UserInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tenant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="groups" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="rights" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSessionInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionInfoResult" type="tns:SessionInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SessionInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="tns:ItemInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tenant" type="tns:ItemInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Groups" type="tns:ArrayOfItemInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rights" type="tns:ArrayOfItemInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Properties" type="tns:ArrayOfProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemInfo" nillable="true" type="tns:ItemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPasswordResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPropertiesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="propertyname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="propertyvalue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPropertyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="property" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePropertyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserTenants">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTenantsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserTenantsResult" type="tns:ArrayOfTenantInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTenantInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TenantInformation" nillable="true" type="tns:TenantInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TenantInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Properties" type="tns:ArrayOfProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CloneSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloneSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneSessionEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloneSessionExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloneSessionExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SwitchTenant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesstoken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SwitchTenantResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SwitchTenantResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="ArrayOfProperty" nillable="true" type="tns:ArrayOfProperty" />
+      <s:element name="UserInformation" nillable="true" type="tns:UserInformation" />
+      <s:element name="SessionInformation" nillable="true" type="tns:SessionInformation" />
+      <s:element name="ArrayOfTenantInformation" nillable="true" type="tns:ArrayOfTenantInformation" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginExSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginEx" />
+  </wsdl:message>
+  <wsdl:message name="LoginExSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginExResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginAsMandate" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginAsMandateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateExSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginAsMandateEx" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateExSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginAsMandateExResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefreshSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshSession" />
+  </wsdl:message>
+  <wsdl:message name="RefreshSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsRightGrantedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsRightGranted" />
+  </wsdl:message>
+  <wsdl:message name="IsRightGrantedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsRightGrantedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRights" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPassword" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetProperties" />
+  </wsdl:message>
+  <wsdl:message name="SetPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:SetProperty" />
+  </wsdl:message>
+  <wsdl:message name="SetPropertySoapOut">
+    <wsdl:part name="parameters" element="tns:SetPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteProperty" />
+  </wsdl:message>
+  <wsdl:message name="DeletePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTenantsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserTenants" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTenantsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserTenantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:CloneSession" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:CloneSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionExSoapIn">
+    <wsdl:part name="parameters" element="tns:CloneSessionEx" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionExSoapOut">
+    <wsdl:part name="parameters" element="tns:CloneSessionExResponse" />
+  </wsdl:message>
+  <wsdl:message name="SwitchTenantSoapIn">
+    <wsdl:part name="parameters" element="tns:SwitchTenant" />
+  </wsdl:message>
+  <wsdl:message name="SwitchTenantSoapOut">
+    <wsdl:part name="parameters" element="tns:SwitchTenantResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginExHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginExHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateExHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateExHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogoutHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogoutHttpGetOut" />
+  <wsdl:message name="RefreshSessionHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RefreshSessionHttpGetOut" />
+  <wsdl:message name="IsRightGrantedHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="right" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsRightGrantedHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertiesHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertiesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertyHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="property" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:UserInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:SessionInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="passwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpGetOut" />
+  <wsdl:message name="SetPropertyHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="propertyname" type="s:string" />
+    <wsdl:part name="propertyvalue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPropertyHttpGetOut" />
+  <wsdl:message name="DeletePropertyHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="property" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePropertyHttpGetOut" />
+  <wsdl:message name="GetUserTenantsHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTenantsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTenantInformation" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionExHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionExHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SwitchTenantHttpGetIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SwitchTenantHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginExHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="pwd" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginExHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="user" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateExHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginAsMandateExHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogoutHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogoutHttpPostOut" />
+  <wsdl:message name="RefreshSessionHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RefreshSessionHttpPostOut" />
+  <wsdl:message name="IsRightGrantedHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="right" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsRightGrantedHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRightsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertiesHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertiesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertyHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="property" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPropertyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:UserInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:SessionInformation" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="passwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPasswordHttpPostOut" />
+  <wsdl:message name="SetPropertyHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="propertyname" type="s:string" />
+    <wsdl:part name="propertyvalue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetPropertyHttpPostOut" />
+  <wsdl:message name="DeletePropertyHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="property" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePropertyHttpPostOut" />
+  <wsdl:message name="GetUserTenantsHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTenantsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTenantInformation" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionExHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloneSessionExHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SwitchTenantHttpPostIn">
+    <wsdl:part name="accesstoken" type="s:string" />
+    <wsdl:part name="tenant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SwitchTenantHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="UMSoap">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login with user and password. Returns accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login with user, password and tenant. Returns accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginExSoapIn" />
+      <wsdl:output message="tns:LoginExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login a user with a valid accesstoken. Password of user will not be checked! Returns new accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginAsMandateSoapIn" />
+      <wsdl:output message="tns:LoginAsMandateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login a user with a valid accesstoken. Password of user will not be checked! Returns new accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginAsMandateExSoapIn" />
+      <wsdl:output message="tns:LoginAsMandateExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log out user via accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if accesstoken is valid. Refreshes expiration time of token. Use this for keeping a session alive.</wsdl:documentation>
+      <wsdl:input message="tns:RefreshSessionSoapIn" />
+      <wsdl:output message="tns:RefreshSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if right is granted. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:IsRightGrantedSoapIn" />
+      <wsdl:output message="tns:IsRightGrantedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all rights in category.&lt;br&gt;If &lt;i&gt;category&lt;/i&gt; is empty the rights in all categories are returned. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetRightsSoapIn" />
+      <wsdl:output message="tns:GetRightsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the properties of the user of this session. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserPropertiesSoapIn" />
+      <wsdl:output message="tns:GetUserPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a property of the user of this session. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserPropertySoapIn" />
+      <wsdl:output message="tns:GetUserPropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the groups in which the user of this session is member. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupsSoapIn" />
+      <wsdl:output message="tns:GetUserGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about the user of this session (name, groups, rights, properties). Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserInfoSoapIn" />
+      <wsdl:output message="tns:GetUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about the user session (name, groups, rights, properties). Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionInfoSoapIn" />
+      <wsdl:output message="tns:GetSessionInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the password of the user of this session. Only available for local users! Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:SetPasswordSoapIn" />
+      <wsdl:output message="tns:SetPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the Properties of the user of this session.</wsdl:documentation>
+      <wsdl:input message="tns:SetPropertiesSoapIn" />
+      <wsdl:output message="tns:SetPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a Property of the user of this session. The Property is added if it does not exist.</wsdl:documentation>
+      <wsdl:input message="tns:SetPropertySoapIn" />
+      <wsdl:output message="tns:SetPropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a Property of the user of this session. Only local properties can be deleted!</wsdl:documentation>
+      <wsdl:input message="tns:DeletePropertySoapIn" />
+      <wsdl:output message="tns:DeletePropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of tenants available to the user of the session.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserTenantsSoapIn" />
+      <wsdl:output message="tns:GetUserTenantsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clone a session. Opens a new session for the user of the current session.</wsdl:documentation>
+      <wsdl:input message="tns:CloneSessionSoapIn" />
+      <wsdl:output message="tns:CloneSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clone a session. Opens a new session for the user of the current session with a given tenant.</wsdl:documentation>
+      <wsdl:input message="tns:CloneSessionExSoapIn" />
+      <wsdl:output message="tns:CloneSessionExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Opens a new session for the user with a another tenant. The current session is closed afterwards!</wsdl:documentation>
+      <wsdl:input message="tns:SwitchTenantSoapIn" />
+      <wsdl:output message="tns:SwitchTenantSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UMHttpGet">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login with user and password. Returns accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginHttpGetIn" />
+      <wsdl:output message="tns:LoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login with user, password and tenant. Returns accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginExHttpGetIn" />
+      <wsdl:output message="tns:LoginExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login a user with a valid accesstoken. Password of user will not be checked! Returns new accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginAsMandateHttpGetIn" />
+      <wsdl:output message="tns:LoginAsMandateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login a user with a valid accesstoken. Password of user will not be checked! Returns new accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginAsMandateExHttpGetIn" />
+      <wsdl:output message="tns:LoginAsMandateExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log out user via accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LogoutHttpGetIn" />
+      <wsdl:output message="tns:LogoutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if accesstoken is valid. Refreshes expiration time of token. Use this for keeping a session alive.</wsdl:documentation>
+      <wsdl:input message="tns:RefreshSessionHttpGetIn" />
+      <wsdl:output message="tns:RefreshSessionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if right is granted. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:IsRightGrantedHttpGetIn" />
+      <wsdl:output message="tns:IsRightGrantedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all rights in category.&lt;br&gt;If &lt;i&gt;category&lt;/i&gt; is empty the rights in all categories are returned. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetRightsHttpGetIn" />
+      <wsdl:output message="tns:GetRightsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the properties of the user of this session. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserPropertiesHttpGetIn" />
+      <wsdl:output message="tns:GetUserPropertiesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a property of the user of this session. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserPropertyHttpGetIn" />
+      <wsdl:output message="tns:GetUserPropertyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the groups in which the user of this session is member. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupsHttpGetIn" />
+      <wsdl:output message="tns:GetUserGroupsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about the user of this session (name, groups, rights, properties). Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserInfoHttpGetIn" />
+      <wsdl:output message="tns:GetUserInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about the user session (name, groups, rights, properties). Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionInfoHttpGetIn" />
+      <wsdl:output message="tns:GetSessionInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the password of the user of this session. Only available for local users! Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:SetPasswordHttpGetIn" />
+      <wsdl:output message="tns:SetPasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a Property of the user of this session. The Property is added if it does not exist.</wsdl:documentation>
+      <wsdl:input message="tns:SetPropertyHttpGetIn" />
+      <wsdl:output message="tns:SetPropertyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a Property of the user of this session. Only local properties can be deleted!</wsdl:documentation>
+      <wsdl:input message="tns:DeletePropertyHttpGetIn" />
+      <wsdl:output message="tns:DeletePropertyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of tenants available to the user of the session.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserTenantsHttpGetIn" />
+      <wsdl:output message="tns:GetUserTenantsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clone a session. Opens a new session for the user of the current session.</wsdl:documentation>
+      <wsdl:input message="tns:CloneSessionHttpGetIn" />
+      <wsdl:output message="tns:CloneSessionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clone a session. Opens a new session for the user of the current session with a given tenant.</wsdl:documentation>
+      <wsdl:input message="tns:CloneSessionExHttpGetIn" />
+      <wsdl:output message="tns:CloneSessionExHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Opens a new session for the user with a another tenant. The current session is closed afterwards!</wsdl:documentation>
+      <wsdl:input message="tns:SwitchTenantHttpGetIn" />
+      <wsdl:output message="tns:SwitchTenantHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UMHttpPost">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login with user and password. Returns accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginHttpPostIn" />
+      <wsdl:output message="tns:LoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login with user, password and tenant. Returns accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginExHttpPostIn" />
+      <wsdl:output message="tns:LoginExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login a user with a valid accesstoken. Password of user will not be checked! Returns new accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginAsMandateHttpPostIn" />
+      <wsdl:output message="tns:LoginAsMandateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login a user with a valid accesstoken. Password of user will not be checked! Returns new accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LoginAsMandateExHttpPostIn" />
+      <wsdl:output message="tns:LoginAsMandateExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Log out user via accesstoken.</wsdl:documentation>
+      <wsdl:input message="tns:LogoutHttpPostIn" />
+      <wsdl:output message="tns:LogoutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if accesstoken is valid. Refreshes expiration time of token. Use this for keeping a session alive.</wsdl:documentation>
+      <wsdl:input message="tns:RefreshSessionHttpPostIn" />
+      <wsdl:output message="tns:RefreshSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if right is granted. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:IsRightGrantedHttpPostIn" />
+      <wsdl:output message="tns:IsRightGrantedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all rights in category.&lt;br&gt;If &lt;i&gt;category&lt;/i&gt; is empty the rights in all categories are returned. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetRightsHttpPostIn" />
+      <wsdl:output message="tns:GetRightsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the properties of the user of this session. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserPropertiesHttpPostIn" />
+      <wsdl:output message="tns:GetUserPropertiesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a property of the user of this session. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserPropertyHttpPostIn" />
+      <wsdl:output message="tns:GetUserPropertyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the groups in which the user of this session is member. Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupsHttpPostIn" />
+      <wsdl:output message="tns:GetUserGroupsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about the user of this session (name, groups, rights, properties). Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserInfoHttpPostIn" />
+      <wsdl:output message="tns:GetUserInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about the user session (name, groups, rights, properties). Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionInfoHttpPostIn" />
+      <wsdl:output message="tns:GetSessionInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the password of the user of this session. Only available for local users! Refreshes expiration time of token.</wsdl:documentation>
+      <wsdl:input message="tns:SetPasswordHttpPostIn" />
+      <wsdl:output message="tns:SetPasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a Property of the user of this session. The Property is added if it does not exist.</wsdl:documentation>
+      <wsdl:input message="tns:SetPropertyHttpPostIn" />
+      <wsdl:output message="tns:SetPropertyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a Property of the user of this session. Only local properties can be deleted!</wsdl:documentation>
+      <wsdl:input message="tns:DeletePropertyHttpPostIn" />
+      <wsdl:output message="tns:DeletePropertyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of tenants available to the user of the session.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserTenantsHttpPostIn" />
+      <wsdl:output message="tns:GetUserTenantsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clone a session. Opens a new session for the user of the current session.</wsdl:documentation>
+      <wsdl:input message="tns:CloneSessionHttpPostIn" />
+      <wsdl:output message="tns:CloneSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clone a session. Opens a new session for the user of the current session with a given tenant.</wsdl:documentation>
+      <wsdl:input message="tns:CloneSessionExHttpPostIn" />
+      <wsdl:output message="tns:CloneSessionExHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Opens a new session for the user with a another tenant. The current session is closed afterwards!</wsdl:documentation>
+      <wsdl:input message="tns:SwitchTenantHttpPostIn" />
+      <wsdl:output message="tns:SwitchTenantHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UMSoap" type="tns:UMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/LoginEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/LoginAsMandate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/LoginAsMandateEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/RefreshSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/IsRightGranted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetSessionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProperties">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SetProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SetProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/DeleteProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserTenants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/CloneSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/CloneSessionEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <soap:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SwitchTenant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UMSoap12" type="tns:UMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/LoginEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/LoginAsMandate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/LoginAsMandateEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/RefreshSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/IsRightGranted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetSessionInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProperties">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SetProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SetProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/DeleteProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/GetUserTenants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/CloneSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/CloneSessionEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/usermanagementws/um/SwitchTenant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UMHttpGet" type="tns:UMHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <http:operation location="/LoginEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <http:operation location="/LoginAsMandate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <http:operation location="/LoginAsMandateEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <http:operation location="/Logout" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <http:operation location="/RefreshSession" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <http:operation location="/IsRightGranted" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <http:operation location="/GetRights" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <http:operation location="/GetUserProperties" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <http:operation location="/GetUserProperty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <http:operation location="/GetUserGroups" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <http:operation location="/GetUserInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <http:operation location="/GetSessionInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <http:operation location="/SetPassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <http:operation location="/SetProperty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <http:operation location="/DeleteProperty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <http:operation location="/GetUserTenants" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <http:operation location="/CloneSession" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <http:operation location="/CloneSessionEx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <http:operation location="/SwitchTenant" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UMHttpPost" type="tns:UMHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginEx">
+      <http:operation location="/LoginEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandate">
+      <http:operation location="/LoginAsMandate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAsMandateEx">
+      <http:operation location="/LoginAsMandateEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <http:operation location="/Logout" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshSession">
+      <http:operation location="/RefreshSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsRightGranted">
+      <http:operation location="/IsRightGranted" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRights">
+      <http:operation location="/GetRights" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperties">
+      <http:operation location="/GetUserProperties" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProperty">
+      <http:operation location="/GetUserProperty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <http:operation location="/GetUserGroups" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <http:operation location="/GetUserInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionInfo">
+      <http:operation location="/GetSessionInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <http:operation location="/SetPassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetProperty">
+      <http:operation location="/SetProperty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProperty">
+      <http:operation location="/DeleteProperty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTenants">
+      <http:operation location="/GetUserTenants" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSession">
+      <http:operation location="/CloneSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloneSessionEx">
+      <http:operation location="/CloneSessionEx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwitchTenant">
+      <http:operation location="/SwitchTenant" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UM">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">User management interface</wsdl:documentation>
+    <wsdl:port name="UMSoap" binding="tns:UMSoap">
+      <soap:address location="http://10.100.5.20:12002/UserManagementWS/UM.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UMSoap12" binding="tns:UMSoap12">
+      <soap12:address location="http://10.100.5.20:12002/UserManagementWS/UM.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UMHttpGet" binding="tns:UMHttpGet">
+      <http:address location="http://10.100.5.20:12002/UserManagementWS/UM.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UMHttpPost" binding="tns:UMHttpPost">
+      <http:address location="http://10.100.5.20:12002/UserManagementWS/UM.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
