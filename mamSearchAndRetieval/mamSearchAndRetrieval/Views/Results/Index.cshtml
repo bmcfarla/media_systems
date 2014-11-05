@@ -36,7 +36,6 @@
         }
 
         ngs.setImageEvents = function () {
-            
 
             $("img").on('dblclick', function () {
                 window.location.href = '@Url.Action("Details", "Retrieval")?dmguid=' + $(this).data("dmguid") + '&token=' + $(this).data("token");
@@ -72,6 +71,8 @@
                 ngs.results.browseUrl({epguid: epguid, token:token});
                 ngs.results.metadata({dmguid: dmguid, token:token});
             });
+
+            $("#target img").css("cursor","pointer")
         };
 
         ngs.setDescription = function (tags) {
@@ -143,38 +144,66 @@
             $.post("@Url.Action("PartialGrid", "Results")", model, function (data) {
                 $("#target").html('');
                 $("#target").html(data);
+                ngs.setImageEvents();
             });
         };
 
         ngs.initPager = function () {
             var pages = parseInt($("#pages").html());
+            
+            var block = 1;
 
             for (var i = 2; i <= pages; i++) {
-                var visibility = i <= 10 ? "nothidden" : "hidden";
+                var visibility;
+                
+                if (i <= 10 ){
+                    visibility = "nothidden";
+                    block = 1
+                } else {
+                    //block = (i == 11) ? 2 : block;
 
-                $('<li class="' + visibility + '" data-firstHit="' + (@Model.pager.hitsPerPage * (i-1)) + '" data-maxHits="' + @Model.pager.maxHits * i + '"><a href="#">' + i + '</a></li>').insertBefore("#grid-pagination #nextPage")
+                    visibility = "hidden";
+                    if((i-1)%10 == 0){
+                        block++;
+                    }
+                }
+                
+                
+
+                $('<li class="' + visibility + '" data-pager-block="' + block + '" data-firstHit="' + (@Model.pager.hitsPerPage * (i-1)) + '" data-maxHits="' + @Model.pager.maxHits * i + '"><a href="#">' + i + '</a></li>').insertBefore("#grid-pagination #nextPage")
             }
 
             $("#prevBlock").attr("data-prevBlock", 0);
             $("#nextBlock").attr("data-nextBlock", $(".nothidden").length + 1);
+            $("#nextPage").prev().attr("id","last")
+
             ngs.initPagerEvents();
         };
 
         ngs.initPagerEvents = function () {
             $("#grid-pagination li").click(function () {
+                var getNewQuery = true;
 
                 switch ($(this).text()) {
 
                     case "‹":
                         if (!$(this).hasClass("disabled")) {
-                            $(".active").prev().addClass("active").siblings(".active").removeClass("active");
-                            $("#value").html("Page: " + $(".active").html());
+                            if ($(".nothidden").first().is(".active")) {
+                                $("#prevBlock").click();
+                            } else {
+                                $(".active").prev().addClass("active").siblings(".active").removeClass("active");
+                                $(".active").click();
+                            }
                         }
                         break;
                     case "›":
                         if (!$(this).hasClass("disabled")) {
-                            $(".active").next().addClass("active").siblings(".active").removeClass("active");
-                            $("#value").html("Page: " + $(".active").html());
+                            if ($(".nothidden").last().is(".active")) {
+                                $("#nextBlock").click();
+                            } else {
+                                $(".active").next().addClass("active").siblings(".active").removeClass("active");
+                                $(".active").click();
+                            }
                         }
                         break;
                     case "«":
@@ -182,60 +211,91 @@
                             var prevBlockStart = parseInt($(this).attr("data-prevblock"));
 
                             $(".nothidden").removeClass("nothidden").addClass("hidden");
+                            $("#nextPage").removeClass("hidden");
+                            $("#nextBlock").removeClass("hidden");
+                            $("#prevPage").removeClass("hidden");
+                            $("#prevBlock").removeClass("hidden");
 
                             $("#grid-pagination li").nextAll().slice(prevBlockStart, prevBlockStart + 10).removeClass("hidden").addClass("nothidden");
                             $("#nextBlock").attr("data-nextblock", prevBlockStart + 10);
                             $(this).attr("data-prevblock", prevBlockStart - 10);
 
+                            $(".nothidden").last().click()
                             //$(".active").prev().addClass("active").siblings(".active").removeClass("active");
                             //$("#value").html("Page: " + $(".active").html());
                         }
                         break;
                     case "»":
                         if (!$(this).hasClass("disabled")) {
+
+
                             var nextBlockStart = parseInt($(this).attr("data-nextblock"));
 
                             $(".nothidden").removeClass("nothidden").addClass("hidden");
+                            $("#nextPage").removeClass("hidden");
+                            $("#nextBlock").removeClass("hidden");
+                            $("#prevPage").removeClass("hidden");
+                            $("#prevBlock").removeClass("hidden");
+
+                            var a = [];
 
                             $("#grid-pagination li").nextAll().slice(nextBlockStart, nextBlockStart + 10).removeClass("hidden").addClass("nothidden");
 
                             $(this).attr("data-nextBlock", nextBlockStart + 10);
                             $("#prevBlock").attr("data-prevBlock", nextBlockStart - 10);
 
+                            //$(".nothidden").first().addClass("active");
+                            $(".nothidden").first().click();
                             //$(".active").prev().addClass("active").siblings(".active").removeClass("active");
                             //$("#value").html("Page: " + $(".active").html());
                         }
                         break;
                     default:
                         $(this).addClass("active").siblings(".active").removeClass("active");
+
+                        var model = {
+                            "searchString": "@Model.searchString",
+                            "firstHit": this.dataset.firsthit,
+                            "maxHits": this.dataset.maxhits
+                        }
+
+                        ngs.results.partialGrid(model);
                 };
 
-                var maxHits = (parseInt($(".active").text()) * parseInt($("#hitsPerPage").html()));
-                var first = maxHits - parseInt($("#hitsPerPage").html());
+                //var maxHits = (parseInt($(".active").text()) * parseInt($("#hitsPerPage").html()));
+                //var first = maxHits - parseInt($("#hitsPerPage").html());
 
-                $("#value").html("Page: " + $(".active").html());
-                var val = $("#value").html();
-                $("#value").html(val + "; first: " + first + "; maxHits: " + maxHits);
+                //$("#value").html("Page: " + $(".active").html());
+                //var val = $("#value").html();
+                //$("#value").html(val + "; first: " + first + "; maxHits: " + maxHits);
 
                 selectedPage = $(".active").text();
 
                 $(".disabled").removeClass("disabled");
 
-                if (selectedPage == $(this).parent().children().first().next().text()) {
-                    $("#prev").addClass("disabled");
+                // Disable prev page
+                if ($(".active").is("#first")) {
+                    $("#prevPage").addClass("disabled");
                 }
 
-                if (selectedPage == $(this).parent().children().last().prev().text()) {
-                    $("#next").addClass("disabled");
+                // Disable prev block
+                if($(".nothidden").is("#first")){
+                    $("#prevBlock").addClass("disabled");
                 }
 
-                var model = {
-                    "searchString": "@Model.searchString",
-                    "firstHit": this.dataset.firsthit,
-                    "maxHits": this.dataset.maxhits
+                // Disable next page
+                if ($(".active").is("#last")) {
+                    $("#nextPage").addClass("disabled");
                 }
 
-                ngs.results.partialGrid(model);
+                // Disable next block
+                if($(".nothidden").is("#last")){
+                    $("#nextBlock").addClass("disabled");
+                }
+
+                if (getNewQuery) {
+
+                }
             });
         };
 
@@ -249,7 +309,5 @@
             ngs.setImageEvents();
         }
     });
-
-
 </script>
 }
