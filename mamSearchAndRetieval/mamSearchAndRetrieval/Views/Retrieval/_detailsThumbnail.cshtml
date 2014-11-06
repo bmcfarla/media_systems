@@ -5,8 +5,14 @@
         <img id="thumbnail" src="@Model.thumbnailUrl" />
     </div>
 </div>
-<div style="font-size: x-small">
-    <strong>Workflow:</strong> @Model.metadata["WORKFLOW"]<br />
-    <strong>Production #:</strong> @Model.metadata["PRODUCTION_NUMBER"]<br />
-    <strong>Barcode:</strong> @Model.metadata["MAINTITLE"]<br />
+<div>
+    <dl>
+        <dt>Workflow</dt>
+        <dd>@Model.metadata["WORKFLOW"]</dd>
+        <dt>Production Number</dt>
+        <dd>@Model.metadata["PRODUCTION_NUMBER"]</dd>
+        <dt>Barcode</dt>
+        <dd>@Model.metadata["MAINTITLE"]</dd>
+        
+    </dl>
 </div>
