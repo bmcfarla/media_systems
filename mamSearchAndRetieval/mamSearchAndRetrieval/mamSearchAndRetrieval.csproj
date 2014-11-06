@@ -134,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\IpmamApi\GetUserPropertyController.cs" />
+    <Compile Include="Controllers\IpmamApi\GetDMObjectExLocalizedController.cs" />
+    <Compile Include="Models\Ipmam\Resources\GetDMObjectExLocalizedIpmamModel.cs" />
+    <Compile Include="Models\GetDMObjectExLocalizedModel.cs" />
     <Compile Include="Models\Ipmam\GetUserPropertyModel.cs" />
     <Compile Include="Models\Ipmam\Resources\GetUserPropertyIpmamModel.cs" />
     <Compile Include="Models\RetrievalModel.cs" />

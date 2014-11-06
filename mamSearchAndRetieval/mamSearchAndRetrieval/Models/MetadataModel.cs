@@ -25,24 +25,17 @@ namespace mamSearchAndRetrieval.Models
 
             try
             {
-                GetDMObjectAttributesByDMGUIDModel GetAttributes = new GetDMObjectAttributesByDMGUIDModel
+                GetDMObjectExLocalizedModel GetAttributes = new GetDMObjectExLocalizedModel
                 {
                     accesskey = token,
                     dmguid = dmguid
                 };
 
-                result = GetAttributes.GetDMObjectAttributesByDMGUID();
-
-                // Search
-                if (result == "")
-                {
-                    //RedirectToAction("LogOut", "Auth");
-                }
+                result = GetAttributes.GetDMObjectExLocalized();
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine("{0} Exception caught.", e);
-                //RedirectToAction("LogOut", "Auth");
+                
             }
 
             // Extract Data

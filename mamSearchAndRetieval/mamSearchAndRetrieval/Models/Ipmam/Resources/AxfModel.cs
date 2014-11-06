@@ -4,6 +4,19 @@ namespace mamSearchAndRetrieval.Models.Ipmam.Resources
 {
     public class AxfModel
     {
+        internal string GetDMObjectExLocalizedAxfDoc(string dmguid)
+        {
+            XElement queryDoc = new XElement(
+                   "AXFRoot",
+                       new XElement("MAObject",
+                           new XAttribute("type", "default"),
+                           new XAttribute("mdclass", "DMQuery"),
+                           new XElement("GUID", dmguid)
+                           )
+                       );
+            return queryDoc.ToString();
+        }
+
         internal string simpleSeachQueryDoc(SimpleSearchModel model)
         {
             XElement queryDoc = new XElement(
