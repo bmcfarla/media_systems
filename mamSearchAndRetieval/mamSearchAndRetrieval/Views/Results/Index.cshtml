@@ -18,7 +18,9 @@
     </div>
 </div>
 <div class="row">
-    @Html.Partial("_pager")
+    <div class="col-lg-7">
+        @Html.Partial("_pager")
+    </div>
 </div>
 
 @section scripts
@@ -99,11 +101,8 @@
         ngs.results.browseUrl = function (model) {
             $.get('@Url.Action("browseUrl", "Search")?epguid=' + model.epguid + '&token=' + model.token,
                 function (data) {
-                    //browseModel = JSON.parse(data);
-                    //$("#video1").attr("poster", $(this).src);
                     $("#video1 source").attr("src", data);
                     $("#video1").load();
-                    //setDescription(browseModel.metaTags);
                 }
             );
         };
@@ -112,9 +111,6 @@
             $.get('@Url.Action("metadata", "Search")?dmguid=' + model.dmguid + '&token=' + model.token,
                 function (data) {
                     var metadata = JSON.parse(data);
-                    //$("#video1").attr("poster", $(this).src);
-                    //$("#video1 source").attr("src", data);
-                    //$("#video1").load();
                     ngs.results.setDescription(metadata);
                 }
             );
@@ -153,29 +149,27 @@
             
             var block = 1;
 
-            for (var i = 2; i <= pages; i++) {
+            for (var i = 1; i <= pages; i++) {
                 var visibility;
                 
                 if (i <= 10 ){
                     visibility = "nothidden";
                     block = 1
                 } else {
-                    //block = (i == 11) ? 2 : block;
-
                     visibility = "hidden";
                     if((i-1)%10 == 0){
                         block++;
                     }
                 }
-                
-                
 
                 $('<li class="' + visibility + '" data-pager-block="' + block + '" data-firstHit="' + (@Model.pager.hitsPerPage * (i-1)) + '" data-maxHits="' + @Model.pager.maxHits * i + '"><a href="#">' + i + '</a></li>').insertBefore("#grid-pagination #nextPage")
             }
 
             $("#prevBlock").attr("data-prevBlock", 0);
             $("#nextBlock").attr("data-nextBlock", $(".nothidden").length + 1);
-            $("#nextPage").prev().attr("id","last")
+            $("#nextPage").prev().attr("id","last");
+            $("#prevPage").next().attr("id","first");
+            $("#first").addClass("active");
 
             ngs.initPagerEvents();
         };
@@ -209,6 +203,7 @@
                     case "«":
                         if (!$(this).hasClass("disabled")) {
                             var prevBlockStart = parseInt($(this).attr("data-prevblock"));
+                            var prevPagerBlock = parseInt($("#grid-pagination").attr("data-current-pager-block")) - 1;
 
                             $(".nothidden").removeClass("nothidden").addClass("hidden");
                             $("#nextPage").removeClass("hidden");
@@ -216,9 +211,14 @@
                             $("#prevPage").removeClass("hidden");
                             $("#prevBlock").removeClass("hidden");
 
-                            $("#grid-pagination li").nextAll().slice(prevBlockStart, prevBlockStart + 10).removeClass("hidden").addClass("nothidden");
+                            $("li[data-pager-block='" + prevPagerBlock + "']").removeClass("hidden").addClass("nothidden");
+
+                            //$("#grid-pagination li").nextAll().slice(prevBlockStart, prevBlockStart + 10).removeClass("hidden").addClass("nothidden");
+                            
                             $("#nextBlock").attr("data-nextblock", prevBlockStart + 10);
                             $(this).attr("data-prevblock", prevBlockStart - 10);
+
+                            $("#grid-pagination").attr("data-current-pager-block", prevPagerBlock);
 
                             $(".nothidden").last().click()
                             //$(".active").prev().addClass("active").siblings(".active").removeClass("active");
@@ -230,7 +230,10 @@
 
 
                             var nextBlockStart = parseInt($(this).attr("data-nextblock"));
+                            var nextPagerBlock = parseInt($("#grid-pagination").attr("data-current-pager-block")) + 1;
 
+                            
+                            
                             $(".nothidden").removeClass("nothidden").addClass("hidden");
                             $("#nextPage").removeClass("hidden");
                             $("#nextBlock").removeClass("hidden");
@@ -239,10 +242,14 @@
 
                             var a = [];
 
-                            $("#grid-pagination li").nextAll().slice(nextBlockStart, nextBlockStart + 10).removeClass("hidden").addClass("nothidden");
+                            $("li[data-pager-block='" + nextPagerBlock + "']").removeClass("hidden").addClass("nothidden");
+
+                            //$("#grid-pagination li").nextAll().slice(nextBlockStart, nextBlockStart + 10).removeClass("hidden").addClass("nothidden");
 
                             $(this).attr("data-nextBlock", nextBlockStart + 10);
                             $("#prevBlock").attr("data-prevBlock", nextBlockStart - 10);
+
+                            $("#grid-pagination").attr("data-current-pager-block", nextPagerBlock);
 
                             //$(".nothidden").first().addClass("active");
                             $(".nothidden").first().click();
