@@ -40,6 +40,12 @@
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -59,6 +65,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,12 +141,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\IpmamApi\GetUserPropertyController.cs" />
     <Compile Include="Controllers\IpmamApi\GetDMObjectExLocalizedController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>CartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartIdModel.cs" />
+    <Compile Include="Models\CartsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartsModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Ipmam\Resources\GetDMObjectExLocalizedIpmamModel.cs" />
     <Compile Include="Models\GetDMObjectExLocalizedModel.cs" />
     <Compile Include="Models\Ipmam\GetUserPropertyModel.cs" />
     <Compile Include="Models\Ipmam\Resources\GetUserPropertyIpmamModel.cs" />
+    <Compile Include="Models\Item.cs">
+      <DependentUpon>CartsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RetrievalModel.cs" />
     <Compile Include="Models\MetadataModel.cs" />
     <Compile Include="Models\BrowseUrlModel.cs" />
@@ -172,12 +206,19 @@
     <Compile Include="Models\ResultsViewModel.cs" />
     <Compile Include="Controllers\RetrievalController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Models\ShoppingCartEmptyViewModel.cs" />
+    <Compile Include="Models\ShoppingCartModel.cs" />
+    <Compile Include="Models\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\SimpleSearchModel.cs" />
     <Compile Include="Models\Ipmam\LogoutModel.cs" />
     <Compile Include="Models\Ipmam\LoginModel.cs" />
     <Compile Include="Models\Ipmam\Services\umModel.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\ThumbnailModel.cs" />
+    <Compile Include="Models\User.cs">
+      <DependentUpon>CartsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -224,6 +265,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Carts.mdf" />
+    <Content Include="App_Data\Carts.sql" />
+    <Content Include="App_Data\Carts_log.ldf">
+      <DependentUpon>Carts.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -232,6 +278,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\CartsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CartsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CartsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CartsModel.edmx</DependentUpon>
+      <LastGenOutput>CartsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CartsModel.edmx.diagram">
+      <DependentUpon>CartsModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CartsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CartsModel.edmx</DependentUpon>
+      <LastGenOutput>CartsModel.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\IpmamApp01Prod.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -264,6 +327,22 @@
     <Content Include="Views\Retrieval\_detailsThumbnail.cshtml" />
     <Content Include="Views\Retrieval\_detailsRetrievalGrid.cshtml" />
     <Content Include="Views\Retrieval\_detailsNavigation.cshtml" />
+    <Content Include="Views\Carts\Create.cshtml" />
+    <Content Include="Views\Carts\Delete.cshtml" />
+    <Content Include="Views\Carts\Details.cshtml" />
+    <Content Include="Views\Carts\Edit.cshtml" />
+    <Content Include="Views\Carts\Index.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
     <None Include="Web References\org.ngs.ipmam.dmEssencePackages\DMEssencePackages.wsdl" />
     <Content Include="Web References\org.ngs.ipmam.dmEssencePackages\EssencePackage.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -354,7 +433,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Views\AppUser\" />
     <Folder Include="Views\App\" />
@@ -429,6 +507,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>mamSearchAndRetrieval_org_ngs_ipmam_dmSearch_DMSearch</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
