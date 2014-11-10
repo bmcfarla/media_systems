@@ -24,7 +24,7 @@ namespace ShoppingCart.Controllers
             ShoppingCartModel myCart = ShoppingCartModel.getCart(CartId);
 
             // Set up our ViewModel
-            ShoppingCartViewModel viewModel = new ShoppingCartViewModel
+            var viewModel = new ShoppingCartViewModel
             {
                 CartItems = myCart.GetCartItems(),
                 //CartTotal = cart.GetTotal()

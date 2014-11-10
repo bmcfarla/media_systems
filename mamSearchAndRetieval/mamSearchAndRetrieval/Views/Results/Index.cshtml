@@ -43,7 +43,7 @@
                 window.location.href = '@Url.Action("Details", "Retrieval")?dmguid=' + $(this).data("dmguid") + '&token=' + $(this).data("token");
             });
 
-            var longpress = 500;
+            var longpress = 300;
 
             $("img").on('mousedown', function () {
                 start = new Date().getTime();
@@ -56,8 +56,13 @@
             $("img").on('mouseup', function () {
                 if (new Date().getTime() >= (start + longpress)) {
                     //alert('long press!');
-
-                    $(this).parent().toggleClass( "playlistSelected" )
+                    if( $(this).parent().hasClass( "playlistSelected" )){
+                        ngs.removeFromCart($(this).data("dmguid"));
+                        $(this).parent().removeClass( "playlistSelected" )
+                    } else {
+                        ngs.addToCart($(this).data("dmguid"));
+                        $(this).parent().addClass( "playlistSelected" )
+                    }
                 } else {
                     //alert('short press!');
                 }
@@ -146,12 +151,12 @@
 
         ngs.initPager = function () {
             var pages = parseInt($("#pages").html());
-            
+
             var block = 1;
 
             for (var i = 1; i <= pages; i++) {
                 var visibility;
-                
+
                 if (i <= 10 ){
                     visibility = "nothidden";
                     block = 1
@@ -214,7 +219,7 @@
                             $("li[data-pager-block='" + prevPagerBlock + "']").removeClass("hidden").addClass("nothidden");
 
                             //$("#grid-pagination li").nextAll().slice(prevBlockStart, prevBlockStart + 10).removeClass("hidden").addClass("nothidden");
-                            
+
                             $("#nextBlock").attr("data-nextblock", prevBlockStart + 10);
                             $(this).attr("data-prevblock", prevBlockStart - 10);
 
@@ -232,8 +237,8 @@
                             var nextBlockStart = parseInt($(this).attr("data-nextblock"));
                             var nextPagerBlock = parseInt($("#grid-pagination").attr("data-current-pager-block")) + 1;
 
-                            
-                            
+
+
                             $(".nothidden").removeClass("nothidden").addClass("hidden");
                             $("#nextPage").removeClass("hidden");
                             $("#nextBlock").removeClass("hidden");
@@ -304,6 +309,15 @@
 
                 }
             });
+        };
+
+        // Shoppiing Cart
+        ngs.addToCart = function (dmguid) {
+            $.get('@Url.Action("addToCart", "ShoppingCart")?dmguid=' + dmguid + '&user=' + model.username + '&token=' + model.token);
+        };
+
+        ngs.removeFromCart = function (dmguid) {
+            $.get('@Url.Action("removeFromCart", "ShoppingCart")?dmguid=' + dmguid + '&user=' + model.username + '&token=' + model.token);
         };
 
         if (!ngs.pagerInitialized) {
