@@ -8,7 +8,10 @@ namespace mamSearchAndRetrieval.Models.Ipmam
         public string search()
         {
             SearchEx2Controller SearchEx2 = new SearchEx2Controller();
-            return SearchEx2.Get(this);
+            string results = SearchEx2.Get(this);
+
+            return results;
+
 
             /*
             SearchEx2IpmamModel model = new SearchEx2IpmamModel()

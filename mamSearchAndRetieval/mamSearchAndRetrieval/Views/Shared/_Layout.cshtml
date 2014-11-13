@@ -23,8 +23,10 @@
                     <li>@Html.ActionLink("Simple Search", "Simple", "Search")</li>
                     <li>@Html.ActionLink("Advanced Search", "Advanced", "Search")</li>
                 </ul>
-
-                <div class="navbar-collapse collapse">
+                <div class="nav navbar-nav">
+                    @Html.Partial("_CartPartial")
+                </div>
+                <div class="nav navbar-nav">
                     @Html.Partial("_AuthPartial")
                 </div>
             </div>

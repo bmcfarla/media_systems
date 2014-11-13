@@ -8,11 +8,18 @@ namespace mamSearchAndRetrieval.Controllers
     {
         public ActionResult Index(SimpleSearchModel model)
         {
-            ResultsViewModel resultsViewModel = getResultsViewModel(model);
+            try
+            {
+                ResultsViewModel resultsViewModel = getResultsViewModel(model);
 
-            TempData["resultsViewModel"] = resultsViewModel;
+                TempData["resultsViewModel"] = resultsViewModel;
 
-            return RedirectToAction("Index","Results");
+                return RedirectToAction("Index", "Results");
+            }
+            catch
+            {
+                return RedirectToAction("Logout", "Auth");
+            }
         }
 
         public ActionResult Simple()
@@ -23,7 +30,7 @@ namespace mamSearchAndRetrieval.Controllers
 
         private ResultsViewModel getResultsViewModel(SimpleSearchModel model)
         {
-            ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser.Token);
+            ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
 
             return ResultsModel;
         }

@@ -56,12 +56,12 @@
             $("img").on('mouseup', function () {
                 if (new Date().getTime() >= (start + longpress)) {
                     //alert('long press!');
-                    if( $(this).parent().hasClass( "playlistSelected" )){
+                    if( $(this).hasClass( "playlistSelected" )){
                         ngs.removeFromCart($(this).data("dmguid"));
-                        $(this).parent().removeClass( "playlistSelected" )
+                        $(this).removeClass( "playlistSelected" )
                     } else {
                         ngs.addToCart($(this).data("dmguid"));
-                        $(this).parent().addClass( "playlistSelected" )
+                        $(this).addClass( "playlistSelected" )
                     }
                 } else {
                     //alert('short press!');
@@ -312,12 +312,41 @@
         };
 
         // Shoppiing Cart
+        ngs.initCart = function () {
+            $("#cart-count span").html(@Model.playlistItemCount);
+        };
+
         ngs.addToCart = function (dmguid) {
-            $.get('@Url.Action("addToCart", "ShoppingCart")?dmguid=' + dmguid + '&user=' + model.username + '&token=' + model.token);
+            $.get('@Url.Action("add", "ShoppingCart")?dmguid=' + dmguid + '&user=@Model.user&token=@Model.token',
+                function (data) {
+                    $("#cart-count span").html(data.count);
+                });
         };
 
         ngs.removeFromCart = function (dmguid) {
-            $.get('@Url.Action("removeFromCart", "ShoppingCart")?dmguid=' + dmguid + '&user=' + model.username + '&token=' + model.token);
+            $.get('@Url.Action("remove", "ShoppingCart")?dmguid=' + dmguid + '&user=@Model.user&token=@Model.token',
+                function (data) {
+                    $("#cart-count span").html(data.count);
+                });
+        };
+
+        $("#emptyCart").hover(function() {
+            $(this).css('cursor','pointer');
+        });
+
+        $("#emptyCart").on("click",function () {
+            $.get('@Url.Action("emptyCart", "ShoppingCart")?user=@Model.user&token=@Model.token',
+                function (data) {
+                    $("#cart-count span").html(data.count);
+                    $(".playlistSelected").removeClass( "playlistSelected" )
+                });
+        })
+
+        ngs.updateCart = function () {
+            $.get('@Url.Action("count", "ShoppingCart")?user=@Model.user&token=@Model.token',
+                        function (data) {
+                            $("#cart-count span").html(data);
+                        });
         };
 
         if (!ngs.pagerInitialized) {
@@ -325,6 +354,7 @@
 
             ngs.setImageEvents();
             //$(".active").trigger("click");
+            ngs.updateCart();
             ngs.pagerInitialized = true;
         } else {
             ngs.setImageEvents();

@@ -26,7 +26,7 @@ namespace ShoppingCart.Controllers
             // Set up our ViewModel
             var viewModel = new ShoppingCartViewModel
             {
-                CartItems = myCart.GetCartItems(),
+                CartItems = myCart.GetCartItems()
                 //CartTotal = cart.GetTotal()
             };
 
@@ -45,6 +45,39 @@ namespace ShoppingCart.Controllers
             
             // Go back to the main store page for more shopping
             return RedirectToAction("Index",cartId);
+        }
+
+        public ActionResult Count(CartIdModel cartId)
+        {
+            // Add it to the shopping cart
+            ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
+
+            int count = cart.getCount();
+
+            // Go back to the main store page for more shopping
+            return Json(count, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Add(CartIdModel cartId, string dmGuid)
+        {
+            // Add it to the shopping cart
+            ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
+
+            cart.AddToCart(dmGuid);
+
+            // Go back to the main store page for more shopping
+            return Json(cart,JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult remove(CartIdModel cartId, string dmGuid)
+        {
+            // Add it to the shopping cart
+            ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
+
+            cart.RemoveFromCart(dmGuid);
+
+            // Go back to the main store page for more shopping
+            return Json(cart, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult RemoveFromCart(CartIdModel cartId, string dmGuid)
@@ -74,13 +107,7 @@ namespace ShoppingCart.Controllers
             // removing all rather than decrementing the count.
             cart.EmptyCart();
 
-            // Display the confirmation message
-            var results = new ShoppingCartEmptyViewModel
-            {
-                Message = "Cart is Empty."
-            };
-
-            return Json(results, JsonRequestBehavior.AllowGet);
+            return Json(cart, JsonRequestBehavior.AllowGet);
         }
     }
 }

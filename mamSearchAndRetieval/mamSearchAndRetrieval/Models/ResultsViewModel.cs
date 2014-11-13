@@ -1,5 +1,6 @@
 ﻿using mamSearchAndRetrieval.Models.Ipmam;
 using mamSearchAndRetrieval.Models.Ipmam.Resources;
+using ShoppingCart.Models;
 using System;
 using System.Collections.Generic;
 using System.Xml;
@@ -8,17 +9,24 @@ namespace mamSearchAndRetrieval.Models
 {
     public class ResultsViewModel
     {
+        private SimpleSearchModel model;
+        
         // Properties
         public List<ResultsItemModel> resultsItems { get; set; }
         public PagerModel pager { get; set; }
         public SearchEx2Model searchEx2Model { get; set; }
+        public ShoppingCartModel cart { get; set; }
+        public string user { get; set; }
         public string token { get; set; }
         public string searchString { get; set; }
+        public int playlistItemCount { get; set; }
 
         // Constructor
-        public ResultsViewModel(SimpleSearchModel model, string token)
+        public ResultsViewModel(SimpleSearchModel model, AppUser appUser)
         {
-            this.token = token;
+            this.token = appUser.Token;
+            this.user = appUser.Name;
+            
             AxfModel Axf = new AxfModel();
 
             searchEx2Model = new SearchEx2Model
@@ -39,6 +47,16 @@ namespace mamSearchAndRetrieval.Models
                 maxHits = Convert.ToInt32(model.maxHits),
                 pages = 1
             };
+
+            CartIdModel cartId = new CartIdModel
+            {
+                user = this.user,
+                token = token
+            };
+
+            cart = ShoppingCartModel.getCart(cartId);
+
+            
 
             resultsItems = getResultsItems();
         }
@@ -71,6 +89,10 @@ namespace mamSearchAndRetrieval.Models
 
             //ResultsItemsModel gridItems = new ResultsItemsModel();
             List<ResultsItemModel> resultsItems = new List<ResultsItemModel>();
+            
+            List<string> cartItems = cart.GetCartItems();
+            
+            playlistItemCount = cartItems.Count;
 
             foreach (XmlNode dmGuid in dmGuids)
             {
@@ -80,6 +102,8 @@ namespace mamSearchAndRetrieval.Models
 
                 // Extract the text of the XML object
                 resultsItem.dmGuid = dmGuid.InnerText;
+                resultsItem.cartSelected = cartItems.Contains(resultsItem.dmGuid);
+
                 resultsItem.mainTitle = root.SelectNodes(string.Format("//MAObject[@mdclass='VIDEO'][GUID = '{0}']/Meta[@name='MAINTITLE']", resultsItem.dmGuid))[0].InnerText;
                 
                 resultsItem.getEpGuid();
@@ -92,5 +116,6 @@ namespace mamSearchAndRetrieval.Models
 
             return resultsItems;
         }
+
     }
 }

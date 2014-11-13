@@ -8,6 +8,6 @@ namespace ShoppingCart.Models
 {
     public class ShoppingCartViewModel
     {
-        public List<Cart> CartItems { get; set; }
+        public List<string> CartItems { get; set; }
     }
 }

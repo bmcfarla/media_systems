@@ -13,6 +13,7 @@ namespace mamSearchAndRetrieval.Models
         public string thumbnailUrl { get; set; }
         public string browseUrl { get; set; }
         public string mainTitle { get; set; }
+        public bool cartSelected { get; set; }
 
         internal void getThumbnailUrl()
         {
@@ -61,6 +62,7 @@ namespace mamSearchAndRetrieval.Models
 
             epGuid = RepEp.getRepresentativeEssencePackage();
         }
+
 
     }
 }

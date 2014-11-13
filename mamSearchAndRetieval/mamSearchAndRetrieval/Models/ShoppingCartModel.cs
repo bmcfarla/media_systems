@@ -8,11 +8,12 @@ using System.Web;
 
 namespace ShoppingCart.Models
 {
-    class ShoppingCartModel
+    public class ShoppingCartModel
     {
         CartsEntities db = new CartsEntities();
         public string CartSessionKey = "CartId";
         public int shoppingCartId { get; set; }
+        public int count { get; set; }
 
         internal static ShoppingCartModel getCart(CartIdModel cartId)
         {
@@ -56,6 +57,7 @@ namespace ShoppingCart.Models
 
                 // Save it
                 db.SaveChanges();
+
             }
 
             return cart.CartId;
@@ -81,15 +83,18 @@ namespace ShoppingCart.Models
                 // Add one to the quantity
                 //item.Count++;
             }
+
             // Save it
             db.SaveChanges();
+
+            count = db.Items.Count(c => c.CartId == shoppingCartId);
         }
 
-        internal List<Cart> GetCartItems()
+        internal List<string> GetCartItems()
         {
-            var cartItems = (from cart in db.Carts
-                             where cart.CartId == shoppingCartId
-                             select cart).ToList();
+            var cartItems = (from items in db.Items
+                             where items.CartId == shoppingCartId
+                             select items.DmGuid).ToList();
             return cartItems;
 
         }
@@ -106,6 +111,8 @@ namespace ShoppingCart.Models
                 // Save it
                 db.SaveChanges();
             }
+
+            count = db.Items.Count(c => c.CartId == shoppingCartId);
         }
 
         public void EmptyCart()
@@ -117,6 +124,12 @@ namespace ShoppingCart.Models
                 db.Items.Remove(cartItem);
             }
             db.SaveChanges();
+            count = db.Items.Count(c => c.CartId == shoppingCartId);
+        }
+
+        internal int getCount()
+        {
+            return db.Items.Count(c => c.CartId == shoppingCartId);
         }
     }
 }

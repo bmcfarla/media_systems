@@ -45,7 +45,7 @@ namespace mamSearchAndRetrieval.Controllers
                 return View(model);
             }
         }
-            
+
 
         public ActionResult LogOut()
         {

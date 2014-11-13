@@ -7,16 +7,23 @@ namespace mamSearchAndRetrieval.Controllers
 {
     public class ResultsController : AppController
     {
-        private ResultsViewModel resultsViewModel;
         
         // GET: Results
         public ActionResult Index(SimpleSearchModel model)
         {
+            try
+            {
+                //resultsViewModel = TempData["resultsViewModel"] as ResultsViewModel;
+                ResultsViewModel resultsViewModel = getResultsViewModel(model);
+                return View(resultsViewModel);
 
-            //resultsViewModel = TempData["resultsViewModel"] as ResultsViewModel;
-            ResultsViewModel resultsViewModel = getResultsViewModel(model);
+            }
+            catch
+            {
+                return RedirectToAction("Logout", "Auth");
+            }
 
-            return View(resultsViewModel);
+            
         }
 
         public ActionResult PartialGrid(SimpleSearchModel model)
@@ -28,10 +35,21 @@ namespace mamSearchAndRetrieval.Controllers
 
         private ResultsViewModel getResultsViewModel(SimpleSearchModel model)
         {
-            ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser.Token);
+            ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
 
             return ResultsModel;
         }
 
+        public ActionResult Cart()
+        {
+
+            return Json("Not Implemented Yet",JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult EmptyCart()
+        {
+
+            return Json("Not Implemented Yet", JsonRequestBehavior.AllowGet);
+        }
     }
 }
