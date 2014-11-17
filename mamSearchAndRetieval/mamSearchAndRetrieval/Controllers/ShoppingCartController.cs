@@ -36,12 +36,12 @@ namespace ShoppingCart.Controllers
 
         //
         // GET: /ShoppingCart/AddToCart?user=<user>&token=<token>&dmguid=<dmguid>
-        public ActionResult AddToCart(CartIdModel cartId, string dmGuid)
+        public ActionResult AddToCart(CartIdModel cartId, string dmGuid, string mainTitle)
         {
             // Add it to the shopping cart
             ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
 
-            cart.AddToCart(dmGuid);
+            cart.AddToCart(dmGuid, mainTitle);
             
             // Go back to the main store page for more shopping
             return RedirectToAction("Index",cartId);
@@ -58,12 +58,12 @@ namespace ShoppingCart.Controllers
             return Json(count, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Add(CartIdModel cartId, string dmGuid)
+        public ActionResult Add(CartIdModel cartId, string dmGuid, string mainTitle)
         {
             // Add it to the shopping cart
             ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
 
-            cart.AddToCart(dmGuid);
+            cart.AddToCart(dmGuid, mainTitle);
 
             // Go back to the main store page for more shopping
             return Json(cart,JsonRequestBehavior.AllowGet);

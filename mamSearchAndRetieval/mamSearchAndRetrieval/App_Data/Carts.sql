@@ -19,3 +19,6 @@ CREATE TABLE Items
        CartId int foreign key references Carts (CartId ),
        DmGuid varchar (50 )
 )
+
+ALTER TABLE Items
+	ADD MainTitle varchar(128)

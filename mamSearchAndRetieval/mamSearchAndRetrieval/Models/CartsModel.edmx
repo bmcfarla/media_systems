@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CartsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CartsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carts">
           <Key>
             <PropertyRef Name="CartId" />
@@ -21,6 +21,7 @@
           <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CartId" Type="int" />
           <Property Name="DmGuid" Type="varchar" MaxLength="50" />
+          <Property Name="MainTitle" Type="varchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -30,7 +31,7 @@
           <Property Name="Username" Type="varchar" MaxLength="50" />
           <Property Name="UserId" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__Carts__UsersId__1273C1CD">
+        <Association Name="FK__Carts__UsersId__0519C6AF">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -42,7 +43,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Items__CartId__15502E78">
+        <Association Name="FK__Items__CartId__09DE7BCC">
           <End Role="Carts" Type="Self.Carts" Multiplicity="0..1" />
           <End Role="Items" Type="Self.Items" Multiplicity="*" />
           <ReferentialConstraint>
@@ -58,17 +59,16 @@
           <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Carts__UsersId__1273C1CD" Association="Self.FK__Carts__UsersId__1273C1CD">
+          <AssociationSet Name="FK__Carts__UsersId__0519C6AF" Association="Self.FK__Carts__UsersId__0519C6AF">
             <End Role="Users" EntitySet="Users" />
             <End Role="Carts" EntitySet="Carts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Items__CartId__15502E78" Association="Self.FK__Items__CartId__15502E78">
+          <AssociationSet Name="FK__Items__CartId__09DE7BCC" Association="Self.FK__Items__CartId__09DE7BCC">
             <End Role="Carts" EntitySet="Carts" />
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CartsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -91,6 +91,7 @@
           <Property Name="CartId" Type="Int32" />
           <Property Name="DmGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cart" Relationship="Self.FK__Items__CartId__15502E78" FromRole="Items" ToRole="Carts" />
+          <Property Name="MainTitle" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -157,6 +158,7 @@
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="CartsModel.Item">
               <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="CartId" ColumnName="CartId" />
                 <ScalarProperty Name="DmGuid" ColumnName="DmGuid" />

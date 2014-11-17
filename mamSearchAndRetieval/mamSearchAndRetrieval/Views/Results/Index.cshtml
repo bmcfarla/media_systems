@@ -60,7 +60,7 @@
                         ngs.removeFromCart($(this).data("dmguid"));
                         $(this).removeClass( "playlistSelected" )
                     } else {
-                        ngs.addToCart($(this).data("dmguid"));
+                        ngs.addToCart($(this).data("dmguid"), $(this).data("maintitle"));
                         $(this).addClass( "playlistSelected" )
                     }
                 } else {
@@ -316,8 +316,8 @@
             $("#cart-count span").html(@Model.playlistItemCount);
         };
 
-        ngs.addToCart = function (dmguid) {
-            $.get('@Url.Action("add", "ShoppingCart")?dmguid=' + dmguid + '&user=@Model.user&token=@Model.token',
+        ngs.addToCart = function (dmguid, mainTitle) {
+            $.get('@Url.Action("add", "ShoppingCart")?dmguid=' + dmguid + '&mainTitle=' + mainTitle + '&user=@Model.user&token=@Model.token',
                 function (data) {
                     $("#cart-count span").html(data.count);
                 });

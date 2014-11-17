@@ -17,6 +17,7 @@ namespace mamSearchAndRetrieval.Models
         public int ItemId { get; set; }
         public Nullable<int> CartId { get; set; }
         public string DmGuid { get; set; }
+        public string MainTitle { get; set; }
     
         public virtual Cart Cart { get; set; }
     }

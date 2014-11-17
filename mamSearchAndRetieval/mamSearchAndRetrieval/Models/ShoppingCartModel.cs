@@ -63,7 +63,7 @@ namespace ShoppingCart.Models
             return cart.CartId;
         }
 
-        public void AddToCart(string dmGuid)
+        public void AddToCart(string dmGuid, string mainTitle)
         {
             var item = db.Items.SingleOrDefault(c => c.DmGuid == dmGuid && c.CartId == shoppingCartId);
 
@@ -73,7 +73,8 @@ namespace ShoppingCart.Models
                 item = new Item
                 {
                     CartId = shoppingCartId,
-                    DmGuid = dmGuid
+                    DmGuid = dmGuid,
+                    MainTitle = mainTitle
                 };
 
                 db.Items.Add(item);

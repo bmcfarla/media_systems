@@ -11,7 +11,7 @@
     
     <div class="col-lg-4 text-center">
         <div class="grid-item center-block" style="height:100px; width: 178px">
-            @Html.Raw(string.Format("<img src=\"{0}\" alt=\"Image\" data-dmguid=\"{1}\" data-epguid=\"{2}\" data-token=\"{3}\" class=\"{4}\" height=100% />", Url.Content(@item.thumbnailUrl), @item.dmGuid, @item.epGuid, @item.token, @imgClass))
+            @Html.Raw(string.Format("<img src=\"{0}\" alt=\"Image\" data-dmguid=\"{1}\" data-epguid=\"{2}\" data-token=\"{3}\" class=\"{4}\" data-maintitle=\"{5}\"height=100% />", Url.Content(@item.thumbnailUrl), @item.dmGuid, @item.epGuid, @item.token, @imgClass, @item.mainTitle))
         </div>
         <div><small>@item.mainTitle</small></div>
     </div>

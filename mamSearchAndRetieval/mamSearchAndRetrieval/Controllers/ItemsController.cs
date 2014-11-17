@@ -48,7 +48,7 @@ namespace mamSearchAndRetrieval.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemId,CartId,DmGuid")] Item item)
+        public ActionResult Create([Bind(Include = "ItemId,CartId,DmGuid,MainTitle")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace mamSearchAndRetrieval.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemId,CartId,DmGuid")] Item item)
+        public ActionResult Edit([Bind(Include = "ItemId,CartId,DmGuid,MainTitle")] Item item)
         {
             if (ModelState.IsValid)
             {
