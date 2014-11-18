@@ -11,6 +11,12 @@ namespace mamSearchAndRetrieval.Controllers
         // GET: Results
         public ActionResult Index(SimpleSearchModel model)
         {
+            if (TempData["cartSearch"] != null)
+            {
+                model = TempData["cartSearch"] as SimpleSearchModel;
+            }
+            
+
             try
             {
                 //resultsViewModel = TempData["resultsViewModel"] as ResultsViewModel;
@@ -38,18 +44,6 @@ namespace mamSearchAndRetrieval.Controllers
             ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
 
             return ResultsModel;
-        }
-
-        public ActionResult Cart()
-        {
-
-            return Json("Not Implemented Yet",JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult EmptyCart()
-        {
-
-            return Json("Not Implemented Yet", JsonRequestBehavior.AllowGet);
         }
     }
 }

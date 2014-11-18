@@ -95,7 +95,7 @@ namespace ShoppingCart.Models
         {
             var cartItems = (from items in db.Items
                              where items.CartId == shoppingCartId
-                             select items.DmGuid).ToList();
+                             select items.MainTitle).ToList();
             return cartItems;
 
         }

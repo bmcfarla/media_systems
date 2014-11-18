@@ -109,5 +109,23 @@ namespace ShoppingCart.Controllers
 
             return Json(cart, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult GetItems(CartIdModel cartId)
+        {
+            // Add it to the shopping cart
+            ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
+
+            List<string> items = cart.GetCartItems();
+
+            SimpleSearchModel search = new SimpleSearchModel
+            {
+                searchString = string.Join("|", items)
+            };
+
+            TempData["cartSearch"] = search;
+
+            // Go back to the main store page for more shopping
+            return RedirectToAction("index","Results");
+        }
     }
 }

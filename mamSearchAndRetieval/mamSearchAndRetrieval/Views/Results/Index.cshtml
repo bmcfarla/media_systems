@@ -342,6 +342,11 @@
                 });
         })
 
+        $("#viewCart").on("click",function () {
+            //$.get('@Url.Action("GetItems", "ShoppingCart")?user=@Model.user&token=@Model.token');
+            window.location.href = "@Url.Action("getItems", "ShoppingCart")?user=@Model.user&token=@Model.token";
+        })
+
         ngs.updateCart = function () {
             $.get('@Url.Action("count", "ShoppingCart")?user=@Model.user&token=@Model.token',
                         function (data) {
