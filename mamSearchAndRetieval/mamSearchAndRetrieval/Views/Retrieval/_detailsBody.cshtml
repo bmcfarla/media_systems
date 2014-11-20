@@ -59,13 +59,34 @@
                 @foreach (KeyValuePair<string, string> detail in detailsCol1)
                 {
                     <dt>@detail.Value</dt>
-                    if (Model.metadata.ContainsKey(detail.Key)) 
+                    if (Model.metadata.items.ContainsKey(detail.Key)) 
                     {
-                        <dd>@Model.metadata[detail.Key]</dd>
+                        <dd>@Model.metadata.items[detail.Key]</dd>
                     }
                     else
                     {
-                        <dd>-</dd>
+                        if (Model.metadata.MvAttributeItems.ContainsKey(detail.Key))
+                        {
+                            var items = Model.metadata.MvAttributeItems[detail.Key];
+
+                            if (items.Count <= 1) {
+                                <dd>@items[0][detail.Key]</dd>
+                            }
+                            else
+                            {
+                                List<string> values = new List<string>();
+
+                                foreach (var item in items)
+                                {
+                                    values.Add(item[detail.Key]);
+                                }
+                                
+                                <dd>@string.Join(" | ", values)</dd>
+                            }
+
+
+                        }
+                        @*<dd>@Model.metadata.MvAttributeItems["FLAVOURINFORMATION"][4][detail.Key]</dd>*@
                     }
 
                 }
@@ -76,13 +97,35 @@
                 @foreach (KeyValuePair<string, string> detail in detailsCol2)
                 {
                     <dt>@detail.Value</dt>
-                    if (Model.metadata.ContainsKey(detail.Key))
+                    if (Model.metadata.items.ContainsKey(detail.Key))
                     {
-                        <dd>@Model.metadata[detail.Key]</dd>
+                        <dd>@Model.metadata.items[detail.Key]</dd>
                     }
                     else
                     {
-                        <dd>-</dd>
+                        if (Model.metadata.MvAttributeItems.ContainsKey(detail.Key))
+                        {
+                            var items = Model.metadata.MvAttributeItems[detail.Key];
+
+                            if (items.Count <= 1)
+                            {
+                                <dd>@items[0][detail.Key]</dd>
+                            }
+                            else
+                            {
+                                List<string> values = new List<string>();
+
+                                foreach (var item in items)
+                                {
+                                    values.Add(item[detail.Key]);
+                                }
+
+                                <dd>@string.Join(" | ", values)</dd>
+                            }
+
+
+                        }
+                        @*<dd>@Model.metadata.MvAttributeItems["FLAVOURINFORMATION"][4][detail.Key]</dd>*@
                     }
 
                 }
