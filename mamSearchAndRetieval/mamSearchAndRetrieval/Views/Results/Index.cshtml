@@ -132,15 +132,19 @@
                 { key: "ROLL_NUMBER", display: "ROLL #" },
                 { key: "OVERALL_RIGHTS_CODE", display: "OVERALL RIGHTS CONTROL CODE" },
                 { key: "OVERALL_RIGHTS_NOTES", display: "OVERALL RIGHTS NOTES" },
-                { key: "DURATION", display: "DURATION" },
-                { key: "FTCIN", display: "TIMECODE IN" },
-                { key: "FTCOUT", display: "TIMECODE OUT" },
+                { key: "DURATION", display: "DURATION", flavourInformation: true },
+                { key: "FTCIN", display: "TIMECODE IN", flavourInformation: true },
+                { key: "FTCOUT", display: "TIMECODE OUT", flavourInformation: true },
                 { key: "CLIP_TAPE_DESCRIPTION", display: "CLIP TAPE DESCRIPTION" },
                 { key: "AIR_DATE", display: "AIR DATE" }
             ];
 
             items.forEach(function (e, i, a) {
-                $("#TextArea").val($("#TextArea").val() + e.display + ": " + tags[e.key] + "\n");
+                if (typeof e.flavourInformation !== "undefined") {
+                    $("#TextArea").val($("#TextArea").val() + e.display + ": " + tags.MvAttributeItems.FLAVOURINFORMATION[tags.items.EditProxyId][e.key] + "\n");
+                } else {
+                    $("#TextArea").val($("#TextArea").val() + e.display + ": " + tags.items[e.key] + "\n");
+                }
             });
         };
 

@@ -7,7 +7,7 @@ namespace mamSearchAndRetrieval.Models
         public string token { get; set; }
         public string dmguid { get; set; }
         public string thumbnailUrl { get; set; }
-        public Dictionary<string, string> metadata { get; set; }
+        public MetadataReturnModel metadata { get; set; }
 
         public RetrievalModel(string dmguid, string token)
         {

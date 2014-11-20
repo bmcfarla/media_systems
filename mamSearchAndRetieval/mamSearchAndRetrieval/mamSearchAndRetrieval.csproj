@@ -173,6 +173,7 @@
     <Compile Include="Models\Item.cs">
       <DependentUpon>CartsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MetadataReturnModel.cs" />
     <Compile Include="Models\RetrievalModel.cs" />
     <Compile Include="Models\MetadataModel.cs" />
     <Compile Include="Models\BrowseUrlModel.cs" />
