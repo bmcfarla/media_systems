@@ -32,7 +32,7 @@ namespace mamSearchAndRetrieval.Models
             }
             else
             {
-                thumbnailUrl = "/Content/Images/filler-100x100.png";
+                thumbnailUrl = "FILLER";
             }
         }
 
