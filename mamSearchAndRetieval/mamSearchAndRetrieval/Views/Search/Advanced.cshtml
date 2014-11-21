@@ -1,0 +1,34 @@
+﻿@model mamSearchAndRetrieval.Models.AdvancedSearchViewModel
+@{
+    ViewBag.Title = "Advanced";
+}
+
+<h2>Advanced</h2>
+
+@using (Html.BeginForm("Advanced", "Search"))
+{
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-lg-3">
+                @*@Html.Label("Keywordx", "Key Word", htmlAttributes: new { @for="keyword", @class = "control-label col-md-2" })*@
+                @Html.TextBox("PRODUCTION_TITLE", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Title" })
+            </div>
+            <div class="col-lg-3">
+                @*@Html.Label("Keywordx", "Key Word", htmlAttributes: new { @for="keyword", @class = "control-label col-md-2" })*@
+                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Number" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

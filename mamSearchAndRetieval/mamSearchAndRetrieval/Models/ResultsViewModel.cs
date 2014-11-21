@@ -19,7 +19,39 @@ namespace mamSearchAndRetrieval.Models
         public string user { get; set; }
         public string token { get; set; }
         public string searchString { get; set; }
+        public AdvancedSearchViewModel advancedSearchQuery { get; set; }
         public int playlistItemCount { get; set; }
+
+        public ResultsViewModel(AdvancedSearchViewModel model, AppUser appUser)
+        {
+            this.token = appUser.Token;
+            this.user = appUser.Name;
+
+            AxfModel Axf = new AxfModel();
+
+            searchEx2Model = new SearchEx2Model
+            {
+                accessKey = this.token,
+                queryDoc = Axf.advancedSeachQueryDoc(model),
+                hitlistDoc = Axf.hitlistDoc(),
+                language = "en"
+            };
+
+            advancedSearchQuery = model;
+            searchString = "";
+
+            pager = new PagerModel
+            {
+                hitsPerPage = Convert.ToInt32(model.maxHits),
+                firstHit = Convert.ToInt32(model.firstHit),
+                maxHits = Convert.ToInt32(model.maxHits),
+                pages = 1
+            };
+
+            AddCart();
+
+            resultsItems = getResultsItems();
+        }
 
         // Constructor
         public ResultsViewModel(SimpleSearchModel model, AppUser appUser)
@@ -37,7 +69,7 @@ namespace mamSearchAndRetrieval.Models
                 language = "en"
             };
 
-            
+            advancedSearchQuery = null;
             searchString = model.searchString;
 
             pager = new PagerModel
@@ -48,19 +80,12 @@ namespace mamSearchAndRetrieval.Models
                 pages = 1
             };
 
-            CartIdModel cartId = new CartIdModel
-            {
-                user = this.user,
-                token = token
-            };
-
-            cart = ShoppingCartModel.getCart(cartId);
-
+            AddCart();
             
-
             resultsItems = getResultsItems();
         }
 
+        
         // Get Results based of search string
         private List<ResultsItemModel> getResultsItems()
         {
@@ -115,6 +140,17 @@ namespace mamSearchAndRetrieval.Models
             }
 
             return resultsItems;
+        }
+
+        private void AddCart()
+        {
+            CartIdModel cartId = new CartIdModel
+            {
+                user = this.user,
+                token = token
+            };
+
+            cart = ShoppingCartModel.getCart(cartId);
         }
 
     }

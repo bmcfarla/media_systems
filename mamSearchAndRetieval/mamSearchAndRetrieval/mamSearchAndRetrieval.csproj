@@ -141,6 +141,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AdvancedSearchViewModel.cs" />
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\IpmamApi\GetUserPropertyController.cs" />
     <Compile Include="Controllers\IpmamApi\GetDMObjectExLocalizedController.cs" />
@@ -273,7 +274,6 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\filler-100x100.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -346,6 +346,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
+    <Content Include="Views\Search\Advanced.cshtml" />
     <None Include="Web References\org.ngs.ipmam.dmEssencePackages\DMEssencePackages.wsdl" />
     <Content Include="Web References\org.ngs.ipmam.dmEssencePackages\EssencePackage.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -436,6 +437,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Images\" />
     <Folder Include="Views\AppUser\" />
     <Folder Include="Views\App\" />
     <Folder Include="Views\EssenceManager\" />

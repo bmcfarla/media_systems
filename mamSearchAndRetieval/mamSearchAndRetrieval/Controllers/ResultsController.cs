@@ -32,6 +32,23 @@ namespace mamSearchAndRetrieval.Controllers
             
         }
 
+        public ActionResult Advanced(AdvancedSearchViewModel model)
+        {
+           
+            try
+            {
+                ResultsViewModel resultsViewModel = TempData["resultsViewModel"] as ResultsViewModel;
+                //ResultsViewModel resultsViewModel = getResultsViewModel(model);
+                return View("Index", resultsViewModel);
+            }
+            catch
+            {
+                return RedirectToAction("Logout", "Auth");
+            }
+
+
+        }
+
         public ActionResult PartialGrid(SimpleSearchModel model)
         {
             ResultsViewModel resultsViewModel = getResultsViewModel(model);
@@ -39,7 +56,21 @@ namespace mamSearchAndRetrieval.Controllers
             return PartialView("_gridPartial", resultsViewModel);
         }
 
+        public ActionResult PartialGridAdvanced(AdvancedSearchViewModel model)
+        {
+            ResultsViewModel resultsViewModel = getResultsViewModel(model);
+
+            return PartialView("_gridPartial", resultsViewModel);
+        }
+
         private ResultsViewModel getResultsViewModel(SimpleSearchModel model)
+        {
+            ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
+
+            return ResultsModel;
+        }
+
+        private ResultsViewModel getResultsViewModel(AdvancedSearchViewModel model)
         {
             ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
 

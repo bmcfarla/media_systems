@@ -26,8 +26,8 @@
 @section scripts
 {
     <script>
-        // Show playlist nav
-        $("#playlist-nav").removeClass("hidden");
+    // Show playlist nav
+    $("#playlist-nav").removeClass("hidden");
 
     $(function () {
         var ngs = ngs || {};
@@ -36,6 +36,7 @@
 
         var model = {
             "searchString": "@Model.searchString",
+            "advancedSearchQuery": "@Model.advancedSearchQuery",
             "firstHit": "0",
             "maxHits": "15"
         }
@@ -149,7 +150,7 @@
         };
 
         ngs.results.partialGrid = function (model) {
-            $.post("@Url.Action("PartialGrid", "Results")", model, function (data) {
+            $.post("@Url.Action("PartialGridAdvanced", "Results")", model, function (data) {
                 $("#target").html('');
                 $("#target").html(data);
                 ngs.setImageEvents();
@@ -271,11 +272,19 @@
                         break;
                     default:
                         $(this).addClass("active").siblings(".active").removeClass("active");
+                        var model = {};
 
-                        var model = {
-                            "searchString": "@Model.searchString",
-                            "firstHit": this.dataset.firsthit,
-                            "maxHits": this.dataset.maxhits
+                        if ("@Model.searchString" != "") {
+
+                            model = {
+                                "searchString": "@Model.searchString",
+                                "firstHit": this.dataset.firsthit,
+                                "maxHits": this.dataset.maxhits
+                            }
+                        } else {
+                            model = @Html.Raw(Json.Encode(@Model.advancedSearchQuery));
+                            model.firstHit = this.dataset.firsthit;
+                            model.maxHits = this.dataset.maxhits;
                         }
 
                         ngs.results.partialGrid(model);

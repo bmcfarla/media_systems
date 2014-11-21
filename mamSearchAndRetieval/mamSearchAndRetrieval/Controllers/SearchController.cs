@@ -28,7 +28,39 @@ namespace mamSearchAndRetrieval.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Advanced()
+        {
+            AdvancedSearchViewModel advancedSearchViewModel = new AdvancedSearchViewModel();
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Advanced(AdvancedSearchViewModel model)
+        {
+            try
+            {
+                ResultsViewModel resultsViewModel = getResultsViewModel(model);
+
+                TempData["resultsViewModel"] = resultsViewModel;
+
+                return RedirectToAction("Advanced", "Results");
+            }
+            catch
+            {
+                return RedirectToAction("Logout", "Auth");
+            }
+        }
+
         private ResultsViewModel getResultsViewModel(SimpleSearchModel model)
+        {
+            ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
+
+            return ResultsModel;
+        }
+
+        private ResultsViewModel getResultsViewModel(AdvancedSearchViewModel model)
         {
             ResultsViewModel ResultsModel = new ResultsViewModel(model, this.CurrentUser);
 
