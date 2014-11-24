@@ -39,18 +39,18 @@ namespace mamSearchAndRetrieval.Controllers
         [HttpPost]
         public ActionResult Advanced(AdvancedSearchViewModel model)
         {
-            try
-            {
+            //try
+            //{
                 ResultsViewModel resultsViewModel = getResultsViewModel(model);
 
                 TempData["resultsViewModel"] = resultsViewModel;
 
                 return RedirectToAction("Advanced", "Results");
-            }
-            catch
-            {
-                return RedirectToAction("Logout", "Auth");
-            }
+            //}
+            //catch
+            //{
+            //    return RedirectToAction("Logout", "Auth");
+            //}
         }
 
         private ResultsViewModel getResultsViewModel(SimpleSearchModel model)

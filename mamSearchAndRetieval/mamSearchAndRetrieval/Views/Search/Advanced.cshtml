@@ -13,17 +13,77 @@
 
         <div class="form-group">
             <div class="col-lg-3">
-                @*@Html.Label("Keywordx", "Key Word", htmlAttributes: new { @for="keyword", @class = "control-label col-md-2" })*@
-                @Html.TextBox("PRODUCTION_TITLE", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Title" })
+                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Number" })
             </div>
             <div class="col-lg-3">
-                @*@Html.Label("Keywordx", "Key Word", htmlAttributes: new { @for="keyword", @class = "control-label col-md-2" })*@
-                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Number" })
+                @Html.TextBox("KEYWORD", null, htmlAttributes: new { @class = "form-control", @placeholder = "Keyword" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("CONCEPT", null, htmlAttributes: new { @class = "form-control", @placeholder = "Concept" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("LOCATION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Location" })
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="col-lg-3">
+                @Html.TextBox("LEVEL", null, htmlAttributes: new { @class = "form-control", @placeholder = "Level" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("DESCRIPTION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Description" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("CATEGORY", null, htmlAttributes: new { @class = "form-control", @placeholder = "Category" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("ROLL_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Roll Number" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3">
+                @Html.TextBox("PRODUCTION_OWNER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Owner" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("FILM_AVAILABLE", null, htmlAttributes: new { @class = "form-control", @placeholder = "Film Available" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("ORIGINAL_CAMERA_ELEMENT", null, htmlAttributes: new { @class = "form-control", @placeholder = "Original Camera Element" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("HD_AVAILABLE", null, htmlAttributes: new { @class = "form-control", @placeholder = "HD Available" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3">
+                @Html.TextBox("ORIGINAL_CAPTURE_METHOD", null, htmlAttributes: new { @class = "form-control", @placeholder = "Original Capture Method" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("CAMERA_SHOT", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Shot" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("CAMERA_SPEED", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Speed" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("CAMERA_ACTION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Action" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3">
+                @Html.TextBox("CAMERA_LOCATION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Location" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("AIR_DATE", null, htmlAttributes: new { @class = "form-control", @placeholder = "Air Date" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("ASPECT_RATIO", null, htmlAttributes: new { @class = "form-control", @placeholder = "Aspect Ratio" })
+            </div>
+            <div class="col-lg-3">
+                @Html.TextBox("IN_OUT_PROGRAM", null, htmlAttributes: new { @class = "form-control", @placeholder = "In/Out/Prog" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-3">
+                <input type="submit" value="Search" class="btn btn-default" />
             </div>
         </div>
     </div>
