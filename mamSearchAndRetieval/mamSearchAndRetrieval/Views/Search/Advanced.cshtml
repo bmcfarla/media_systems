@@ -11,96 +11,168 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
+        <div class="form-group clearfix">
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.PRODUCTION_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.AGE, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("AGE", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.KEYWORD, htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("KEYWORD", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.AIR_DATE, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("AIR_DATE", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.CONCEPT, htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("CONCEPT", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.ALTERNATE_PRODUCTION_TITLE, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("ALTERNATE_PRODUCTION_TITLE", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.LOCATION, htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("LOCATION", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.ASPECT_RATIO, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ASPECT_RATIO", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.LEVEL, htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("LEVEL", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.ASSET_TAPE_FORMAT, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ASSET_TAPE_FORMAT", ViewData["ASSET_FORMAT"] as List<SelectListItem>, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.AUDIO_TYPE, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("AUDIO_TYPE", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.AUDIO_AVAILABLE, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("AUDIO_AVAILABLE", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.CATEGORY, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("CATEGORY", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
                 @Html.LabelFor(model => model.CLIP_TAPE_DESCRIPTION, htmlAttributes: new { @class = "control-label" })
                 @Html.TextBox("CLIP_TAPE_DESCRIPTION", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.CATEGORY, htmlAttributes: new { @class = "control-label" })
-                @Html.DropDownList("CATEGORY", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.COLOR, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("COLOR", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("ROLL_NUMBER", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.COMPOSITION_EFFECT, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("COMPOSITION_EFFECT", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.PRODUCTION_OWNER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("PRODUCTION_OWNER", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.CONCEPT, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("CONCEPT", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.DISTRIBUTION_STRAND, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("DISTRIBUTION_STRAND", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ERA, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ERA", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ETHNICITY, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ETHNICITY", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
                 @Html.LabelFor(model => model.FILM_AVAILABLE, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("FILM_AVAILABLE", null, htmlAttributes: new { @class = "form-control"})
+                @Html.DropDownList("FILM_AVAILABLE", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ORIGINAL_CAMERA_ELEMENT, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("ORIGINAL_CAMERA_ELEMENT", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.GENDER, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("GENDER", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.GEO_ID, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("GEO_ID", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
                 @Html.LabelFor(model => model.HD_AVAILABLE, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("HD_AVAILABLE", null, htmlAttributes: new { @class = "form-control"})
+                @Html.DropDownList("HD_AVAILABLE", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.IN_OUT_PROGRAM, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("IN_OUT_PROGRAM", ViewData["IN_OUT_PROG"] as List<SelectListItem>, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.KEYWORD, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("KEYWORD", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.LANGUAGE, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("LANGUAGE", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.LEVEL, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("LEVEL", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.LOCATION, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("LOCATION", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ORIGINAL_CAMERA_ELEMENT, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("ORIGINAL_CAMERA_ELEMENT", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
                 @Html.LabelFor(model => model.ORIGINAL_CAPTURE_METHOD, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("ORIGINAL_CAPTURE_METHOD", null, htmlAttributes: new { @class = "form-control"})
+                @Html.DropDownList("ORIGINAL_CAPTURE_METHOD", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.OVERALL_RIGHTS_CONTROL_CODE, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("OVERALL_RIGHTS_CONTROL_CODE", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.OVERALL_RIGHTS_NOTES, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("OVERALL_RIGHTS_NOTES", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.POPULATION, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("POPULATION", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.PREDOMINANT_COLOR, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("PREDOMINANT COLOR", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.PRODUCTION_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.PRODUCTION_OWNER, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("PRODUCTION_OWNER", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.PRODUCTION_TITLE, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("PRODUCTION_TITLE", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
                 @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("CAMERA_SHOT", null, htmlAttributes: new { @class = "form-control"})
+                @Html.TextBox("ROLL_NUMBER", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("CAMERA_SPEED", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.SALES_PROCEDURES, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("SALES_PROCEDURES", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("CAMERA_ACTION", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.SEASON, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("SEASON", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("CAMERA_LOCATION", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.STANDARD, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("STANDARD", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("AIR_DATE", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.TIME_OF_DAY, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("TIME_OF_DAY", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("ASPECT_RATIO", null, htmlAttributes: new { @class = "form-control"})
-            </div>
-            <div class="col-lg-3">
-                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
-                @Html.TextBox("IN_OUT_PROGRAM", null, htmlAttributes: new { @class = "form-control"})
+                @Html.LabelFor(model => model.TYPE, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("TYPE", null, htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-lg-3">
+        <div class="form-group clearfix">
+            <div class="col-lg-12">
                 <input type="submit" value="Search" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

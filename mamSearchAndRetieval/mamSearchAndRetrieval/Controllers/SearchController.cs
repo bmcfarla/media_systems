@@ -40,11 +40,37 @@ namespace mamSearchAndRetrieval.Controllers
             //    @Html.DropDownList("KEYWORD", null, htmlAttributes: new { @class = "form-control", @placeholder = "Keyword" })
 
             string[] legalLists = {
-                                      "KEYWORD",
+                                      "CATEGORY",
                                       "CONCEPT",
+                                      "KEYWORD",
                                       "LOCATION",
                                       "LEVEL",
-                                      "CATEGORY"
+                                      "PRODUCTION_OWNER",
+                                      "ORIGINAL_CAMERA_ELEMENT",
+                                      "ORIGINAL_CAPTURE_METHOD",
+                                      "CAMERA_SHOT",
+                                      "CAMERA_SPEED",
+                                      "CAMERA_ACTION",
+                                      "CAMERA_LOCATION",
+                                      "ASPECT_RATIO",
+                                      "TIME_OF_DAY",
+                                      "POPULATION",
+                                      "SEASON",
+                                      "GENDER",
+                                      "ETHNICITY",
+                                      "AGE",
+                                      "AUDIO_TYPE",
+                                      "ERA",
+                                      "PREDOMINANT_COLOR",
+                                      "COLOR",
+                                      "TYPE",
+                                      "STANDARD",
+                                      "LANGUAGE",
+                                      "DISTRIBUTION_STRAND",
+                                      "IN_OUT_PROG",
+                                      "ASSET_FORMAT",
+                                      "AUDIO_TYPE",
+                                      "COMPOSITION_EFFECT"
                                   };
 
 
@@ -52,6 +78,25 @@ namespace mamSearchAndRetrieval.Controllers
             {
                 ViewData[list] = advancedSearchViewModel.getLegalListValues(list, this.CurrentUser);
             }
+
+            
+            ViewData["HD_AVAILABLE"] = new List<SelectListItem> { 
+                new SelectListItem { Text = "", Value = "" }, 
+                new SelectListItem { Text = "Yes", Value = "1" }, 
+                new SelectListItem { Text = "No", Value = "0" }
+            };
+
+            ViewData["FILM_AVAILABLE"] = new List<SelectListItem> { 
+                new SelectListItem { Text = "", Value = "" }, 
+                new SelectListItem { Text = "Yes", Value = "1" }, 
+                new SelectListItem { Text = "No", Value = "0" }
+            };
+
+            ViewData["AUDIO_AVAILABLE"] = new List<SelectListItem> { 
+                new SelectListItem { Text = "", Value = "" }, 
+                new SelectListItem { Text = "Yes", Value = "1" }, 
+                new SelectListItem { Text = "No", Value = "0" }
+            };
 
             return View();
         }
