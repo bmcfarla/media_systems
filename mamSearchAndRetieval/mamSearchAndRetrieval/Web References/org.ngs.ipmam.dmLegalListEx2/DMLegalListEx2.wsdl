@@ -1,0 +1,1444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2">
+      <s:element name="SetFixForPlatform">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FIX_FOR_PLATFORM" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFixForPlatformResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllLegalLists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllLegalListsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllLegalListsResult" type="tns:ArrayOfLegalListAdmin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLegalListAdmin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LegalListAdmin" nillable="true" type="tns:LegalListAdmin" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LegalListAdmin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="legallistName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="defaultID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="useSymbols" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastModification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fixForPlatform" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="entries" type="tns:ArrayOfLegalListEntryAdmin" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLegalListEntryAdmin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LegalListEntryAdmin" nillable="true" type="tns:LegalListEntryAdmin" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LegalListEntryAdmin">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="tenantInfos" type="tns:ArrayOfLegalListEntryTenantInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLegalListEntryTenantInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LegalListEntryTenantInfo" nillable="true" type="tns:LegalListEntryTenantInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LegalListEntryTenantInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="tenant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="icon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shortcut" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="customidx" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="labels" type="tns:ArrayOfLegalListLabel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLegalListLabel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LegalListLabel" nillable="true" type="tns:LegalListLabel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LegalListLabel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDMLegalListAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMLegalListAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMLegalListAdminResult" type="tns:LegalListAdmin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMLegalListLocalized">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMLegalListLocalizedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMLegalListLocalizedResult" type="tns:LegalListLocalized" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LegalListLocalized">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="legallistName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="defaultID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="useSymbols" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastModification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fixForPlatform" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="entries" type="tns:ArrayOfLegalListEntryLocalized" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLegalListEntryLocalized">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LegalListEntryLocalized" nillable="true" type="tns:LegalListEntryLocalized" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LegalListEntryLocalized">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="icon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shortcut" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="customidx" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDMLegalList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDMLegalListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDMLegalListResult" type="tns:LegalList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LegalList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="legallistName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="defaultID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="useSymbols" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastModification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fixForPlatform" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="entries" type="tns:ArrayOfLegalListEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLegalListEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LegalListEntry" nillable="true" type="tns:LegalListEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LegalListEntry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="icon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shortcut" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="customidx" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="labels" type="tns:ArrayOfLegalListLabel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetUseSymbols">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="enable" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUseSymbolsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetDefaultID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="defaultID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDefaultIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetLabel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="entryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLabelResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveEntryForTenant">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="entryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveEntryForTenantResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetShortcut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="entryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="shortcut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetShortcutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetIcon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="entryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="icon" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetIconResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="entryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddEntryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="entryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveEntryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastModification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastModificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastModificationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomIndices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomIndicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomIndicesResult" type="tns:ArrayOfCustomIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomIndex">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomIndex" nillable="true" type="tns:CustomIndex" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomIndex">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="customIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="owner" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetCustomIndices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accesskey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="indices" type="tns:ArrayOfCustomIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomIndicesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ArrayOfLegalListAdmin" nillable="true" type="tns:ArrayOfLegalListAdmin" />
+      <s:element name="LegalListAdmin" nillable="true" type="tns:LegalListAdmin" />
+      <s:element name="LegalListLocalized" nillable="true" type="tns:LegalListLocalized" />
+      <s:element name="LegalList" nillable="true" type="tns:LegalList" />
+      <s:element name="int" type="s:int" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfCustomIndex" nillable="true" type="tns:ArrayOfCustomIndex" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetFixForPlatformSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFixForPlatform" />
+  </wsdl:message>
+  <wsdl:message name="SetFixForPlatformSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFixForPlatformResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLegalListsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllLegalLists" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLegalListsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllLegalListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMLegalListAdmin" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMLegalListAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListLocalizedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMLegalListLocalized" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListLocalizedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMLegalListLocalizedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDMLegalList" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDMLegalListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUseSymbolsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUseSymbols" />
+  </wsdl:message>
+  <wsdl:message name="SetUseSymbolsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUseSymbolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultIDSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDefaultID" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultIDSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDefaultIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetLabelSoapIn">
+    <wsdl:part name="parameters" element="tns:SetLabel" />
+  </wsdl:message>
+  <wsdl:message name="SetLabelSoapOut">
+    <wsdl:part name="parameters" element="tns:SetLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryForTenantSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveEntryForTenant" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryForTenantSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveEntryForTenantResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetShortcutSoapIn">
+    <wsdl:part name="parameters" element="tns:SetShortcut" />
+  </wsdl:message>
+  <wsdl:message name="SetShortcutSoapOut">
+    <wsdl:part name="parameters" element="tns:SetShortcutResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetIconSoapIn">
+    <wsdl:part name="parameters" element="tns:SetIcon" />
+  </wsdl:message>
+  <wsdl:message name="SetIconSoapOut">
+    <wsdl:part name="parameters" element="tns:SetIconResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:AddEntry" />
+  </wsdl:message>
+  <wsdl:message name="AddEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:AddEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveEntry" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LastModificationSoapIn">
+    <wsdl:part name="parameters" element="tns:LastModification" />
+  </wsdl:message>
+  <wsdl:message name="LastModificationSoapOut">
+    <wsdl:part name="parameters" element="tns:LastModificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomIndicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomIndices" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomIndicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomIndicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomIndicesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCustomIndices" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomIndicesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCustomIndicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFixForPlatformHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="FIX_FOR_PLATFORM" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetFixForPlatformHttpGetOut" />
+  <wsdl:message name="GetAllLegalListsHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLegalListsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLegalListAdmin" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListAdminHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListAdminHttpGetOut">
+    <wsdl:part name="Body" element="tns:LegalListAdmin" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListLocalizedHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListLocalizedHttpGetOut">
+    <wsdl:part name="Body" element="tns:LegalListLocalized" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListHttpGetOut">
+    <wsdl:part name="Body" element="tns:LegalList" />
+  </wsdl:message>
+  <wsdl:message name="SetUseSymbolsHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="enable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetUseSymbolsHttpGetOut" />
+  <wsdl:message name="SetDefaultIDHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="defaultID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultIDHttpGetOut" />
+  <wsdl:message name="SetLabelHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="label" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetLabelHttpGetOut" />
+  <wsdl:message name="RemoveEntryForTenantHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryForTenantHttpGetOut" />
+  <wsdl:message name="SetShortcutHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="shortcut" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetShortcutHttpGetOut" />
+  <wsdl:message name="SetIconHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="icon" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetIconHttpGetOut" />
+  <wsdl:message name="AddEntryHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddEntryHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryHttpGetOut" />
+  <wsdl:message name="LastModificationHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LastModificationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomIndicesHttpGetIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomIndicesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCustomIndex" />
+  </wsdl:message>
+  <wsdl:message name="SetFixForPlatformHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="FIX_FOR_PLATFORM" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetFixForPlatformHttpPostOut" />
+  <wsdl:message name="GetAllLegalListsHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllLegalListsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLegalListAdmin" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListAdminHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListAdminHttpPostOut">
+    <wsdl:part name="Body" element="tns:LegalListAdmin" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListLocalizedHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListLocalizedHttpPostOut">
+    <wsdl:part name="Body" element="tns:LegalListLocalized" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDMLegalListHttpPostOut">
+    <wsdl:part name="Body" element="tns:LegalList" />
+  </wsdl:message>
+  <wsdl:message name="SetUseSymbolsHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="enable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetUseSymbolsHttpPostOut" />
+  <wsdl:message name="SetDefaultIDHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="defaultID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetDefaultIDHttpPostOut" />
+  <wsdl:message name="SetLabelHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="label" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetLabelHttpPostOut" />
+  <wsdl:message name="RemoveEntryForTenantHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryForTenantHttpPostOut" />
+  <wsdl:message name="SetShortcutHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="shortcut" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetShortcutHttpPostOut" />
+  <wsdl:message name="SetIconHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+    <wsdl:part name="icon" type="s:string" />
+    <wsdl:part name="owner" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetIconHttpPostOut" />
+  <wsdl:message name="AddEntryHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddEntryHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+    <wsdl:part name="entryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RemoveEntryHttpPostOut" />
+  <wsdl:message name="LastModificationHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LastModificationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomIndicesHttpPostIn">
+    <wsdl:part name="accesskey" type="s:string" />
+    <wsdl:part name="legalListName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomIndicesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCustomIndex" />
+  </wsdl:message>
+  <wsdl:portType name="DMLegalListEx2Soap">
+    <wsdl:operation name="SetFixForPlatform">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a legal list to be ‘fix for platform’.true: Only a Platform Administrator can modify the legallist,false: Tenants can modify a legallist.Currently modfications by tenants are not allowed. The method will have no effect.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetFixForPlatformSoapIn" />
+      <wsdl:output message="tns:SetFixForPlatformSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available information about all legal lists. (Available only for Platform Administrators)</wsdl:documentation>
+      <wsdl:input message="tns:GetAllLegalListsSoapIn" />
+      <wsdl:output message="tns:GetAllLegalListsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">If the user is Platform Administrator the legal list with all information for all tenants is returned.If the user is not Platform Administrator no information is returned.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListAdminSoapIn" />
+      <wsdl:output message="tns:GetDMLegalListAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the legal list and the entry labels for a given language and the current tenant.&lt;/br&gt;Example:Return for language 'en-US':&lt;/br&gt;Fallback 1: If no label exists, the label from the default tenant is returned for language 'en-US'.&lt;br&gt;Fallback 2: If no label exists, the label from the tenant is returned for language 'en'.&lt;/br&gt;Fallback 3: If no label exists, the label from the default tenant is returned for language 'en'.&lt;br&gt;Fallback 4: If no label exists, the entry id #42# is returned.&lt;br&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListLocalizedSoapIn" />
+      <wsdl:output message="tns:GetDMLegalListLocalizedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The legalist with all information for the current tenant is returned.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListSoapIn" />
+      <wsdl:output message="tns:GetDMLegalListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets or unsets the 'use symbols' flag for the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetUseSymbolsSoapIn" />
+      <wsdl:output message="tns:SetUseSymbolsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the default ID for the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetDefaultIDSoapIn" />
+      <wsdl:output message="tns:SetDefaultIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the language specific label for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetLabelSoapIn" />
+      <wsdl:output message="tns:SetLabelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the access to the given entry for the given tenant (owner). This method removes all labels and other info for the entry for this tenant. Other tenants are unaffected. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:RemoveEntryForTenantSoapIn" />
+      <wsdl:output message="tns:RemoveEntryForTenantSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the shortcut for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetShortcutSoapIn" />
+      <wsdl:output message="tns:SetShortcutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the icon name for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetIconSoapIn" />
+      <wsdl:output message="tns:SetIconSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new entry to the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;entryID is the ID of the new entry. If entryID is -1, the DataManagerWS creates an ID. &lt;br/&gt;The method returns the entry ID used.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:AddEntrySoapIn" />
+      <wsdl:output message="tns:AddEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the given entry from the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:RemoveEntrySoapIn" />
+      <wsdl:output message="tns:RemoveEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the last modification time of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;Note that the last modification list is only stored in memory, i.e. after a restart of the DataManagerWS the modification time of all legal lists is set to the time the legal list is first read from the DB.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:LastModificationSoapIn" />
+      <wsdl:output message="tns:LastModificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the custom sort indices of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;Note that the returned array is &lt;i&gt;not&lt;/i&gt; sorted. And it must &lt;i&gt;not&lt;/i&gt; contain entries for &lt;i&gt;all&lt;/i&gt; legal list entries, but only for the entries actually having a custom index.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomIndicesSoapIn" />
+      <wsdl:output message="tns:GetCustomIndicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomIndices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets custom sort indices for entries of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;The method updates the custom indices given in the array. It does not touch custom indices not mentioned in the array.&lt;br/&gt;To delete a custom index you must provide the special value -1 as customIndex.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetCustomIndicesSoapIn" />
+      <wsdl:output message="tns:SetCustomIndicesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMLegalListEx2HttpGet">
+    <wsdl:operation name="SetFixForPlatform">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a legal list to be ‘fix for platform’.true: Only a Platform Administrator can modify the legallist,false: Tenants can modify a legallist.Currently modfications by tenants are not allowed. The method will have no effect.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetFixForPlatformHttpGetIn" />
+      <wsdl:output message="tns:SetFixForPlatformHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available information about all legal lists. (Available only for Platform Administrators)</wsdl:documentation>
+      <wsdl:input message="tns:GetAllLegalListsHttpGetIn" />
+      <wsdl:output message="tns:GetAllLegalListsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">If the user is Platform Administrator the legal list with all information for all tenants is returned.If the user is not Platform Administrator no information is returned.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListAdminHttpGetIn" />
+      <wsdl:output message="tns:GetDMLegalListAdminHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the legal list and the entry labels for a given language and the current tenant.&lt;/br&gt;Example:Return for language 'en-US':&lt;/br&gt;Fallback 1: If no label exists, the label from the default tenant is returned for language 'en-US'.&lt;br&gt;Fallback 2: If no label exists, the label from the tenant is returned for language 'en'.&lt;/br&gt;Fallback 3: If no label exists, the label from the default tenant is returned for language 'en'.&lt;br&gt;Fallback 4: If no label exists, the entry id #42# is returned.&lt;br&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListLocalizedHttpGetIn" />
+      <wsdl:output message="tns:GetDMLegalListLocalizedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The legalist with all information for the current tenant is returned.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListHttpGetIn" />
+      <wsdl:output message="tns:GetDMLegalListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets or unsets the 'use symbols' flag for the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetUseSymbolsHttpGetIn" />
+      <wsdl:output message="tns:SetUseSymbolsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the default ID for the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetDefaultIDHttpGetIn" />
+      <wsdl:output message="tns:SetDefaultIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the language specific label for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetLabelHttpGetIn" />
+      <wsdl:output message="tns:SetLabelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the access to the given entry for the given tenant (owner). This method removes all labels and other info for the entry for this tenant. Other tenants are unaffected. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:RemoveEntryForTenantHttpGetIn" />
+      <wsdl:output message="tns:RemoveEntryForTenantHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the shortcut for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetShortcutHttpGetIn" />
+      <wsdl:output message="tns:SetShortcutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the icon name for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetIconHttpGetIn" />
+      <wsdl:output message="tns:SetIconHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new entry to the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;entryID is the ID of the new entry. If entryID is -1, the DataManagerWS creates an ID. &lt;br/&gt;The method returns the entry ID used.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:AddEntryHttpGetIn" />
+      <wsdl:output message="tns:AddEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the given entry from the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:RemoveEntryHttpGetIn" />
+      <wsdl:output message="tns:RemoveEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the last modification time of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;Note that the last modification list is only stored in memory, i.e. after a restart of the DataManagerWS the modification time of all legal lists is set to the time the legal list is first read from the DB.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:LastModificationHttpGetIn" />
+      <wsdl:output message="tns:LastModificationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the custom sort indices of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;Note that the returned array is &lt;i&gt;not&lt;/i&gt; sorted. And it must &lt;i&gt;not&lt;/i&gt; contain entries for &lt;i&gt;all&lt;/i&gt; legal list entries, but only for the entries actually having a custom index.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomIndicesHttpGetIn" />
+      <wsdl:output message="tns:GetCustomIndicesHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DMLegalListEx2HttpPost">
+    <wsdl:operation name="SetFixForPlatform">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a legal list to be ‘fix for platform’.true: Only a Platform Administrator can modify the legallist,false: Tenants can modify a legallist.Currently modfications by tenants are not allowed. The method will have no effect.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetFixForPlatformHttpPostIn" />
+      <wsdl:output message="tns:SetFixForPlatformHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available information about all legal lists. (Available only for Platform Administrators)</wsdl:documentation>
+      <wsdl:input message="tns:GetAllLegalListsHttpPostIn" />
+      <wsdl:output message="tns:GetAllLegalListsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">If the user is Platform Administrator the legal list with all information for all tenants is returned.If the user is not Platform Administrator no information is returned.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListAdminHttpPostIn" />
+      <wsdl:output message="tns:GetDMLegalListAdminHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the legal list and the entry labels for a given language and the current tenant.&lt;/br&gt;Example:Return for language 'en-US':&lt;/br&gt;Fallback 1: If no label exists, the label from the default tenant is returned for language 'en-US'.&lt;br&gt;Fallback 2: If no label exists, the label from the tenant is returned for language 'en'.&lt;/br&gt;Fallback 3: If no label exists, the label from the default tenant is returned for language 'en'.&lt;br&gt;Fallback 4: If no label exists, the entry id #42# is returned.&lt;br&gt;&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListLocalizedHttpPostIn" />
+      <wsdl:output message="tns:GetDMLegalListLocalizedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The legalist with all information for the current tenant is returned.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetDMLegalListHttpPostIn" />
+      <wsdl:output message="tns:GetDMLegalListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets or unsets the 'use symbols' flag for the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetUseSymbolsHttpPostIn" />
+      <wsdl:output message="tns:SetUseSymbolsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the default ID for the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetDefaultIDHttpPostIn" />
+      <wsdl:output message="tns:SetDefaultIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the language specific label for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetLabelHttpPostIn" />
+      <wsdl:output message="tns:SetLabelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the access to the given entry for the given tenant (owner). This method removes all labels and other info for the entry for this tenant. Other tenants are unaffected. &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:RemoveEntryForTenantHttpPostIn" />
+      <wsdl:output message="tns:RemoveEntryForTenantHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the shortcut for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetShortcutHttpPostIn" />
+      <wsdl:output message="tns:SetShortcutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the icon name for the given entry of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS).&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:SetIconHttpPostIn" />
+      <wsdl:output message="tns:SetIconHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new entry to the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;entryID is the ID of the new entry. If entryID is -1, the DataManagerWS creates an ID. &lt;br/&gt;The method returns the entry ID used.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:AddEntryHttpPostIn" />
+      <wsdl:output message="tns:AddEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the given entry from the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:RemoveEntryHttpPostIn" />
+      <wsdl:output message="tns:RemoveEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the last modification time of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;Note that the last modification list is only stored in memory, i.e. after a restart of the DataManagerWS the modification time of all legal lists is set to the time the legal list is first read from the DB.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:LastModificationHttpPostIn" />
+      <wsdl:output message="tns:LastModificationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the custom sort indices of the given legal list. legalListName is the user-readable name of the legal list (e.g. VIDEO_ANALYSIS_STATUS). &lt;br/&gt;Note that the returned array is &lt;i&gt;not&lt;/i&gt; sorted. And it must &lt;i&gt;not&lt;/i&gt; contain entries for &lt;i&gt;all&lt;/i&gt; legal list entries, but only for the entries actually having a custom index.&lt;p/&gt;&lt;p/&gt;&lt;i&gt;Typical exceptions:&lt;/i&gt;&lt;br/&gt;&lt;b&gt;DataManagerWS.Client.UnknownLegalList&lt;/b&gt;: the legal list doesn't exist</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomIndicesHttpPostIn" />
+      <wsdl:output message="tns:GetCustomIndicesHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMLegalListEx2Soap" type="tns:DMLegalListEx2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetFixForPlatform">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetFixForPlatform" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetAllLegalLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetDMLegalListAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetDMLegalListLocalized" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetDMLegalList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetUseSymbols" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetDefaultID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/RemoveEntryForTenant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetShortcut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetIcon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/AddEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/RemoveEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/LastModification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetCustomIndices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomIndices">
+      <soap:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetCustomIndices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMLegalListEx2Soap12" type="tns:DMLegalListEx2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetFixForPlatform">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetFixForPlatform" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetAllLegalLists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetDMLegalListAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetDMLegalListLocalized" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetDMLegalList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetUseSymbols" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetDefaultID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/RemoveEntryForTenant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetShortcut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetIcon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/AddEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/RemoveEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/LastModification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/GetCustomIndices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomIndices">
+      <soap12:operation soapAction="http://www.blue-order.com/ma/datamanagerws/dmlegallistex2/SetCustomIndices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMLegalListEx2HttpGet" type="tns:DMLegalListEx2HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SetFixForPlatform">
+      <http:operation location="/SetFixForPlatform" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <http:operation location="/GetAllLegalLists" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <http:operation location="/GetDMLegalListAdmin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <http:operation location="/GetDMLegalListLocalized" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <http:operation location="/GetDMLegalList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <http:operation location="/SetUseSymbols" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <http:operation location="/SetDefaultID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <http:operation location="/SetLabel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <http:operation location="/RemoveEntryForTenant" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <http:operation location="/SetShortcut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <http:operation location="/SetIcon" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <http:operation location="/AddEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <http:operation location="/RemoveEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <http:operation location="/LastModification" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <http:operation location="/GetCustomIndices" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMLegalListEx2HttpPost" type="tns:DMLegalListEx2HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SetFixForPlatform">
+      <http:operation location="/SetFixForPlatform" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLegalLists">
+      <http:operation location="/GetAllLegalLists" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListAdmin">
+      <http:operation location="/GetDMLegalListAdmin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalListLocalized">
+      <http:operation location="/GetDMLegalListLocalized" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDMLegalList">
+      <http:operation location="/GetDMLegalList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUseSymbols">
+      <http:operation location="/SetUseSymbols" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultID">
+      <http:operation location="/SetDefaultID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetLabel">
+      <http:operation location="/SetLabel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntryForTenant">
+      <http:operation location="/RemoveEntryForTenant" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetShortcut">
+      <http:operation location="/SetShortcut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetIcon">
+      <http:operation location="/SetIcon" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AddEntry">
+      <http:operation location="/AddEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveEntry">
+      <http:operation location="/RemoveEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LastModification">
+      <http:operation location="/LastModification" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomIndices">
+      <http:operation location="/GetCustomIndices" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMLegalListEx2">
+    <wsdl:port name="DMLegalListEx2Soap" binding="tns:DMLegalListEx2Soap">
+      <soap:address location="http://10.100.5.20:12200/DataManagerWS/DMLegalListEx2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMLegalListEx2Soap12" binding="tns:DMLegalListEx2Soap12">
+      <soap12:address location="http://10.100.5.20:12200/DataManagerWS/DMLegalListEx2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMLegalListEx2HttpGet" binding="tns:DMLegalListEx2HttpGet">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMLegalListEx2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMLegalListEx2HttpPost" binding="tns:DMLegalListEx2HttpPost">
+      <http:address location="http://10.100.5.20:12200/DataManagerWS/DMLegalListEx2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

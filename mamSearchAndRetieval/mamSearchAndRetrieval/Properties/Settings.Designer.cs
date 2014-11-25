@@ -72,5 +72,15 @@ namespace mamSearchAndRetrieval.Properties {
                 return ((string)(this["mamSearchAndRetrieval_org_ngs_ipmam_dmObjectAccess_DMObjectAccess"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.100.5.20:12200/DataManagerWS/DMLegalListEx2.asmx")]
+        public string mamSearchAndRetrieval_org_ngs_admin_dmLegalListEx2_DMLegalListEx2 {
+            get {
+                return ((string)(this["mamSearchAndRetrieval_org_ngs_admin_dmLegalListEx2_DMLegalListEx2"]));
+            }
+        }
     }
 }

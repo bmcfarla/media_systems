@@ -1,5 +1,6 @@
 ﻿using mamSearchAndRetrieval.Models;
 using mamSearchAndRetrieval.Models.Ipmam;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace mamSearchAndRetrieval.Controllers
@@ -32,6 +33,25 @@ namespace mamSearchAndRetrieval.Controllers
         public ActionResult Advanced()
         {
             AdvancedSearchViewModel advancedSearchViewModel = new AdvancedSearchViewModel();
+
+            //@Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Number" })
+            //</div>
+            //<div class="col-lg-3">
+            //    @Html.DropDownList("KEYWORD", null, htmlAttributes: new { @class = "form-control", @placeholder = "Keyword" })
+
+            string[] legalLists = {
+                                      "KEYWORD",
+                                      "CONCEPT",
+                                      "LOCATION",
+                                      "LEVEL",
+                                      "CATEGORY"
+                                  };
+
+
+            foreach (string list in legalLists)
+            {
+                ViewData[list] = advancedSearchViewModel.getLegalListValues(list, this.CurrentUser);
+            }
 
             return View();
         }

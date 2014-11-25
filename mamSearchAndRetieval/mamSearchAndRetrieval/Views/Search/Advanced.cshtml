@@ -7,78 +7,90 @@
 
 @using (Html.BeginForm("Advanced", "Search"))
 {
-    <div class="form-horizontal">
+    <div class="form">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
             <div class="col-lg-3">
-                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Number" })
+                @Html.LabelFor(model => model.PRODUCTION_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("PRODUCTION_NUMBER", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("KEYWORD", null, htmlAttributes: new { @class = "form-control", @placeholder = "Keyword" })
+                @Html.LabelFor(model => model.KEYWORD, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("KEYWORD", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("CONCEPT", null, htmlAttributes: new { @class = "form-control", @placeholder = "Concept" })
+                @Html.LabelFor(model => model.CONCEPT, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("CONCEPT", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("LOCATION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Location" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-3">
-                @Html.TextBox("LEVEL", null, htmlAttributes: new { @class = "form-control", @placeholder = "Level" })
+                @Html.LabelFor(model => model.LOCATION, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("LOCATION", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("DESCRIPTION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Description" })
+                @Html.LabelFor(model => model.LEVEL, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("LEVEL", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("CATEGORY", null, htmlAttributes: new { @class = "form-control", @placeholder = "Category" })
+                @Html.LabelFor(model => model.CLIP_TAPE_DESCRIPTION, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("CLIP_TAPE_DESCRIPTION", null, htmlAttributes: new { @class = "form-control" })
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("ROLL_NUMBER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Roll Number" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-3">
-                @Html.TextBox("PRODUCTION_OWNER", null, htmlAttributes: new { @class = "form-control", @placeholder = "Production Owner" })
+                @Html.LabelFor(model => model.CATEGORY, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownList("CATEGORY", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("FILM_AVAILABLE", null, htmlAttributes: new { @class = "form-control", @placeholder = "Film Available" })
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("ROLL_NUMBER", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("ORIGINAL_CAMERA_ELEMENT", null, htmlAttributes: new { @class = "form-control", @placeholder = "Original Camera Element" })
+                @Html.LabelFor(model => model.PRODUCTION_OWNER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("PRODUCTION_OWNER", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("HD_AVAILABLE", null, htmlAttributes: new { @class = "form-control", @placeholder = "HD Available" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-3">
-                @Html.TextBox("ORIGINAL_CAPTURE_METHOD", null, htmlAttributes: new { @class = "form-control", @placeholder = "Original Capture Method" })
+                @Html.LabelFor(model => model.FILM_AVAILABLE, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("FILM_AVAILABLE", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("CAMERA_SHOT", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Shot" })
+                @Html.LabelFor(model => model.ORIGINAL_CAMERA_ELEMENT, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("ORIGINAL_CAMERA_ELEMENT", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("CAMERA_SPEED", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Speed" })
+                @Html.LabelFor(model => model.HD_AVAILABLE, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("HD_AVAILABLE", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("CAMERA_ACTION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Action" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-3">
-                @Html.TextBox("CAMERA_LOCATION", null, htmlAttributes: new { @class = "form-control", @placeholder = "Camera Location" })
+                @Html.LabelFor(model => model.ORIGINAL_CAPTURE_METHOD, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("ORIGINAL_CAPTURE_METHOD", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("AIR_DATE", null, htmlAttributes: new { @class = "form-control", @placeholder = "Air Date" })
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("CAMERA_SHOT", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("ASPECT_RATIO", null, htmlAttributes: new { @class = "form-control", @placeholder = "Aspect Ratio" })
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("CAMERA_SPEED", null, htmlAttributes: new { @class = "form-control"})
             </div>
             <div class="col-lg-3">
-                @Html.TextBox("IN_OUT_PROGRAM", null, htmlAttributes: new { @class = "form-control", @placeholder = "In/Out/Prog" })
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("CAMERA_ACTION", null, htmlAttributes: new { @class = "form-control"})
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("CAMERA_LOCATION", null, htmlAttributes: new { @class = "form-control"})
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("AIR_DATE", null, htmlAttributes: new { @class = "form-control"})
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("ASPECT_RATIO", null, htmlAttributes: new { @class = "form-control"})
+            </div>
+            <div class="col-lg-3">
+                @Html.LabelFor(model => model.ROLL_NUMBER, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBox("IN_OUT_PROGRAM", null, htmlAttributes: new { @class = "form-control"})
             </div>
         </div>
         <div class="form-group">

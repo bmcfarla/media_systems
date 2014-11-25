@@ -141,6 +141,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\IpmamApi\GetDMLegalListLocalizedController.cs" />
     <Compile Include="Models\AdvancedSearchViewModel.cs" />
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\IpmamApi\GetUserPropertyController.cs" />
@@ -171,6 +172,8 @@
     <Compile Include="Models\GetDMObjectExLocalizedModel.cs" />
     <Compile Include="Models\Ipmam\GetUserPropertyModel.cs" />
     <Compile Include="Models\Ipmam\Resources\GetUserPropertyIpmamModel.cs" />
+    <Compile Include="Models\Ipmam\Resources\GetDMLegalListLocalizedIpmamModel.cs" />
+    <Compile Include="Models\Ipmam\Services\dmLegalListEx2.cs" />
     <Compile Include="Models\Item.cs">
       <DependentUpon>CartsModel.tt</DependentUpon>
     </Compile>
@@ -240,6 +243,11 @@
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Web References\org.ngs.ipmam.dmLegalListEx2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\org.ngs.ipmam.dmEssencePackages\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -347,7 +355,16 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
     <Content Include="Views\Search\Advanced.cshtml" />
+    <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\CustomIndex1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\org.ngs.ipmam.dmLegalListEx2\DMLegalListEx2.wsdl" />
+    <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web References\org.ngs.ipmam.dmEssencePackages\DMEssencePackages.wsdl" />
+    <None Include="Web References\org.ngs.ipmam.dmLegalListEx2\DMLegalListEx2.disco" />
     <Content Include="Web References\org.ngs.ipmam.dmEssencePackages\EssencePackage.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -356,6 +373,15 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Web References\org.ngs.ipmam.dmObjectAccess\AttributeValues.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\LegalList1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\LegalListAdmin1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\LegalListLocalized1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web References\org.ngs.ipmam.dmObjectAccess\DMObjectAccess.wsdl" />
@@ -456,6 +482,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://ma-admin01.ngs.org:12200/DataManagerWS/DMLegalListEx2.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\org.ngs.ipmam.dmLegalListEx2\</RelPath>
+      <UpdateFromURL>http://ma-admin01.ngs.org:12200/DataManagerWS/DMLegalListEx2.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>mamSearchAndRetrieval_org_ngs_admin_dmLegalListEx2_DMLegalListEx2</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://MA-ESSMGR01.ngs.org:12300/EssenceManagerWS/EssenceManager.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\org.ngs.ipmam.essenceManager\</RelPath>
