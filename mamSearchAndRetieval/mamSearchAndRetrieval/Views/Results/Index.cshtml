@@ -335,14 +335,15 @@
         ngs.addToCart = function (dmguid, mainTitle) {
             $.get('@Url.Action("add", "ShoppingCart")?dmguid=' + dmguid + '&mainTitle=' + mainTitle + '&user=@Model.user&token=@Model.token',
                 function (data) {
-                    $("#cart-count span").html(data.count);
+                    //$("#cart-count span").html(data.count);
+                    $("#cart-count").html(data.count);
                 });
         };
 
         ngs.removeFromCart = function (dmguid) {
             $.get('@Url.Action("remove", "ShoppingCart")?dmguid=' + dmguid + '&user=@Model.user&token=@Model.token',
                 function (data) {
-                    $("#cart-count span").html(data.count);
+                    $("#cart-count").html(data.count);
                 });
         };
 
@@ -353,7 +354,7 @@
         $("#emptyCart").on("click",function () {
             $.get('@Url.Action("emptyCart", "ShoppingCart")?user=@Model.user&token=@Model.token',
                 function (data) {
-                    $("#cart-count span").html(data.count);
+                    $("#cart-count").html(data.count);
                     $(".playlistSelected").removeClass( "playlistSelected" )
                 });
         })
@@ -366,7 +367,7 @@
         ngs.updateCart = function () {
             $.get('@Url.Action("count", "ShoppingCart")?user=@Model.user&token=@Model.token',
                         function (data) {
-                            $("#cart-count span").html(data);
+                            $("#cart-count").html(data);
                         });
         };
 
