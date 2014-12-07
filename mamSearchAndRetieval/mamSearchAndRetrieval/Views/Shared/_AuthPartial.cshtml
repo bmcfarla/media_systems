@@ -1,7 +1,7 @@
 ﻿@if (Request.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">@Html.Encode("Hello " + @CurrentUser.Name + "!")</li>
+        <li class="nav navbar-text">@Html.Encode("Hello " + @CurrentUser.Name + "!")</li>
         <li>@Html.ActionLink("Sign Out", "LogOut", "Auth")</li>
     </ul>
 }
