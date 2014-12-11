@@ -132,6 +132,18 @@ namespace mamSearchAndRetrieval.Controllers
             return ResultsModel;
         }
 
+        public string browseUrlByDmguid(string dmguid, string token)
+        {
+            ResultsItemModel item = new ResultsItemModel
+            {
+                dmGuid = dmguid,
+                token = token
+            };
+            item.getEpGuid();
+
+            return browseUrl(item.epGuid, token);
+        }
+
         public string browseUrl(string epguid, string token)
         {
             BrowseUrlModel browseUrlModel = new BrowseUrlModel(epguid, token);

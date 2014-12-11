@@ -27,7 +27,7 @@ namespace mamSearchAndRetrieval.Controllers
             //playlistItems.Add(new PlaylistItems { DmGuid = "V_99N99999_I0", MainTitle = "99N99999_0000" });
             //playlistItems.Add(new PlaylistItems { DmGuid = "V_99N99990_I0", MainTitle = "99N99990_0000" });
 
-
+            ViewBag.token = CurrentUser.Token;
             return View(playlistItems);
         }
 

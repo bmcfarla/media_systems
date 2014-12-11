@@ -25,7 +25,7 @@
             <li class="list-group-item" data-color="danger">Vestibulum at eros</li>*@
         </ul>
 
-        <pre id="display-json"></pre>
+        @*<pre class="hidden" id="display-json"></pre>*@
     </div>
 
 @section scripts
@@ -137,9 +137,17 @@
                 checkedItems[counter] = $(li).data("dmguid");
                 counter++;
             });
+            var httpUrl = "";
 
-            
-            $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
+            //$('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
+
+            for (key in checkedItems) {
+                $.get('@Url.Action("BrowseUrlByDmguid", "Search")?dmguid=' + checkedItems[key] + '&token=@ViewBag.token',
+                     function (data) {
+                         SaveToDisk(data);
+                     }
+                 );
+            }
 
 
         });
@@ -147,14 +155,14 @@
 
     });
 
-    function SaveToDisk(fileURL, fileName) {
+    function SaveToDisk(fileURL) {
         var a = document.createElement('a');
         // for non-IE
         if (typeof a.download != "undefined") {
             var save = document.createElement('a');
             save.href = fileURL;
             save.target = '_blank';
-            save.download = fileName || 'unknown';
+            save.download = 'unknown';
 
             var event = document.createEvent('Event');
             event.initEvent('click', true, true);
@@ -163,21 +171,12 @@
         }
 
             // for IE
-        else if (document.execCommand) {
-            var _window = window.open(fileURL, '_blank');
-            _window.document.close();
-            _window.document.execCommand('SaveAs', true, fileName || fileURL)
-            _window.close();
-        }
+        //else if (document.execCommand) {
+        //    var _window = window.open(fileURL, '_blank');
+        //    _window.document.close();
+        //    _window.document.execCommand('SaveAs', true, fileName || fileURL)
+        //    _window.close();
+        //}
     }
-    var array = [];
-
-    array = JSON.parse('@Html.Raw(ViewBag.files)');
-
-    //$("#button").on("click", function () {
-    //    array.forEach(function (file) {
-    //        SaveToDisk(file);
-    //    });
-    //});
     </script>
 }
