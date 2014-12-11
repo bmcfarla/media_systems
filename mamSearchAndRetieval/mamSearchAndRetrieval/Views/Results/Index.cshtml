@@ -364,6 +364,10 @@
             window.location.href = "@Url.Action("getItems", "ShoppingCart")?user=@Model.user&token=@Model.token";
         })
 
+        $("#download").on("click",function () {
+            window.location.href = "@Url.Action("downloadSelect", "Retrieval")?user=@Model.user&token=@Model.token";
+        })
+
         ngs.updateCart = function () {
             $.get('@Url.Action("count", "ShoppingCart")?user=@Model.user&token=@Model.token',
                         function (data) {

@@ -1,0 +1,183 @@
+﻿@model IEnumerable<mamSearchAndRetrieval.Models.PlaylistItems>
+
+@{
+    ViewBag.Title = "DownloadSelect";
+}
+
+<h2>DownloadSelect</h2>
+
+<div class="col-md-6">
+    <div class="row">
+        <button class="btn btn-primary col-md-offset-1 col-md-2" id="all-none"><span class="glyphicon glyphicon-unchecked"></span> All / None</button>
+        <button class="btn btn-primary col-md-offset-5 col-md-3" id="get-checked-data">Get Checked Data</button>
+    </div>
+    <br />
+    <div class="well" style="max-height: 500px;overflow: auto;">
+        <ul id="check-list-box" class="list-group checked-list-box">
+            @foreach(var item in Model)
+            {
+                <li class="list-group-item" data-color="success" data-dmguid="@item.DmGuid">@item.MainTitle</li>
+            }
+            @*<li id="test" class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item" data-color="success">Dapibus ac facilisis in</li>
+            <li class="list-group-item" data-color="info">Morbi leo risus</li>
+            <li class="list-group-item" data-color="warning">Porta ac consectetur ac</li>
+            <li class="list-group-item" data-color="danger">Vestibulum at eros</li>*@
+        </ul>
+
+        <pre id="display-json"></pre>
+    </div>
+
+@section scripts
+{
+    <script>
+    $(function () {
+        $('.list-group.checked-list-box .list-group-item').each(function () {
+
+            // Settings
+            var $widget = $(this),
+                $checkbox = $('<input type="checkbox" class="hidden" />'),
+                color = ($widget.data('color') ? $widget.data('color') : "primary"),
+                style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+                settings = {
+                    on: {
+                        icon: 'glyphicon glyphicon-check'
+                    },
+                    off: {
+                        icon: 'glyphicon glyphicon-unchecked'
+                    }
+                };
+
+            $widget.css('cursor', 'pointer')
+            $widget.append($checkbox);
+
+            // Event Handlers
+            $widget.on('click', function () {
+                $checkbox.prop('checked', !$checkbox.is(':checked'));
+                $checkbox.triggerHandler('change');
+                updateDisplay();
+            });
+            $checkbox.on('change', function () {
+                updateDisplay();
+            });
+
+            // Actions
+            function updateDisplay() {
+                var isChecked = $checkbox.is(':checked');
+
+                // Set the button's state
+                $widget.data('state', (isChecked) ? "on" : "off");
+
+                // Set the button's icon
+                $widget.find('.state-icon')
+                    .removeClass()
+                    .addClass('state-icon ' + settings[$widget.data('state')].icon);
+
+                // Update the button's color
+                if (isChecked) {
+                    $widget.addClass(style + color + ' active');
+                } else {
+                    $widget.removeClass(style + color + ' active');
+                }
+            }
+
+            // Initialization
+            function init() {
+
+                if ($widget.data('checked') == true) {
+                    $checkbox.prop('checked', !$checkbox.is(':checked'));
+                }
+
+                updateDisplay();
+
+                // Inject the icon if applicable
+                if ($widget.find('.state-icon').length == 0) {
+                    $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span>');
+                }
+            }
+            init();
+
+            $('#all-none').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    $('span', this).removeClass('glyphicon-check');
+                    $('span', this).addClass('glyphicon-unchecked');
+                    $(this).removeClass("active");
+                    selectNone();
+                } else {
+                    $('span', this).removeClass('glyphicon-unchecked');
+                    $('span', this).addClass("glyphicon-check");
+                    $(this).addClass("active");
+                    selectAll();
+                }
+
+            })
+
+            function selectAll() {
+                $("input").each(function () {
+                    $(this).prop('checked', true);
+                    $(this).triggerHandler('change');
+                    updateDisplay();
+                });
+            }
+
+            function selectNone() {
+                $("input").each(function () {
+                    $(this).prop('checked', false);
+                    $(this).triggerHandler('change');
+                    updateDisplay();
+                });
+            }
+
+        });
+
+        $('#get-checked-data').on('click', function (event) {
+            event.preventDefault();
+            var checkedItems = {}, counter = 0;
+            $("#check-list-box li.active").each(function (idx, li) {
+                checkedItems[counter] = $(li).data("dmguid");
+                counter++;
+            });
+
+            
+            $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
+
+
+        });
+
+
+    });
+
+    function SaveToDisk(fileURL, fileName) {
+        var a = document.createElement('a');
+        // for non-IE
+        if (typeof a.download != "undefined") {
+            var save = document.createElement('a');
+            save.href = fileURL;
+            save.target = '_blank';
+            save.download = fileName || 'unknown';
+
+            var event = document.createEvent('Event');
+            event.initEvent('click', true, true);
+            save.dispatchEvent(event);
+            (window.URL || window.webkitURL).revokeObjectURL(save.href);
+        }
+
+            // for IE
+        else if (document.execCommand) {
+            var _window = window.open(fileURL, '_blank');
+            _window.document.close();
+            _window.document.execCommand('SaveAs', true, fileName || fileURL)
+            _window.close();
+        }
+    }
+    var array = [];
+
+    array = JSON.parse('@Html.Raw(ViewBag.files)');
+
+    //$("#button").on("click", function () {
+    //    array.forEach(function (file) {
+    //        SaveToDisk(file);
+    //    });
+    //});
+    </script>
+}

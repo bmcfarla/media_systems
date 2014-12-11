@@ -17,10 +17,10 @@ namespace ShoppingCart.Models
 
         internal static ShoppingCartModel getCart(CartIdModel cartId)
         {
-            
+
             ShoppingCartModel cart = new ShoppingCartModel();
             cart.shoppingCartId = cart.GetCartId(cartId);
-            
+
             return cart;
         }
 
@@ -41,7 +41,7 @@ namespace ShoppingCart.Models
                 // Save it
                 db.SaveChanges();
             }
-            
+
             var cart = db.Carts.SingleOrDefault(c => c.UsersId == user.Id && c.Guid == CartId.token);
 
             if (cart == null)
@@ -91,7 +91,29 @@ namespace ShoppingCart.Models
             count = db.Items.Count(c => c.CartId == shoppingCartId);
         }
 
-        internal List<string> GetCartItems()
+        internal List<DownloadPlaylistItems> GetCartItemsForDownload()
+        {
+            List<DownloadPlaylistItems> cartItems = new List<DownloadPlaylistItems>();
+
+            var returnItems = (from items in db.Items
+                               where items.CartId == shoppingCartId
+                               select new { items.DmGuid, items.MainTitle }).ToList();
+
+            foreach (var item in returnItems)
+            {
+                cartItems.Add(
+                    new DownloadPlaylistItems
+                    {
+                        DmGuid = item.DmGuid,
+                        MainTitle = item.MainTitle
+                    }
+                );
+            }
+            return cartItems;
+
+        }
+
+        internal List<string> GetCartItemsMainTitle()
         {
             var cartItems = (from items in db.Items
                              where items.CartId == shoppingCartId

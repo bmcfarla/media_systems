@@ -141,7 +141,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DownloadPlaylistItems.cs" />
     <Compile Include="Controllers\IpmamApi\GetDMLegalListLocalizedController.cs" />
+    <Compile Include="Models\PlaylistItems.cs" />
     <Compile Include="Models\AdvancedSearchViewModel.cs" />
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\IpmamApi\GetUserPropertyController.cs" />
@@ -358,6 +360,8 @@
     <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\CustomIndex1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Views\Retrieval\DownloadSelect.cshtml" />
+    <Content Include="Views\Retrieval\Download.cshtml" />
     <None Include="Web References\org.ngs.ipmam.dmLegalListEx2\DMLegalListEx2.wsdl" />
     <Content Include="Web References\org.ngs.ipmam.dmLegalListEx2\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

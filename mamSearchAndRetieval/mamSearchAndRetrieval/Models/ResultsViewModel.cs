@@ -115,7 +115,7 @@ namespace mamSearchAndRetrieval.Models
             //ResultsItemsModel gridItems = new ResultsItemsModel();
             List<ResultsItemModel> resultsItems = new List<ResultsItemModel>();
             
-            List<string> cartItems = cart.GetCartItems();
+            List<string> cartItems = cart.GetCartItemsMainTitle();
             
             playlistItemCount = cartItems.Count;
 

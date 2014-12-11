@@ -26,7 +26,7 @@ namespace ShoppingCart.Controllers
             // Set up our ViewModel
             var viewModel = new ShoppingCartViewModel
             {
-                CartItems = myCart.GetCartItems()
+                CartItems = myCart.GetCartItemsMainTitle()
                 //CartTotal = cart.GetTotal()
             };
 
@@ -115,7 +115,7 @@ namespace ShoppingCart.Controllers
             // Add it to the shopping cart
             ShoppingCartModel cart = ShoppingCartModel.getCart(cartId);
 
-            List<string> items = cart.GetCartItems();
+            List<string> items = cart.GetCartItemsMainTitle();
 
             SimpleSearchModel search = new SimpleSearchModel
             {
